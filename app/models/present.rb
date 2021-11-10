@@ -51,4 +51,9 @@ class Present < ApplicationRecord
     end
   end
 
+  # お気に入りされているか確認
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
+
 end
