@@ -10,6 +10,11 @@ class UsersController < ApplicationController
   end
 
   def update
+    if @user.update(user_params)
+      redirect_to user_path, notice: "プロフィールを更新しました。"
+    else
+      render :edit
+    end
   end
 
   def favorites
@@ -21,6 +26,10 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :introduce, :image_id)
   end
 
 end
