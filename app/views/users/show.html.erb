@@ -6,11 +6,11 @@
       <p><%= attachment_image_tag @user, :image, :fill, 50, 50, format:'jpeg', fallback:'noimage-user.jpeg', size:'100x100' %></p>
       <div class="user-info__item">
         <h4>Follower</h4>
-        <p>3</p>
+        <p><%= link_to @user.followers.count, followers_user_path(@user) %></p>
       </div>
       <div class="user-info__item">
         <h4>Follow</h4>
-        <p>3</p>
+        <p><%= link_to @user.followings.count, followings_user_path(@user) %></p>
       </div>
       <div class="user-info__item">
         <h4>お気に入り</h4>
@@ -25,6 +25,8 @@
       <p><%= @user.introduce %></p>
       <% if @user.id == current_user.id %>
         <%= link_to "編集", edit_user_path(current_user) %>
+      <% else %>
+        <%= render 'relationships/follow_btn', user: @user %>
       <% end %>
     </div>
   </div>
