@@ -1,0 +1,51 @@
+<div class="back-image">
+  <div class="top-wrapper">
+    <!--<a href="/">-->
+    <!--  <img src="/assets/presentist-logo.png" alt="PRESENTIST" class="top-logo">-->
+    <!--</a>-->
+    <h2>Sign up</h2>
+
+    <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+
+      <div class="top-wrapper__field">
+        <%= f.label :name, "ニックネーム" %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "トム" %>
+      </div>
+
+      <div class="top-wrapper__field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autocomplete: "email" %>
+      </div>
+
+      <div class="top-wrapper__field">
+        <%= f.label :birthday, "生年月日" %><br />
+        <%= f.date_field :birthday %>
+      </div>
+
+      <div class="top-wrapper__field">
+        <%= f.label :sex, "性別" %><br />
+        <%= f.radio_button :sex, :male %>
+        <%= f.label :sex, "男性" %>
+        <%= f.radio_button :sex, :female %>
+        <%= f.label :sex, "女性" %>
+      </div>
+
+      <div class="top-wrapper__field">
+        <%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="top-wrapper__field">
+        <%= f.label :password_confirmation, "パスワード(確認用)" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="top-wrapper__actions">
+        <%= f.submit "新規登録" %>
+      </div>
+    <% end %>
+
+    <p class="top-wrapper__caution">すでに会員登録がお済みの方は<%= render "users/shared/links" %>へ</p>
+  </div>
+</div>
