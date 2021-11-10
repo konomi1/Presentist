@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+@mixin header-bace{
+  width: 100%;
+  height: 130px;
+  background-color: #00b39a;
+}
+
+.header{
+  @include header-bace;
+  &__ul{
+    display: flex;
+    justify-content: center
+  }
+  &__item{
+    width: 10%;
+    margin: 10px 5px;
+  }
+}
+
+.footer{
+  @include header-bace;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
