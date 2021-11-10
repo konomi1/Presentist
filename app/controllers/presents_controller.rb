@@ -38,6 +38,7 @@ class PresentsController < ApplicationController
   end
 
   def ranking
+    @rankings = Present.find(Favorite.group(:present_id).order('count(present_id) desc').limit(3).pluck(:present_id))
   end
 
   def switch_return_status
