@@ -1,0 +1,4 @@
+<%= form_with model:[present, comment] do |f| %>
+    <%= f.text_area :comment, autofocus: true, rows: "2", cols: "60", placeholder: "贈り物ログへのコメント" %><br />
+    <%= f.submit "コメントする" %>
+<% end %>

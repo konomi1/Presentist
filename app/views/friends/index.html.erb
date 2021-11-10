@@ -1,2 +1,43 @@
-<h1>Friends#index</h1>
-<p>Find me in app/views/friends/index.html.erb</p>
+<div class="inner">
+  <div class="friends-box">
+    <div class="friend-new">
+      <%= notice %>
+      <h1 class="title">フレンド新規登録</h1>
+      <%= render "layouts/errors", obj: @friend %>
+      <%= render "form", friend: @friend %>
+    </div>
+    <div class="friend-index">
+      <h1 class="title">フレンド一覧</h1>
+      <table class="table">
+        <thead class="table__thead">
+          <tr>
+            <th class="table__th">名前</th>
+            <th class="table__th">性別</th>
+            <th class="table__th">関係性</th>
+            <th class="table__th">メモ</th>
+            <th class="table__th">編集</th>
+            <th class="table__th">削除</th>
+          </tr>
+        </thead>
+        <% @friends.each do |friend| %>
+          <tbody>
+            <td class="table__td--name"><%= friend.name %></td>
+            <td class="table__td--center"><%= friend.gender_i18n %></td>
+            <td class="table__td--center"><%= friend.relation_i18n %></td>
+            <td class="table__td"><%= friend.memo %></td>
+            <td class="table__td--btn">
+              <%= link_to edit_friend_path(friend), class: "table__edit" do %>
+                <p class="fas fa-edit"></p>
+              <% end %>
+            </td>
+            <td class="table__td--btn">
+              <%= link_to friend_path(friend), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "table__delete" do %>
+                <p class="far fa-trash-alt"></p>
+              <% end %>
+            </td>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

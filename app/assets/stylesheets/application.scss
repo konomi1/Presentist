@@ -17,6 +17,12 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+@font-face{
+  font-family: "851MkPOP_100";
+  src: font-url('/assets/851MkPOP_100.ttf');
+}
+
+// 共通部分のCSS
 @mixin header-bace{
   width: 100%;
   height: 130px;
@@ -26,6 +32,7 @@
 .header{
   @include header-bace;
   &__ul{
+    list-style: none;
     display: flex;
     justify-content: center
   }
@@ -40,4 +47,18 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
+}
+
+// 背景あとで変更
+.inner {
+  background-color: #80808066;
+}
+
+// タイトル
+.title{
+  text-align: center;
+}
+// リセット
+p{
+  margin: 0;
 }

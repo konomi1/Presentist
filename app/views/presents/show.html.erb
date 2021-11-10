@@ -1,2 +1,47 @@
-<h1>Presents#show</h1>
-<p>Find me in app/views/presents/show.html.erb</p>
+<div class="inner">
+  <div class="gift-wrap">
+    <h1 class="title"><%= link_to @present.user.name, user_path(@present.user) %>さんの贈り物</h1>
+    <div class="gift">
+      <div class="gift__left">
+        <p><%= attachment_image_tag @present.user, :image, format:'jpeg', fallback:'top-back.jpeg', class: "gift__image" %></p>
+        <p><%= @present.created_at.strftime('%Y/%m/%d') %></p>
+      </div>
+
+      <div class="gift__right">
+        <h2 class="gift__title"># <%= @present.item %></h2>
+        <% if @present.gift_status == "give" %>
+          <p class="fas fa-gift"> to: <%= @present.friend.relation_i18n %></p>
+        <% else %>
+          <p class="fas fa-gift"> from: <%= @present.friend.relation_i18n %></p>
+        <% end %>
+        <p><i class="far fa-calendar-alt"></i>  <%= @present.scene_status_i18n %></p>
+        <p class="far fa-money-bill-alt"> <%= @present.price %>円</p>
+        <p><i class="fas fa-file-signature"></i> 一言コメント：<br /><%= @present.memo %></p>
+        <div class="gift__button">
+          <% if @present.user == current_user %>
+            <%= button_to edit_present_path(@present), method: :get, class: "edit-btn" do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
+          <% else %>
+            <div id="favorite_<%= @present.id %>">
+              <%= render "favorites/favorite", present: @present %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="title">みんなのコメント</h1>
+    <div class="comments-group">
+      <div id="comments-area">
+        <% unless @present.comments.exists? %>
+          <p>コメントはありません。</p>
+        <% end %>
+        <%= render 'comments/comment', present: @present %>
+      </div>
+      <div class="comment-form">
+        <%= render 'comments/form', present: @present, comment: Comment.new %>
+      </div>
+    </div>
+  </div>
+</div>

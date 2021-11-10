@@ -2,7 +2,7 @@ class Present < ApplicationRecord
   belongs_to :user
   belongs_to :friend
   has_many :favorites, dependent: :destroy
-  has_many :comments, dependet: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :age, presence: true
   validates :item, presence: true
@@ -49,6 +49,11 @@ class Present < ApplicationRecord
     else
       preparation!
     end
+  end
+
+  # お気に入りされているか確認
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
   end
 
 end
