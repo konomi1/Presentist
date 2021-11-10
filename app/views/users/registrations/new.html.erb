@@ -1,8 +1,8 @@
 <div class="back-image">
   <div class="top-wrapper">
-    <!--<a href="/">-->
-    <!--  <img src="/assets/presentist-logo.png" alt="PRESENTIST" class="top-logo">-->
-    <!--</a>-->
+    <a href="/">
+      <img src="/assets/presentist-logo.png" alt="PRESENTIST" class="top-logo">
+    </a>
     <h2>Sign up</h2>
 
     <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
@@ -24,11 +24,11 @@
       </div>
 
       <div class="top-wrapper__field">
-        <%= f.label :sex, "性別" %><br />
-        <%= f.radio_button :sex, :male %>
-        <%= f.label :sex, "男性" %>
-        <%= f.radio_button :sex, :female %>
-        <%= f.label :sex, "女性" %>
+        <%= f.label :gender, "性別" %><br />
+        <%= f.radio_button :gender, :male %>
+        <%= f.label :gender, "男性" %>
+        <%= f.radio_button :gender, :female %>
+        <%= f.label :gender, "女性" %>
       </div>
 
       <div class="top-wrapper__field">
