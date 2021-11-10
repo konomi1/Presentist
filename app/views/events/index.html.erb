@@ -2,10 +2,9 @@
   <div class="event-box">
     <div class="events-wrap">
       <h1 class="title">記念日一覧</h1>
-      <%= notice %>
+      <p><%= notice %></p>
       <%= link_to "新規イベント作成", new_event_path %>
       <table class="event-table">
-        <% @feature_events.each do |event| %>
           <thead>
             <tr>
               <td>準備状況</td>
@@ -18,16 +17,21 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><%= link_to event.ready_status_i18n, switch_ready_status_event_path(event), method: :patch %></td>
-              <td><%= link_to event.date, event_path(event) %></td>
-              <td><%= event.friend.name %></td>
-              <td><%= event.friend.relation_i18n %></td>
-              <td><%= event.friend.gender_i18n %></td>
-              <td><%= event.memo %></td>
-              <td><%= link_to "削除", event_path(event), method: :delete %></td>
-            </tr>
-          <% end %>
+            <% @feature_events.each do |event| %>
+              <tr>
+                <td><%= link_to event.ready_status_i18n, switch_ready_status_event_path(event), method: :patch %></td>
+                <td><%= link_to event.date, event_path(event) %></td>
+                <td><%= event.friend.name %></td>
+                <td><%= event.friend.relation_i18n %></td>
+                <td><%= event.friend.gender_i18n %></td>
+                <td><%= event.memo %></td>
+                <td>
+                  <%= link_to event_path(event), method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+                    <p class="far fa-trash-alt"></p>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
         </tbody>
       </table>
     </div>
