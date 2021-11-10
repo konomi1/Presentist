@@ -2,6 +2,7 @@ class Friend < ApplicationRecord
 
   belongs_to :user
   has_many :presents, dependent: :destroy
+  has_many :events, dependent: :destroy
 
   validates :name, presence: true
   validates :kana_name, format: {with: /\A[ァ-ヶー－]+\z/ }

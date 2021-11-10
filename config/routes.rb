@@ -16,4 +16,7 @@ Rails.application.routes.draw do
     end
   end
   resources :friends, except: [:new, :show]
+  resources :events do
+    patch :switch_ready_status, on: :member
+  end
 end

@@ -8,7 +8,7 @@
       <% if user_signed_in? %>
         <li class="header__item"><%= link_to "マイページ", user_path(current_user.id) %></li>
         <li class="header__item"><%= link_to "贈り物ログ", presents_path %></li>
-        <li class="header__item">記念日</li>
+        <li class="header__item"><%= link_to "記念日", events_path %></li>
         <li class="header__item"><%= link_to "フレンド", friends_path %></li>
         <li class="header__item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
       <% else %>

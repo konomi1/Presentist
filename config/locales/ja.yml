@@ -53,6 +53,22 @@ ja:
         customer: "取引先"
         coworker: "その他会社関係者"
         others: "その他"
+    event:
+      ready_status:
+        preparation: "贈り物準備中"
+        ready: "準備完了"
+      scene_status:
+        birthday: "誕生日"
+        anniversary: "記念日"
+        summer_gift: "お中元"
+        year_end_giht: "お歳暮"
+        otosidama: "お年玉"
+        wedding: "結婚祝い"
+        newborn: "出産祝い"
+        admission: "入学祝い"
+        graduation: "卒業祝い"
+        incense: "香典等"
+        others: "その他"
   activerecord:
     errors:
       messages:
