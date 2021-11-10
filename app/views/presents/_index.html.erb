@@ -1,0 +1,23 @@
+<% presents.each do |gift| %>
+    <div class="post">
+      <div class="post__head">
+        <p><%= gift.created_at.strftime('%Y/%m/%d') %></p>
+      </div>
+      <%= link_to present_path(gift) do %>
+        <%= attachment_image_tag gift, :item_image, format:'jpeg', fallback:'top-back.jpeg', class:"post__image"%><br>
+      <% end %>
+      <h2 class="post__title">#<%= gift.item %></h2>
+      <p class="post__text"><%= gift.memo.truncate(50, separator: /\s/) %></p>
+      <div class="post__user">
+        <p class="post__cat">贈り物シーン：<%= gift.scene_status_i18n %><p>
+        <%= link_to user_path(gift.user) do%>
+          <%= attachment_image_tag gift.user, :image, format:'jpeg', fallback:'noimage-user.jpeg', class:"post__user-image"%>
+        <% end %>
+        <% if gift.gift_status == "give" %>
+          <span> from: <%= link_to gift.user.name, user_path(gift.user) %></span>
+        <% else %>
+          <span> to: <%= link_to gift.user.name, user_path(gift.user) %></span>
+        <% end %>
+      </div>
+    </div>
+<% end %>

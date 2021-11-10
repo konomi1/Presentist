@@ -1,2 +1,7 @@
-<h1>Presents#edit</h1>
-<p>Find me in app/views/presents/edit.html.erb</p>
+<div class="inner">
+  <div class="present-form">
+    <h1 class="title">贈り物ログの修正</h1>
+    <%= render "layouts/errors", obj: @present %>
+    <%= render "form", present: @present %>
+  </div>
+</div>

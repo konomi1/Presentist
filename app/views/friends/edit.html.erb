@@ -1,2 +1,9 @@
-<h1>Friends#edit</h1>
-<p>Find me in app/views/friends/edit.html.erb</p>
+<div class="inner">
+  <div class="friends-box">
+    <div class="edit">
+      <h1 class="title">フレンド情報編集</h1>
+      <%= render "layouts/errors", obj: @friend %>
+      <%= render "form", friend: @friend %>
+    </div>
+  </div>
+</div>

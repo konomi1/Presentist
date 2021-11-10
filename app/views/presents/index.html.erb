@@ -1,2 +1,9 @@
-<h1>Presents#index</h1>
-<p>Find me in app/views/presents/index.html.erb</p>
+<div class="inner">
+  <div class="presents-wrap">
+    <h1 class="title">贈り物ログ一覧</h1>
+    <p><%= link_to "ログ作成", new_present_path, class:"fas fa-gifts" %></p>
+    <div class="post-wrap">
+      <%= render "index", presents: @presents %>
+    </div>
+  </div>
+</div>
