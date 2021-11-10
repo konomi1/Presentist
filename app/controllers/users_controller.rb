@@ -13,6 +13,8 @@ class UsersController < ApplicationController
   end
 
   def favorites
+    favorites = @user.favorites.order(created_at: 'desc').pluck(:present_id)
+    @presents = Present.find(favorites)
   end
 
   private
