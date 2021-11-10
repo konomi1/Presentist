@@ -1,0 +1,12 @@
+<% users.each do |user|%>
+  <div class="follow-card">
+    <%= attachment_image_tag user, :image, :fill, 50, 50, format:'jpeg', fallback:'noimage-user.jpeg', size:'100x100' %>
+    <p>ニックネーム</p>
+    <%= user.name %>
+    <p>自己紹介</p>
+    <%= user.introduce %>
+    <div id="follow_btn_<%= user.id %>">
+      <%= render 'relationships/follow_btn', user: user %>
+    </div>
+  </div>
+<% end %>
