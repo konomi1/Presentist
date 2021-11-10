@@ -39,6 +39,10 @@ class PresentsController < ApplicationController
 
   def ranking
     @rankings = Present.find(Favorite.group(:present_id).order('count(present_id) desc').limit(3).pluck(:present_id))
+    if user_signed_in?
+      start_date = params.fetch(:date, Date.today).to_date
+      @events = current_user.events.where(date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+    end
   end
 
   def switch_return_status

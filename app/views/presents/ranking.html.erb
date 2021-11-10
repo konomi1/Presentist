@@ -3,14 +3,28 @@
       <!--<img src="/assets/--.jpeg" alt="プレゼントの画像" class="heading-image__item">-->
   </div>
   <div class="ranking-wrap">
+    <p><%= notice %></p>
     <h1 class="title">贈り物ログランキング</h1>
     <% unless user_signed_in? %>
       <p>贈り物の記録をみるには会員登録が必要です。会員登録は<%= link_to "こちら", new_user_registration_path %></p>
     <% end %>
     <%= render "presents/index", presents: @rankings %>
   </div>
-  <div class="calender-wrap">
-    <h1 class="title">贈り物を準備しよう！</h1>
-    <p>あとでカレンダー追加</p>
-  </div>
+  <% if user_signed_in? %>
+    <div class="calender-wrap">
+      <h1 class="title">贈り物を準備しよう！</h1>
+        <div class="schedule">
+          <%= month_calendar events: @events do |date,events| %>
+            <%= date.day %>
+            <% events.each do |event| %>
+              <div class="schedule__event">
+                <%= link_to event_path(event) do %>
+                  <%= event.friend.name %>(<%= event.scene_status_i18n %>)
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+    </div>
+  <% end %>
 </div>

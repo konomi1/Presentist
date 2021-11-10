@@ -33,4 +33,10 @@ class Event < ApplicationRecord
       preparation!
     end
   end
+
+  # simple_calendar用メソッド
+  def start_time
+    self.date
+  end
+
 end
