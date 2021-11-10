@@ -27,6 +27,11 @@ class PresentsController < ApplicationController
   end
 
   def update
+    if @present.update(present_params)
+      redirect_to present_path, notice: "贈り物ログを編集しました"
+    else
+      render :edit
+    end
   end
 
   def destroy
