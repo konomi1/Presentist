@@ -42,6 +42,8 @@ class PresentsController < ApplicationController
   end
 
   def switch_return_status
+    @present.switch_return_status!
+    redirect_to request.referer
   end
 
   private
