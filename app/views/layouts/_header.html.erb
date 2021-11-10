@@ -1,0 +1,16 @@
+<header class="header">
+  <div class="header__logo">
+    <h2>PRESENTIST</h2>
+  </div>
+
+  <nav class="header__nav">
+    <ul class="header__ul">
+      <li class="header__item">マイページ</li>
+      <li class="header__item">贈り物ログ</li>
+      <li class="header__item">記念日</li>
+      <li class="header__item">フレンド</li>
+      <li class="header__item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+    </ul>
+  </nav>
+
+</header>

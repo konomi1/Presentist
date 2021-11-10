@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <% unless controller.controller_name.in?(['registrations','sessions','homes']) %>
+      <%= render 'layouts/header'%>
+    <% end %>
+    <main>
     <%= yield %>
+    </main>
+    <% unless controller.controller_name.in?(['registrations','sessions','homes']) %>
+      <%= render 'layouts/footer'%>
+    <% end %>
   </body>
 </html>
