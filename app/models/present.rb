@@ -1,6 +1,8 @@
 class Present < ApplicationRecord
   belongs_to :user
   belongs_to :friend
+  has_many :favorites, dependent: :destroy
+  has_many :comments, dependet: :destroy
 
   validates :age, presence: true
   validates :item, presence: true

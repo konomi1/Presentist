@@ -9,10 +9,16 @@ Rails.application.routes.draw do
   get '/about' => 'homes#about'
   get '/ranking' => 'presents#ranking'
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    member do
+      get 'favorites'
+    end
+  end
   resources :presents do
+    resources :comments, only: [:create, :destroy]
     member do
       patch :switch_return_status
+      resource :favorites, only: [:create, :destroy]
     end
   end
   resources :friends, except: [:new, :show]
