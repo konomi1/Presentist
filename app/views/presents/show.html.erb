@@ -28,5 +28,16 @@
     </div>
 
     <h1 class="title">みんなのコメント</h1>
+    <div class="comments-group">
+      <div id="comments-area">
+        <% unless @present.comments.exists? %>
+          <p>コメントはありません。</p>
+        <% end %>
+        <%= render 'comments/comment', present: @present %>
+      </div>
+      <div class="comment-form">
+        <%= render 'comments/form', present: @present, comment: Comment.new %>
+      </div>
+    </div>
   </div>
 </div>
