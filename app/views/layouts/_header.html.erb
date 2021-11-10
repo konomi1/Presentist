@@ -9,7 +9,7 @@
         <li class="header__item"><%= link_to "マイページ", user_path(current_user.id) %></li>
         <li class="header__item"><%= link_to "贈り物ログ", presents_path %></li>
         <li class="header__item">記念日</li>
-        <li class="header__item">フレンド</li>
+        <li class="header__item"><%= link_to "フレンド", friends_path %></li>
         <li class="header__item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
       <% else %>
         <li class="header__item"><%= link_to "Top", root_path %></li>

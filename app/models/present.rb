@@ -1,5 +1,6 @@
 class Present < ApplicationRecord
   belongs_to :user
+  belongs_to :friend
 
   validates :age, presence: true
   validates :item, presence: true

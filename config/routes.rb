@@ -15,4 +15,5 @@ Rails.application.routes.draw do
       patch :switch_return_status
     end
   end
+  resources :friends, except: [:new, :show]
 end

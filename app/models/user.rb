@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :presents, dependent: :destroy
+  has_many :friends, dependent: :destroy
 
   validates :name, presence: true
   validates :email, presence: true

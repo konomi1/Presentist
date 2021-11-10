@@ -34,6 +34,25 @@ ja:
         preparation: "お返し準備中"
         done: "お返し済"
         unnecessary: "お返し不要"
+    friend:
+      gender:
+        male: "男性"
+        female: "女性"
+      relation:
+        friends: "友達"
+        steady: "恋人"
+        spouse: "配偶者"
+        dad_and_mom: "両親"
+        children: "子ども"
+        siblings: "兄弟姉妹"
+        grandparents: "祖父母"
+        rekative: "親戚"
+        superior: "上司（目上の方）"
+        colleague: "同僚"
+        junior: "後輩、部下"
+        customer: "取引先"
+        coworker: "その他会社関係者"
+        others: "その他"
   activerecord:
     errors:
       messages:
