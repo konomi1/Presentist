@@ -22,6 +22,10 @@
             <%= button_to edit_present_path(@present), method: :get, class: "edit-btn" do %>
               <i class="fas fa-edit"></i>
             <% end %>
+          <% else %>
+            <div id="favorite_<%= @present.id %>">
+              <%= render "favorites/favorite", present: @present %>
+            </div>
           <% end %>
         </div>
       </div>

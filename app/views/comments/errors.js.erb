@@ -1,1 +1,1 @@
-$(".comment-form").prepend("<%= j(render "users/shared/error_messages", resource: @comment) %>");
+$(".comment-form").prepend("<%= j(render "layouts/errors", obj: @comment) %>");

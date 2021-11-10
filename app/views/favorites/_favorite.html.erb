@@ -1,5 +1,5 @@
 <% if present.favorited_by?(current_user) %>
-  <p><%= link_to present.favorites.count, favorites_path(present), method: :delete, class: "fas fa-grin-squint" %></p>
+  <p><%= link_to present.favorites.count, favorites_path(present), method: :delete, remote: true, class: "fas fa-grin-squint" %></p>
 <% else %>
-  <p><%= link_to present.favorites.count, favorites_path(present), method: :post, class: "far fa-laugh" %></p>
+  <p><%= link_to present.favorites.count, favorites_path(present), method: :post, remote: true, class: "far fa-laugh" %></p>
 <% end %>

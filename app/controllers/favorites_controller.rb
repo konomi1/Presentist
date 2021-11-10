@@ -3,12 +3,10 @@ class FavoritesController < ApplicationController
 
   def create
     current_user.favorites.create(present_id: @present.id)
-    redirect_to request.referer
   end
 
   def destroy
     current_user.favorites.find_by(present_id: @present.id).destroy
-    redirect_to request.referer
   end
 
   private
