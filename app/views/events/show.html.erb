@@ -1,2 +1,17 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div class="inner">
+  <div class="event-box">
+    <div class="event-show">
+      <h1 class="title">ギフトイベント詳細</h1>
+      <p>日付</p>
+      <%= @event.date %>
+      <p>イベント</p>
+      <%= @event.scene_status_i18n %>
+      <p>対象フレンド</p>
+      <%= @event.friend.name %>
+      <p>備考</p>
+      <%= @event.memo %>
+      <%= link_to "編集", edit_event_path(@event) %>
+      <%= link_to "削除", event_path(@event), method: :delete %>
+    </div>
+  </div>
+</div>

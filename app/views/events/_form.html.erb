@@ -1,0 +1,33 @@
+<%= form_with model: event, local: true do |f| %>
+  <div class="event__field">
+    <%= f.label :friend_id, "贈り物をする相手" %><br />
+    <%= f.collection_select :friend_id, current_user.friends.all, :id, :name, {prompt: "選択してください"} %>
+  </div>
+
+  <div class="event__field">
+    <%= f.label :date, "記念日" %><br />
+    <%= f. date_field :date %>
+  </div>
+
+  <div class="event__field">
+    <%= f.label :scene_status, "贈り物のシーン" %><br />
+    <%= f.select :scene_status, Event.scene_statuses_i18n.keys.map {|k| [I18n.t("enums.event.scene_status.#{k}"), k]}, { prompt: "選択してください" } %>
+  </div>
+
+  <div class="event__field">
+    <%= f.label :ready_status, "贈り物準備状況" %><br />
+    <%= f.radio_button :ready_status, :preparation %>
+    <%= f.label :ready_status, "準備中" %>
+    <%= f.radio_button :ready_status, :ready %>
+    <%= f.label :ready_status, "準備完了" %>
+  </div>
+
+  <div class="event__field">
+    <%= f.label :memo, "備忘録" %><br />
+    <%= f.text_field :memo, placeholder: "相手の好きなものなど贈り物を用意するときに参考になる情報を記載しておこう" %>
+  </div>
+
+  <div class="event__action">
+    <%= f.submit %>
+  </div>
+<% end %>
