@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2>[記念日確認]</h2>
+    <p>※このお知らせは「PRESENTIST」に記念日を登録したご利用者様にお送りしています。</p>
+
+    <hr>
+    <h3><%= @event.friend.name %>さんの記念日が迫っています。</h3>
+    <hr>
+    <p><%= @event.user.name %>様</p>
+    <p>
+      <%= @event.date.strftime("%Y年%m月%d日") %>に<%= @event.friend.name %>さんの記念日（<%= @event.scene_status_i18n %>）が迫っています。<br />
+      贈り物はご用意されましたでしょうか？<br />
+      まだの方はぜひ「PRESENTIST」を参考に贈り物を選ばれることをお勧めいたします。
+    </p>
+    <p>
+      詳しくは下記URLからログインの上、ご覧ください。<br />
+      URL： <%= @url %>
+    </p>
+    <hr>
+    <p>＜記念日内容＞</p>
+    <p>
+      日付：<%= @event.date.strftime("%Y年%m月%d日")%><br />
+      贈り物相手：<%= @event.friend.name %>(<%= @event.friend.gender_i18n %>)<br />
+      ご関係：<%= @event.friend.relation_i18n %><br />
+      記念日：<%= @event.scene_status_i18n %><br />
+      備忘録：<%= @event.memo %>
+    </p>
+    <hr>
+    <p>※このメールは送信用です。</p>
+    <p>PRESENTIST</p>
+  </body>
+</html>
