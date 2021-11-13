@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 
   def show
     @presents = @user.presents
+    @to_presents = @user.presents.where(gift_status: "0")
+    @from_presents = @user.presents.where(gift_status: "1")
   end
 
   def edit

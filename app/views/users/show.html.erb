@@ -1,6 +1,5 @@
 <div class="inner">
   <div class="users-box">
-    <!--アラートが表示されているかあとで確認-->
     <% notice %>
     <div class="user-info">
       <p><%= attachment_image_tag @user, :image, :fill, 50, 50, format:'jpeg', fallback:'noimage-user.jpeg', size:'100x100' %></p>
@@ -32,25 +31,33 @@
       <% end %>
     </div>
   </div>
-  <% @presents.each do |gift| %>
-    <%= link_to present_path(gift) do%>
-      <div class="user-post">
-        <h2>投稿</h2>
-        <%= gift.created_at.strftime('%Y/%m/%d') %>
-        <%= attachment_image_tag gift, :item_image, :fill, 50, 50, format:'jpeg', fallback:'noimage-user.jpeg', size:'100x100'%><br>
 
-        <% if gift.return_status == "preparation" %>
-          <p><%= link_to gift.return_status_i18n, switch_return_status_present_path(gift.id), method: :patch %></p>
-        <% else %>
-          <p><%= gift.return_status_i18n %></p>
-        <% end %>
+  <div class="user-tab">
+    <ul id="tab-menu">
+      <li id="tab1"><a href="#panel1">全ての贈り物</a></li>
+      <li id="tab2"><a href="#panel2">贈ったもの</a></li>
+      <li id="tab3"><a href="#panel3">いただきもの</a></li>
+    </ul>
 
-        <p>品名：<%= gift.item %></p>
-        <p>シーン：<%= gift.scene_status_i18n %><p>
-        <div id="favorite_<%= gift.id %>">
-          <%= render "favorites/favorite", present: gift %>
+    <div id="tab-panels">
+      <div id="panel1" class="panel">
+        <h1 class="title">全て</h1>
+        <div class="post-wrap">
+          <%= render "user_post", presents: @presents %>
         </div>
       </div>
-    <% end %>
-  <% end %>
+      <div id="panel2" class="panel">
+        <h1 class="title">贈り物</h1>
+        <div class="post-wrap">
+          <%= render "user_post", presents: @to_presents %>
+        </div>
+      </div>
+      <div id="panel3" class="panel">
+        <h1 class="title">いただきもの</h1>
+        <div class="post-wrap">
+          <%= render "user_post", presents: @from_presents %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

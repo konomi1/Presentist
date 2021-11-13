@@ -1,0 +1,25 @@
+<% if presents.exists? %>
+  <% presents.each do |gift| %>
+    <%= link_to present_path(gift) do %>
+      <div class="user-post">
+        <h2>投稿</h2>
+        <%= gift.created_at.strftime('%Y/%m/%d') %>
+        <%= attachment_image_tag gift, :item_image, :fill, 50, 50, format:'jpeg', fallback:'noimage-user.jpeg', size:'100x100'%><br>
+
+        <% if gift.return_status == "preparation" %>
+          <p><%= link_to gift.return_status_i18n, switch_return_status_present_path(gift.id), method: :patch %></p>
+        <% else %>
+          <p><%= gift.return_status_i18n %></p>
+        <% end %>
+
+        <p>品名：<%= gift.item %></p>
+        <p>シーン：<%= gift.scene_status_i18n %><p>
+        <div id="favorite_<%= gift.id %>">
+          <%= render "favorites/favorite", present: gift %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>該当する贈り物はありません。</p>
+<% end %>
