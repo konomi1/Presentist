@@ -1,2 +1,9 @@
-<h1>Events#edit</h1>
-<p>Find me in app/views/events/edit.html.erb</p>
+<div class="inner">
+  <div class="event-box">
+    <div class="event-form">
+      <h1 class="title">記念日編集</h1>
+      <%= render "layouts/errors", obj: @event %>
+      <%= render "form", event: @event %>
+    </div>
+  </div>
+</div>

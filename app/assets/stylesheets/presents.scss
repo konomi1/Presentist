@@ -135,3 +135,39 @@
     color: gray;
   }
 }
+
+// ranking画面
+.calender-wrap{
+  width: 80%;
+  background: pink;
+  margin: 0 auto;
+}
+
+// simple-calendar
+.simple-calendar {
+  .calendar-heading{
+    text-align: center;
+    font-size: 25px;
+  }
+  .day {}
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {}
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
+}
