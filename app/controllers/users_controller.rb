@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
+  before_action :ensure_current_user, only: [:edit, :update]
 
   def show
     @presents = @user.presents
@@ -28,6 +29,12 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def ensure_current_user
+    unless @user == current_user
+      redirect_to user_path(current_user), notice: "ユーザーご本人のみアクセスできます。"
+    end
   end
 
   def user_params
