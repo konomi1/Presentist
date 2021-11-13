@@ -4,6 +4,8 @@ class PresentsController < ApplicationController
 
   def index
     @presents = Present.order(created_at: 'desc')
+    @to_presents = Present.where(gift_status: "1").order(created_at: 'desc')
+    @from_presents = Present.where(gift_status: "0").order(created_at: 'desc')
   end
 
   def show

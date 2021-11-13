@@ -17,17 +17,17 @@ $(document).on('turbolinks:load',function () {
   }
 
   //何番目のタブか
-  var tabno = $('.follow-tab li#' + tabname).index();
+  var tabno = $('#tab-menu li#' + tabname).index();
 
-  $('.follow-tab .panel').hide();
-  $('.follow-tab a').removeClass('active');
-  $('.follow-tab .panel').eq(tabno).show();
-  $('.follow-tab a').eq(tabno).addClass('active');
+  $('#tab-panels .panel').hide();
+  $('#tab-menu a').removeClass('active');
+  $('#tab-panels .panel').eq(tabno).show();
+  $('#tab-menu a').eq(tabno).addClass('active');
 
 // タブクリック
   $('#tab-menu a').on('click', function(event) {
-    $('.follow-tab .panel').hide();
-    $('.follow-tab .active').removeClass('active');
+    $('#tab-panels .panel').hide();
+    $('#tab-menu .active').removeClass('active');
     $(this).addClass('active');
     $($(this).attr('href')).show();
     event.preventDefault();
