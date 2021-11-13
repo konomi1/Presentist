@@ -16,11 +16,8 @@ module Presentist
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    # 日本語化
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config/locales/*.yml').to_s]
-
-    # リマインドメール用のbroadcastを呼び出す
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
   end
 end

@@ -13,11 +13,11 @@ set :environment, :development
 
 #通常
 # 記念日一週間前をメールで通知
-every 1.days, at: '9:00 am' do
-  runner "Broadcast.send"
-end
-
-# # テスト用
-# every 1.minutes do
+# every 1.days, at: '9:00 am' do
 #   runner "Broadcast.send"
 # end
+
+# # テスト用
+every 1.minutes do
+  runner "Broadcast.send"
+end

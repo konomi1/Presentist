@@ -1,8 +1,14 @@
 class EventMailer < ApplicationMailer
 
 # 記念日一週間前に贈り物用意をリマインドする
-  def remind_mail(event)
-    @url = "http://----"
+  def remind_mail(event)     #プレビュー用(event)
+    # @event = event    #プレビュー用
+#    @url = "http://----"
+    # メイルチェック用
+#    events = Event.where(date: Date.today.since(1.day))
+#    events.each do |event|
+#      send_mail(event).deliver_now
+#    end
     @event = event
     p @event.user.email
     m = mail(
@@ -11,21 +17,33 @@ class EventMailer < ApplicationMailer
       ) do |format|
       format.html
     end
+    p m
     return m
+    #events = Event.where(date: Date.today.since(1.day), template: 0)
+    #events.each do |event|
+    #  @event = event
+    #  mail(
+    #    to: @event.user.email,
+    #    subject: "一週間後に予定された記念日の通知"
+    #    ) do |format|
+    #    format.html
+    #  end
+    #    pp @event
+    #    pp @event.user.email
+    #end
   end
 
-# したのはいらないかも。一度確認を。
-  def send_mail(event)
-    @event = event
-    p @event.user.email
-    m = mail(
-      to: @event.user.email,
-      subject: "一週間後に予定された記念日の通知"
-      ) do |format|
-      format.html
-    end
-    return m
-  end
+  # def send_mail(event)
+  #   @event = event
+  #   p @event.user.email
+  #   m = mail(
+  #     to: @event.user.email,
+  #     subject: "一週間後に予定された記念日の通知"
+  #     ) do |format|
+  #     format.html
+  #   end
+  #   return m
+  # end
 
 
 # これだと@eventが定まらない
