@@ -3,7 +3,7 @@
       <div class="post__head">
         <p><%= gift.created_at.strftime('%Y/%m/%d') %></p>
         <div class="post__head_right">
-          <p><%= link_to gift.comments.count, present_path(gift), class: "far fa-comment-dots" %></p>
+          <p><%= link_to gift.comments.count, present_path(gift, anchor: "comments-area"), class: "far fa-comment-dots" %></p>
           <% if user_signed_in? %>
             <div id="favorite_<%= gift.id %>">
               <%= render "favorites/favorite", present: gift %>
