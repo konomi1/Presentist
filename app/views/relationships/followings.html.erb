@@ -1,10 +1,19 @@
 <div class="inner">
   <div class="follow-wrap">
-    <h1 class="title">フォロー一覧</h1>
-    <% if @followings.exists? %>
-      <%= render "index", users: @followings %>
-    <% else %>
-      <p>フォロー中のユーザーはいません</p>
-    <% end %>
+    <ul id="tab-menu">
+      <li><a href="#tab1" class="active">Followers</a></li>
+      <li><a href="#tab2" class="">Followings</a></li>
+    </ul>
+
+    <div id="tab-contents">
+      <div id="tab1" class="tab">
+        <h1 class="title">フォロワー</h1>
+        <%= render "index", users: @followers %>
+      </div>
+      <div id="tab2" class="tab">
+        <h1 class="title">フォロー</h1>
+        <%= render "index", users: @followings %>
+      </div>
+    </div>
   </div>
 </div>

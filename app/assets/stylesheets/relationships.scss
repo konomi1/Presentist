@@ -1,3 +1,44 @@
 // Place all the styles related to the relationships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.follow-wrap{
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  #tab-menu{
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+  #tab-menu li{
+    width: 50%;
+    list-style-type: none;
+  }
+  #tab-menu li a{
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 20px;
+  text-align: center;
+  border-bottom: none;
+  }
+  #tab-menu .active {
+  background: #fff;
+  color: #000;
+  }
+  #tab-contents {
+  display: flex;
+  flex-wrap: wrap;
+  }
+  #tab-contents .tab {
+  width: 100%;
+  padding: 30px;
+  background: #fff;
+  border-top: none;
+  }
+  #tab-contents p {
+  color: #000;
+  line-height: 2.5;
+  }
+}
