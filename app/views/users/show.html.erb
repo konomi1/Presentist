@@ -6,11 +6,11 @@
       <p><%= attachment_image_tag @user, :image, :fill, 50, 50, format:'jpeg', fallback:'noimage-user.jpeg', size:'100x100' %></p>
       <div class="user-info__item">
         <h4>Follower</h4>
-        <p><%= link_to @user.followers.count, followings_user_path(@user, anchor: "tab1" ) %></p>
+        <p><%= link_to @user.followers.count, follow_user_path(@user, anchor: "tab1" ) %></p>
       </div>
       <div class="user-info__item">
         <h4>Follow</h4>
-        <p><%= link_to @user.followings.count, followings_user_path(@user, anchor: "tab2") %></p>
+        <p><%= link_to @user.followings.count, follow_user_path(@user, anchor: "tab2") %></p>
       </div>
       <div class="user-info__item">
         <h4>お気に入り</h4>

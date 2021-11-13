@@ -10,13 +10,8 @@ class RelationshipsController < ApplicationController
     current_user.active_relationships.find_by(followed_id: params[:id]).destroy
   end
 
-  # jsで切り替えるならどちらか一つのアクションで良さそう？
-  def followings
+  def follow
     @followings = @user.followings
-    @followers = @user.followers
-  end
-
-  def followers
     @followers = @user.followers
   end
 
