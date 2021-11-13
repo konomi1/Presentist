@@ -1,16 +1,16 @@
 <div class="inner">
-  <div class="follow-wrap">
+  <div class="follow-tab">
     <ul id="tab-menu">
-      <li><a href="#tab1" class="active">Followers</a></li>
-      <li><a href="#tab2" class="">Followings</a></li>
+      <li id="tab1"><a href="#panel1">Followers</a></li>
+      <li id="tab2"><a href="#panel2">Followings</a></li>
     </ul>
 
-    <div id="tab-contents">
-      <div id="tab1" class="tab">
+    <div id="tab-panels">
+      <div id="panel1" class="panel">
         <h1 class="title">フォロワー</h1>
         <%= render "index", users: @followers %>
       </div>
-      <div id="tab2" class="tab">
+      <div id="panel2" class="panel">
         <h1 class="title">フォロー</h1>
         <%= render "index", users: @followings %>
       </div>

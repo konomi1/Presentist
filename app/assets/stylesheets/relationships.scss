@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.follow-wrap{
+.follow-tab{
   width: 90%;
   max-width: 800px;
   margin: 0 auto;
@@ -27,17 +27,17 @@
   background: #fff;
   color: #000;
   }
-  #tab-contents {
+  #tab-panels {
   display: flex;
   flex-wrap: wrap;
   }
-  #tab-contents .tab {
+  #tab-panels .panel {
   width: 100%;
   padding: 30px;
   background: #fff;
   border-top: none;
   }
-  #tab-contents p {
+  #tab-panels p {
   color: #000;
   line-height: 2.5;
   }
