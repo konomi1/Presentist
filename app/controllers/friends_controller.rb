@@ -1,6 +1,6 @@
 class FriendsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_friend, only: [:edit, :update, :destroy]
+  before_action :ensure_current_user, except: [:index, :create]
 
   def index
     @friend = Friend.new
@@ -41,7 +41,13 @@ class FriendsController < ApplicationController
   end
 
   def set_friend
+  end
+
+  def ensure_current_user
     @friend = Friend.find(params[:id])
+    unless @friend.user_id == current_user.id
+      redirect_to user_path(current_user), notice: "登録したご本人以外はアクセスできません。"
+    end
   end
 
 end

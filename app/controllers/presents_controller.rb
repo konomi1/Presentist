@@ -1,6 +1,7 @@
 class PresentsController < ApplicationController
   before_action :authenticate_user!, except: [:ranking]
   before_action :set_present, only: [:show, :edit, :update, :destroy, :switch_return_status]
+  before_action :ensure_current_user, only: [:edit, :update, :destroy]
 
   def index
     @presents = Present.order(created_at: 'desc')
@@ -26,6 +27,7 @@ class PresentsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
@@ -60,6 +62,12 @@ class PresentsController < ApplicationController
 
   def set_present
     @present = Present.find(params[:id])
+  end
+
+  def ensure_current_user
+    unless @present.user_id == current_user.id
+      redirect_to user_path(current_user), notice: "ログを登録したご本人以外はアクセスできません。"
+    end
   end
 
 end
