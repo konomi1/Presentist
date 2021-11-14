@@ -1,0 +1,10 @@
+<div class="inner">
+  <div class="search-wrap">
+    <h3>"<%= @content %>"の検索結果</h3>
+    <% if @results.exists? %>
+      <%= render 'presents/index', presents: @results %>
+    <% else %>
+      <p>該当するデータがありません。</p>
+    <% end %>
+  </div>
+</div>

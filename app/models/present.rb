@@ -56,4 +56,9 @@ class Present < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
+  # タイトルと内容で検索。
+  def self.search_for(content)
+    where("(item LIKE ?) OR (memo LIKE ?)", '%' + content + '%', '%' + content + '%')
+  end
+
 end

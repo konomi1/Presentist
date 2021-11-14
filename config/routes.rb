@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'homes#top'
   get '/about' => 'homes#about'
   get '/ranking' => 'presents#ranking'
+  get 'search' => 'searches#search'
 
   resources :users, only: [:show, :edit, :update] do
     member do
