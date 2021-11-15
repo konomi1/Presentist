@@ -4,40 +4,7 @@
       <h1 class="title">記念日一覧</h1>
       <p><%= notice %></p>
       <%= link_to "新規イベント作成", new_event_path %>
-      <% unless @feature_events.exists? %>
-        <p>予定されている記念日はありません。</p>
-      <% else %>
-        <table class="event-table">
-            <thead>
-              <tr>
-                <td>準備状況</td>
-                <td>記念日</td>
-                <td>贈る相手</td>
-                <td>関係</td>
-                <td>性別</td>
-                <td>備忘録</td>
-                <td>削除</td>
-              </tr>
-            </thead>
-            <tbody>
-              <% @feature_events.each do |event| %>
-                <tr>
-                  <td><%= link_to event.ready_status_i18n, switch_ready_status_event_path(event), method: :patch %></td>
-                  <td><%= link_to event.date, event_path(event) %></td>
-                  <td><%= event.friend.name %></td>
-                  <td><%= event.friend.relation_i18n %></td>
-                  <td><%= event.friend.gender_i18n %></td>
-                  <td><%= event.memo %></td>
-                  <td>
-                    <%= link_to event_path(event), method: :delete, data: { confirm: '本当に削除しますか？' } do %>
-                      <p class="far fa-trash-alt"></p>
-                    <% end %>
-                  </td>
-                </tr>
-              <% end %>
-          </tbody>
-        </table>
-      <% end %>
+      <%= render "list", events: @feature_events %>
 
     </div>
   </div>

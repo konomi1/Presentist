@@ -24,7 +24,7 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
   end
-  resources :friends, except: [:new, :show]
+  resources :friends, except: [:new]
   resources :events do
     patch :switch_ready_status, on: :member
   end

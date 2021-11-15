@@ -18,6 +18,11 @@ class FriendsController < ApplicationController
     end
   end
 
+  def show
+    @presents = @friend.presents
+    @events = @friend.events
+  end
+
   def edit
   end
 

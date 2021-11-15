@@ -1,0 +1,25 @@
+<div class="inner">
+  <div class="friends-box">
+    <div class="friend-detail">
+      <h1 class="title">フレンド情報</h1>
+      <p><%= @friend.name %></p>
+      <%= @friend.gender_i18n %>
+      <%= @friend.relation_i18n %>
+      <%= @friend.memo %>
+      <%= link_to edit_friend_path(@friend), class: "table__edit" do %>
+        <p class="fas fa-edit"></p>
+      <% end %>
+      <%= link_to friend_path(@friend), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "table__delete" do %>
+        <p class="far fa-trash-alt"></p>
+      <% end %>
+    </div>
+    <div class="friend-logs">
+      <h1 class="title">フレンドとの贈り物ログ</h1>
+      <%= render 'presents/index', presents: @presents %>
+    </div>
+    <div class="friend-events">
+      <h1 class="title">フレンドの記念日</h1>
+      <%= render 'events/list', events: @events %>
+    </div>
+  </div>
+</div>
