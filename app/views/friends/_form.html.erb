@@ -10,7 +10,7 @@
   </div>
 
   <div class="edit__field">
-    <%= f.label :relation, "相手との関係性" %><br />
+    <%= f.label :relation, "相手との関係" %><br />
     <%= f.select :relation, Friend.relations_i18n.keys.map {|k| [I18n.t("enums.friend.relation.#{k}"), k]} %>
   </div>
 

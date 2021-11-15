@@ -70,6 +70,29 @@ ja:
         incense: "香典等"
         others: "その他"
   activerecord:
+    attributes:
+      user:
+        email: "メールアドレス"
+        name: "名前"
+        birthday: "誕生日"
+        gender: "性別"
+        introduce: "自己紹介"
+      present:
+        age: "年齢"
+        item: "品名"
+        price: "目安金額"
+        memo: "メモ"
+      friend:
+        name: "名前"
+        kana_name: "フリガナ"
+        relation: "相手との関係"
+        gender: "性別"
+        memo: "一言メモ"
+      event:
+        date: "日付"
+        memo: "備忘録"
+      comment:
+        comment: "コメント"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
