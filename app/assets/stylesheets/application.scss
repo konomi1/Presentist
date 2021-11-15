@@ -16,35 +16,88 @@
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import  " simple_calendar " ;
+@import  "simple_calendar";
 
 @font-face{
   font-family: "851MkPOP_100";
   src: font-url('/assets/851MkPOP_100.ttf');
 }
 
-// 共通部分のCSS
-@mixin header-bace{
-  width: 100%;
-  height: 130px;
-  background-color: #00b39a;
+// 元の設定をリセット
+body {
+  display: flex;
+  margin: 0;
+}
+
+ul{
+  padding: 0;
+}
+
+p{
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+// エラ〜メッセージ
+#error_explanation{
+  color: red;
+  text-align: left;
+  h2{
+    font-size: 18px;
+  }
+  ul{
+    list-style-type: none;
+    text-align: left;
+  }
+}
+.field_with_errors{
+  display: inline;
+  input{
+    border-color: red;
+  }
+}
+
+// サイドバー
+.main {
+  width: calc(100% - 200px);
 }
 
 .header{
-  @include header-bace;
+  width: 200px;
+  min-height: 100vh;
+  &__wrap{
+    width: 200px;
+    height: 100%;
+    background-color: #fbded1;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    text-align: center;
+  }
   &__ul{
     list-style: none;
-    display: flex;
-    justify-content: center
   }
   &__item{
-    width: 10%;
-    margin: 10px 5px;
+    padding: 5px 0;
+    margin: 15px 35px;
+    border-radius: 15px;
+    &:hover{
+    -webkit-transition: all 600ms 0s ease;
+    transition: all 400ms 0s ease;
+    background: #e421213d;
+    }
   }
 }
 
-.footer{
-  @include header-bace;
+footer{
+  width: 100%;
+  height: 60px;
+  margin-top: 40px;
+  border-top: 1px solid gray;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -58,8 +111,12 @@
 // タイトル
 .title{
   text-align: center;
+  border-bottom: 1px double brown;
+  margin: 0 30%;
+  padding-top: 40px;
 }
-// リセット
-p{
-  margin: 0;
+
+.sub-title{
+  text-align: center;
+  margin-bottom: 40px;
 }

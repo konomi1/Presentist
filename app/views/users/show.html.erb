@@ -1,38 +1,45 @@
 <div class="inner">
   <p><%= notice %></p>
-  <div class="users-box">
-    <div class="user-info">
-      <p><%= attachment_image_tag @user, :image, :fill, 50, 50, format:'jpeg', fallback:'noimage-user.jpeg', size:'100x100' %></p>
-      <div class="user-info__item">
-        <h4>Follower</h4>
-        <p id="followers_count_<%= @user.id %>"><%= link_to @user.followers.count, follow_user_path(@user, anchor: "tab1" ) %></p>
-      </div>
-      <div class="user-info__item">
-        <h4>Follow</h4>
-        <p id="following_count_<%= @user.id %>"><%= link_to @user.followings.count, follow_user_path(@user, anchor: "tab2") %></p>
-      </div>
-      <div class="user-info__item">
-        <h4>お気に入り</h4>
-        <p><%= link_to @user.favorites.count, favorites_user_path(@user) %></p>
-      </div>
-    </div>
-    <div class="profile">
-      <h2 class="profile__title">Profile</h2>
-      <h4 class="profile__sub-title">ニックネーム</h4>
-      <p><%= @user.name %></p>
-      <h4 class="profile__sub-title">自己紹介</h4>
-      <p><%= @user.introduce %></p>
-      <% if @user.id == current_user.id %>
-        <%= link_to "編集", edit_user_path(current_user) %>
-      <% else %>
-        <div id="follow_btn_<%= @user.id %>">
-          <%= render 'relationships/follow_btn', user: @user %>
+  <div class="user-wrap">
+    <h2 class="title">Profile</h2>
+    <p class="sub-title">会員ページ</p>
+    <div class="user-group">
+      <div class="user-info">
+        <p><%= attachment_image_tag @user, :image, format:'jpeg', fallback:'noimage-user.jpeg' %></p>
+        <div class="user-info__item">
+          <h4>Follower</h4>
+          <p id="followers_count_<%= @user.id %>"><%= link_to @user.followers.count, follow_user_path(@user, anchor: "tab1" ) %></p>
         </div>
-      <% end %>
+        <div class="user-info__item">
+          <h4>Follow</h4>
+          <p id="following_count_<%= @user.id %>"><%= link_to @user.followings.count, follow_user_path(@user, anchor: "tab2") %></p>
+        </div>
+        <div class="user-info__item">
+          <h4>お気に入り</h4>
+          <p><%= link_to @user.favorites.count, favorites_user_path(@user) %></p>
+        </div>
+      </div>
+      <div class="profile">
+        <h4 class="profile__title">ニックネーム</h4>
+        <div class="profile__name">
+          <p><%= @user.name %></p>
+          <% if @user.id == current_user.id %>
+            <%= link_to "編集", edit_user_path(current_user) %>
+          <% else %>
+            <div id="follow_btn_<%= @user.id %>">
+              <%= render 'relationships/follow_btn', user: @user %>
+            </div>
+          <% end %>
+        </div>
+        <h4 class="profile__title">自己紹介</h4>
+        <p><%= @user.introduce %></p>
+      </div>
     </div>
   </div>
 
   <div class="user-tab">
+    <h2 class="title">Gift Log</h2>
+    <p class="sub-title">贈り物記録</p>
     <ul id="tab-menu">
       <li id="tab1"><a href="#panel1">全ての贈り物</a></li>
       <li id="tab2"><a href="#panel2">贈ったもの</a></li>
@@ -60,4 +67,5 @@
       </div>
     </div>
   </div>
+  <%= render "layouts/footer" %>
 </div>

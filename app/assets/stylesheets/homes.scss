@@ -2,25 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// エラ〜メッセージ(devise)
-#error_explanation{
-  color: red;
-  text-align: left;
-  h2{
-    font-size: 18px;
-  }
-  ul{
-    list-style-type: none;
-    text-align: left;
-  }
-}
-.field_with_errors{
-  display: inline;
-  input{
-    border-color: red;
-  }
-}
-
 // ログイン前画面
 .back-image {
   background-image: url(top-back.jpeg);

@@ -1,6 +1,7 @@
 <div class="inner">
   <div class="users-box">
     <div class="edit">
+      <%= render "layouts/errors", obj: @user %>
       <h1 class="title">プロフィール編集</h1>
       <div><%= attachment_image_tag @user, :image, :fill, 50, 50, format:'jpeg', fallback:'noimage-user.jpeg', size:'200x200' %></div>
       <%= form_with model:@user, local: true do |f| %>
