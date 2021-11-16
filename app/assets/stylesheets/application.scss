@@ -42,7 +42,28 @@ a{
   text-decoration: none;
 }
 
-// エラ〜メッセージ
+// 以降共通のスタイル
+
+// フォーム
+textarea{
+  width: 100%;
+}
+
+input[type="submit"] {
+  background: #ff9191;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 1em;
+  font-weight: 600;;
+}
+
+#search-btn{
+  background: #908d8d;
+  padding: 5px;
+}
+
+// エラ-メッセージ
 #error_explanation{
   color: red;
   text-align: left;
@@ -81,11 +102,11 @@ a{
 
 // サイドバー(ヘッダー)
 .main {
-  width: calc(100% - 200px);
+  flex: 10 0 300px;
 }
 
 .header{
-  width: 200px;
+  flex: 0 0 200px;
   min-height: 100vh;
   &__wrap{
     width: 200px;
@@ -112,6 +133,7 @@ a{
   }
 }
 
+// フッター
 footer{
   width: 100%;
   height: 60px;
@@ -120,11 +142,6 @@ footer{
   display: flex;
   align-items: flex-end;
   justify-content: center;
-}
-
-// 背景あとで変更
-.inner {
-  // background-color: #80808066;
 }
 
 // タイトル

@@ -1,31 +1,40 @@
 <div class="inner">
   <div class="users-box">
-    <div class="edit">
-      <%= render "layouts/errors", obj: @user %>
-      <h1 class="title">プロフィール編集</h1>
-      <div><%= attachment_image_tag @user, :image, :fill, 50, 50, format:'jpeg', fallback:'noimage-user.jpeg', size:'200x200' %></div>
-      <%= form_with model:@user, local: true do |f| %>
+    <h1 class="title">Editing Profile</h1>
+    <p class="sub-title">会員情報編集</p>
+    <%= render "layouts/errors", obj: @user %>
+    <%= form_with model:@user, local: true do |f| %>
+      <div class="edit">
 
-      <div class="edit__field">
-        <%= f.label :name, "ニックネーム" %><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        <div class="edit__left">
+          <div class="edit__field">
+            <%= attachment_image_tag @user, :image, format:"jpeg", fallback: "noimage-user.jpeg", id: "preview" %>
+          </div>
+
+          <div class="edit__field">
+            <%= f.label :image_id, "プロフィール画像" %><br />
+            <%= f.attachment_field :image %>
+          </div>
+        </div>
+
+        <div class="edit__right">
+          <div class="edit__field">
+            <%= f.label :name, "ニックネーム" %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", size: "30" %>
+          </div>
+
+
+          <div class="edit__field">
+            <%= f.label :introduce, "自己紹介" %><br />
+            <%= f.text_area :introduce, cols: "30", rows: "5" %>
+          </div>
+
+          <div class="edit__action">
+            <%= f.submit %>
+          </div>
+        </div>
+
       </div>
-
-      <div class="edit__field">
-        <%= f.label :image_id, "プロフィール画像" %><br />
-        <%= f.attachment_field :image %>
-      </div>
-
-      <div class="edit__field">
-        <%= f.label :introduce, "自己紹介" %><br />
-        <%= f.text_field :introduce %>
-      </div>
-
-      <div class="edit__action">
-        <%= f.submit %>
-      </div>
-
-      <% end %>
-    </div>
+    <% end %>
   </div>
 </div>

@@ -18,7 +18,7 @@
   padding: 0 10%;
 }
 
-.user-group{
+.user-top{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -132,5 +132,35 @@
       background: gray;
       color: white;
     }
+  }
+}
+
+// ユーザー編集画面
+.edit{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  // background: gray;
+  padding: 0 10%;
+  &__left{
+    flex: 1 0 200px;
+    text-align: center;
+    .image{
+      height: 200px;
+      width: 200px;
+      border-radius: 100px;
+      border: 1px solid #d8d8d8;
+    }
+  }
+  &__right{
+    flex: 3 1 200px;
+    align-self: center;
+    padding: 0 5%;
+  }
+  &__field{
+    margin-bottom: 20px;
+  }
+  &__action{
+    text-align: right;
   }
 }
