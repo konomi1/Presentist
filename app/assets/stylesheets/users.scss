@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "mixin";
+
 // ステータス変更ボタン
 @mixin swhitch{
   padding: 5px 1em;
@@ -40,6 +42,7 @@
   .profile{
     flex: 3 0 190px;
     margin-left: 10px;
+    max-width: 500px;
     &__title{
       background: #fbded1;
     }
@@ -53,44 +56,8 @@
 // タブメニュー
 .user-tab{
   width: 90%;
-  max-width: 1000px;
   margin: 0 auto;
-  #tab-menu{
-    display: flex;
-    padding: 0;
-    margin: 0;
-  }
-  #tab-menu li{
-    width : 33.33333% ;
-    width : calc(100% / 3) ;
-  }
-  #tab-menu li a{
-  color: black;
-  display: block;
-  padding: 20px;
-  text-align: center;
-  border: 1px solid brown;
-  background: #d8d8d8;
-  border-radius: 15px 15px 0 0;
-  }
-  #tab-menu .active {
-  border-bottom: none;
-  background: none;
-
-  }
-  #tab-panels {
-  display: flex;
-  flex-wrap: wrap;
-  }
-  #tab-panels .panel {
-  width: 100%;
-  padding: 30px;
-  border: 1px solid brown;
-  border-top: none;
-  }
-  #tab-panels p {
-    padding-bottom: 5px;
-  }
+  @include tab(calc(100% / 3));
 }
 
 // ユーザー画面下部
@@ -140,7 +107,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  // background: gray;
   padding: 0 10%;
   &__left{
     flex: 1 0 200px;

@@ -1,6 +1,7 @@
 <div class="inner">
   <div class="presents-wrap">
-    <h1 class="title">贈り物ログ一覧</h1>
+    <h1 class="title">All Gift log</h1>
+    <p class="sub-title">贈り物ログ一覧</p>
     <p><%= link_to "ログ作成", new_present_path, class:"fas fa-gifts" %></p>
 
     <div class="presents-tab">
@@ -12,19 +13,16 @@
 
       <div id="tab-panels">
         <div id="panel1" class="panel">
-          <h1 class="title">全て</h1>
           <div class="post-wrap">
             <%= render "index", presents: @presents %>
           </div>
         </div>
         <div id="panel2" class="panel">
-          <h1 class="title">贈り物</h1>
           <div class="post-wrap">
             <%= render "index", presents: @to_presents %>
           </div>
         </div>
         <div id="panel3" class="panel">
-          <h1 class="title">いただきもの</h1>
           <div class="post-wrap">
             <%= render "index", presents: @from_presents %>
           </div>
@@ -32,4 +30,5 @@
       </div>
     </div>
   </div>
+  <%= render "layouts/footer" %>
 </div>

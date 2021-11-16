@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "mixin";
+
 // 一覧画面
 .post-wrap{
   display: flex;
@@ -53,42 +55,9 @@
 }
 // follow一覧と近いため、変数化してもよいかも。
 .presents-tab{
-  width: 100%;
-  #tab-menu{
-    display: flex;
-    padding: 0;
-    margin: 0;
-  }
-  #tab-menu li{
-    width: 33%;
-    list-style-type: none;
-  }
-  #tab-menu li a{
-  color: #fff;
-  text-decoration: none;
-  display: block;
-  padding: 20px;
-  text-align: center;
-  border-bottom: none;
-  }
-  #tab-menu .active {
-  background: #fff;
-  color: #000;
-  }
-  #tab-panels {
-  display: flex;
-  flex-wrap: wrap;
-  }
-  #tab-panels .panel {
-  width: 100%;
-  padding: 30px;
-  background: #fff;
-  border-top: none;
-  }
-  #tab-panels p {
-  color: #000;
-  line-height: 2.5;
-  }
+  width: 90%;
+  margin: 0 auto;
+  @include tab(calc(100% / 3));
 }
 
 // 詳細画面

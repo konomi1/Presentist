@@ -2,43 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "mixin";
+
+//タブメニュー
 .follow-tab{
   width: 90%;
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
-  #tab-menu{
-    display: flex;
-    padding: 0;
-    margin: 0;
-  }
-  #tab-menu li{
-    width: 50%;
-    list-style-type: none;
-  }
-  #tab-menu li a{
-  color: #fff;
-  text-decoration: none;
-  display: block;
-  padding: 20px;
-  text-align: center;
-  border-bottom: none;
-  }
-  #tab-menu .active {
-  background: #fff;
-  color: #000;
-  }
-  #tab-panels {
-  display: flex;
-  flex-wrap: wrap;
-  }
-  #tab-panels .panel {
+  @include tab(50%);
+}
+
+.follow-card{
   width: 100%;
-  padding: 30px;
-  background: #fff;
-  border-top: none;
-  }
-  #tab-panels p {
-  color: #000;
-  line-height: 2.5;
+  .image{
+    height: 80px;
+    width: 80px;
+    border-radius: 100px;
+    border: 1px solid #d8d8d8;
   }
 }
+

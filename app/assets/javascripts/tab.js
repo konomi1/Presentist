@@ -2,7 +2,6 @@
 /*global $*/
 /*global location $*/
 
-
 $(document).on('turbolinks:load',function () {
 // 前ページからのアンカーで表示タブを変更
   //アンカーを取得

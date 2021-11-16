@@ -1,0 +1,38 @@
+// タブメニュー
+@mixin tab($li-width){
+  #tab-menu{
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+  #tab-menu li{
+    width : $li-width;
+  }
+  #tab-menu li a{
+  color: black;
+  display: block;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid brown;
+  background: #d8d8d8;
+  border-radius: 15px 15px 0 0;
+  }
+  #tab-menu .active {
+  border-bottom: none;
+  background: none;
+
+  }
+  #tab-panels {
+  display: flex;
+  flex-wrap: wrap;
+  }
+  #tab-panels .panel {
+  width: 100%;
+  padding: 30px;
+  border: 1px solid brown;
+  border-top: none;
+  }
+  #tab-panels p {
+    padding-bottom: 5px;
+  }
+}

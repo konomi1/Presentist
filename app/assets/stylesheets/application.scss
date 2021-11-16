@@ -36,6 +36,8 @@ ul{
 
 p{
   margin: 0;
+  overflow-wrap: break-word;
+　word-wrap: break-word;
 }
 
 a{
@@ -61,6 +63,10 @@ input[type="submit"] {
 #search-btn{
   background: #908d8d;
   padding: 5px;
+}
+
+.field{
+  padding-bottom: 20px;
 }
 
 // エラ-メッセージ
@@ -102,7 +108,7 @@ input[type="submit"] {
 
 // サイドバー(ヘッダー)
 .main {
-  flex: 10 0 300px;
+  flex: 4 0 300px;
 }
 
 .header{
@@ -148,7 +154,7 @@ footer{
 .title{
   text-align: center;
   border-bottom: 1px double brown;
-  margin: 0 30%;
+  margin: 0 25%;
   padding-top: 40px;
 }
 

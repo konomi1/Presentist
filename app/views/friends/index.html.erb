@@ -1,13 +1,15 @@
 <div class="inner">
-  <div class="friends-box">
+  <div class="friends-wrap">
     <div class="friend-new">
       <%= notice %>
-      <h1 class="title">フレンド新規登録</h1>
+      <h1 class="title">New Friend</h1>
+      <p class="sub-title">フレンド新規登録</p>
       <%= render "layouts/errors", obj: @friend %>
       <%= render "form", friend: @friend %>
     </div>
     <div class="friend-index">
-      <h1 class="title">フレンド一覧</h1>
+      <h1 class="title">Friends</h1>
+      <p class="sub-title">フレンド一覧</p>
       <table class="table">
         <thead class="table__thead">
           <tr>

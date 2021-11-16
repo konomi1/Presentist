@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
 
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 20 }
   validates :email, presence: true
   validates :birthday, presence: true
   validates :gender, presence: true

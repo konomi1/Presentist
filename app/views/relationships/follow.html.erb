@@ -1,4 +1,7 @@
 <div class="inner">
+  <h1 class="title">Follow</h1>
+  <p class="sub-title">フォロー・フォロワー</p>
+
   <div class="follow-tab">
     <ul id="tab-menu">
       <li id="tab1"><a href="#panel1">Followers</a></li>
@@ -7,13 +10,16 @@
 
     <div id="tab-panels">
       <div id="panel1" class="panel">
-        <h1 class="title">フォロワー</h1>
-        <%= render "index", users: @followers %>
+        <div class=follow-wrap>
+          <%= render "index", users: @followers %>
+        </div>
       </div>
       <div id="panel2" class="panel">
-        <h1 class="title">フォロー</h1>
-        <%= render "index", users: @followings %>
+        <div class=follow-wrap>
+          <%= render "index", users: @followings %>
+        </div>
       </div>
     </div>
   </div>
+  <%= render "layouts/footer" %>
 </div>
