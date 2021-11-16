@@ -2,6 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// ステータス変更ボタン
+@mixin swhitch{
+  padding: 5px 1em;
+  width: 90px;
+  height: 25px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+// ユーザー画面上部
 .user-wrap{
   height: auto;
   padding: 0 10%;
@@ -13,8 +24,7 @@
   justify-content: center;
   margin-bottom: 30px;
   .user-info{
-    width: 40%;
-    min-width: 200px;
+    flex: 1 0 200px;
     text-align: center;
     &__item{
       display: inline-block;
@@ -24,10 +34,12 @@
       height: 200px;
       width: 200px;
       border-radius: 100px;
+      border: 1px solid #d8d8d8;
     }
   }
   .profile{
-    width: 60%;
+    flex: 3 0 190px;
+    margin-left: 10px;
     &__title{
       background: #fbded1;
     }
@@ -38,15 +50,10 @@
   }
 }
 
-.user-post{
-  width: 80%;
-  height: auto;
-  background-color: gray;
-}
-
+// タブメニュー
 .user-tab{
-  width: 80%;
-  max-width: 800px;
+  width: 90%;
+  max-width: 1000px;
   margin: 0 auto;
   #tab-menu{
     display: flex;
@@ -54,20 +61,22 @@
     margin: 0;
   }
   #tab-menu li{
-    width: 33%;
-    list-style-type: none;
+    width : 33.33333% ;
+    width : calc(100% / 3) ;
   }
   #tab-menu li a{
-  color: #fff;
-  text-decoration: none;
+  color: black;
   display: block;
   padding: 20px;
   text-align: center;
-  border-bottom: none;
+  border: 1px solid brown;
+  background: #d8d8d8;
+  border-radius: 15px 15px 0 0;
   }
   #tab-menu .active {
-  background: #fff;
-  color: #000;
+  border-bottom: none;
+  background: none;
+
   }
   #tab-panels {
   display: flex;
@@ -76,11 +85,52 @@
   #tab-panels .panel {
   width: 100%;
   padding: 30px;
-  background: #fff;
+  border: 1px solid brown;
   border-top: none;
   }
   #tab-panels p {
-  color: #000;
-  line-height: 2.5;
+    padding-bottom: 5px;
+  }
+}
+
+// ユーザー画面下部
+.user-post{
+  width: 100%;
+  padding: 10px 0 10px 5%;
+  border-bottom: 1px solid brown;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .item_image{
+    width: 150px;
+    height: 150px;
+  }
+  .post-left{
+    flex: 0 0 200px;
+    align-self: center;
+  }
+  .post-center{
+    flex: 3 1 200px;
+  }
+  .post-right{
+    flex: 0 0 200px;
+    align-self: center;
+    text-align: center;
+    text-align: -webkit-center;
+    &__active{
+      @include swhitch;
+      display: inline-block;
+      background-color: #ff9800;
+      transition: 0.5s;
+      color: white;
+      &:hover{
+        background: #ff98007d;
+      }
+    }
+    &__close{
+      @include swhitch;
+      background: gray;
+      color: white;
+    }
   }
 }

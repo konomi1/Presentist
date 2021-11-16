@@ -16,7 +16,7 @@
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import  "simple_calendar";
+@import "simple_calendar";
 
 @font-face{
   font-family: "851MkPOP_100";
@@ -31,6 +31,7 @@ body {
 
 ul{
   padding: 0;
+  list-style: none;
 }
 
 p{
@@ -60,7 +61,25 @@ a{
   }
 }
 
-// サイドバー
+// フォローボタン
+.following-btn{
+  padding: 1em 1em;
+  width: 90px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  color: #a5292a;
+  border-radius: 25px;
+  border: 2px solid;
+}
+
+.unfollow-btn{
+  @extend .following-btn;
+  color: #fff;
+  background:  #a5292a;
+}
+
+// サイドバー(ヘッダー)
 .main {
   width: calc(100% - 200px);
 }
@@ -105,7 +124,7 @@ footer{
 
 // 背景あとで変更
 .inner {
-  background-color: #80808066;
+  // background-color: #80808066;
 }
 
 // タイトル

@@ -48,19 +48,16 @@
 
     <div id="tab-panels">
       <div id="panel1" class="panel">
-        <h1 class="title">全て</h1>
         <div class="post-wrap">
           <%= render "user_post", presents: @presents %>
         </div>
       </div>
       <div id="panel2" class="panel">
-        <h1 class="title">贈り物</h1>
         <div class="post-wrap">
           <%= render "user_post", presents: @to_presents %>
         </div>
       </div>
       <div id="panel3" class="panel">
-        <h1 class="title">いただきもの</h1>
         <div class="post-wrap">
           <%= render "user_post", presents: @from_presents %>
         </div>
