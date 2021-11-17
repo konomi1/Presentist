@@ -2,61 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.friends-wrap{
-  display: flex;
-}
+@import "color";
+@import "mixin";
 
-// 新規フレンド登録
-.friend-new{
-  flex: 1 0 200px;
-  text-align: center;
-}
-
-//フレンド一覧
-.friend-index{
-  flex: 3 0 300px;
-  margin: 0 auto;
-  padding-bottom: 10px;
-  .table{
-    width: 90%;
-    margin: 0 auto;
-    &__th{
-      background: #00b39a;
-      color: white;
-      border: 1px solid white;
-      padding: 10px;
-    }
-    %__td{
-      background: #b1dbe6;
-      color: black;
-      border: 1px solid white;
-      padding: 10px;
-    }
-    &__td{
-      @extend %__td;
-      &--center{
-        @extend %__td;
-        text-align: center;
-        width: 10%;
-      }
-      &--name{
-        @extend %__td;
-        width: 20%;
-      }
-      &--btn{
-        @extend %__td;
-        text-align: center;
-        width: 6%;
-        font-size: 17px;
-      }
-    }
-    &__edit{
-      color: blue;
-    }
-    &__delete,
-    &:visited{
-      color: red;
-    }
+.friend-form{
+  &__btn{
+    text-align: right;
   }
 }
-

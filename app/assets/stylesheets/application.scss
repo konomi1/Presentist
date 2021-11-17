@@ -129,6 +129,12 @@ footer{
   }
 }
 
+//テーブル
+tbody > tr:hover{
+  background: pink;
+  cursor: pointer;
+}
+
 // レスポンシブ対応
 // mdサイズ以上の場合、sp用のヘッダーを消す
 @media (min-width: 768px){

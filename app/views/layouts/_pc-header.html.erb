@@ -1,7 +1,6 @@
 <div class="header">
   <div class="header__logo">
     <h2>PRESENTIST</h2>
-    <%= render 'searches/search_form' %>
   </div>
 
   <nav class="header__nav">
@@ -21,4 +20,7 @@
       <% end %>
     </ul>
   </nav>
+  <p><%= link_to "ログ作成", new_present_path, class:"fas fa-gifts btn btn-link" %></p>
+  <%= render 'searches/search_form' %>
+
 </div>

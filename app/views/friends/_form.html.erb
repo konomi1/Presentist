@@ -1,20 +1,20 @@
 <%= form_with model: friend, local: true do |f| %>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name, "名前" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "山田太郎" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "山田太郎", class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :kana_name, "フリガナ（空白なし）" %><br />
-    <%= f.text_field :kana_name, autocomplete: "name", placeholder: "ヤマダタロウ" %>
+    <%= f.text_field :kana_name, autocomplete: "name", placeholder: "ヤマダタロウ", class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :relation, "相手との関係" %><br />
-    <%= f.select :relation, Friend.relations_i18n.keys.map {|k| [I18n.t("enums.friend.relation.#{k}"), k]} %>
+    <%= f.select :relation, Friend.relations_i18n.keys.map {|k| [I18n.t("enums.friend.relation.#{k}"), k]}, { prompt: "選択してください" }, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :gender, "性別" %><br />
     <%= f.radio_button :gender, :male %>
     <%= f.label :gender, "男性" %>
@@ -22,12 +22,12 @@
     <%= f.label :gender, "女性" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :memo, "一言メモ" %><br />
-    <%= f.text_field :memo, placeholder: "相手の好きなものなど贈り物を用意するときに参考になる情報を記載しておこう" %>
+    <%= f.text_area :memo, placeholder: "贈り物の参考になる情報を記載しておこう", rows: "3", class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.submit %>
+  <div class="friend-form__btn">
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>

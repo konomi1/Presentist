@@ -1,7 +1,7 @@
 <% unless events.exists? %>
   <p>予定されている記念日はありません。</p>
 <% else %>
-  <table class="event-table">
+  <table class="table">
       <thead>
         <tr>
           <td>準備状況</td>
@@ -16,14 +16,16 @@
       <tbody>
         <% events.each do |event| %>
           <tr>
-            <td><%= link_to event.ready_status_i18n, switch_ready_status_event_path(event), method: :patch %></td>
-            <td><%= link_to event.date, event_path(event) %></td>
-            <td><%= event.friend.name %></td>
-            <td><%= event.friend.relation_i18n %></td>
-            <td><%= event.friend.gender_i18n %></td>
-            <td><%= event.memo %></td>
+            <td class="align-middle">
+              <%= link_to event.ready_status_i18n, switch_ready_status_event_path(event), method: :patch, class: "switch__#{event.ready_status}" %>
+            </td>
+            <td data-link="<%= event_path(event) %>"><%= event.date %></td>
+            <td data-link="<%= event_path(event) %>"><%= event.friend.name %></td>
+            <td data-link="<%= event_path(event) %>"><%= event.friend.relation_i18n %></td>
+            <td data-link="<%= event_path(event) %>"><%= event.friend.gender_i18n %></td>
+            <td data-link="<%= event_path(event) %>"><%= event.memo %></td>
             <td>
-              <%= link_to event_path(event), method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+              <%= link_to event_path(event), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" do %>
                 <p class="far fa-trash-alt"></p>
               <% end %>
             </td>

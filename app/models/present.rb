@@ -46,8 +46,10 @@ class Present < ApplicationRecord
   def switch_return_status!
     if preparation?
       done!
-    else
+    elsif done?
       preparation!
+    else
+      unnecessary!
     end
   end
 

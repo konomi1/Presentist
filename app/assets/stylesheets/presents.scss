@@ -5,7 +5,7 @@
 @import "mixin";
 @import "color";
 
-// 一覧画面
+// // 一覧画面
 .post-wrap{
   display: flex;
   flex-wrap: wrap;
@@ -99,7 +99,7 @@
 // 新規登録と編集ページ
 .present-form{
   .item_image{
-    @include fluid-item-img;
+    @include fluid-item-img(80%);
   }
   &__btn{
     text-align: right;

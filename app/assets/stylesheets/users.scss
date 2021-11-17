@@ -35,6 +35,30 @@
   @include tab(calc(100% / 3));
 }
 
+// ユーザーの贈り物ログ
+.user-post{
+  border-bottom: 1px solid $border;
+  margin: 10px;
+  .post-left{
+    .item_image{
+      @include sm-item-img;
+    }
+  }
+}
+
+.switch{
+  &__done{
+    @include toggle(gray, gray);
+    padding-left: 17px;
+  }
+  &__preparation{
+    @include toggle(orange, #ffa500bf);
+  }
+  &__unnecessary{
+    @include toggle(gray, gray);
+    padding-left: 9px;
+  }
+}
 // 編集ページ
 .user-edit{
   .image{

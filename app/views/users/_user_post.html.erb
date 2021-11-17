@@ -1,15 +1,15 @@
 <% if presents.exists? %>
   <% presents.each do |gift| %>
-    <div class="user-post">
+    <div class="user-post row">
 
-      <div class="post-left">
+      <div class="post-left col-md-4">
         <p><%= gift.created_at.strftime('%Y/%m/%d') %></p>
         <%= link_to present_path(gift) do %>
           <p><%= attachment_image_tag gift, :item_image, format:'jpeg', fallback:'top-back.jpeg' %></p>
         <% end %>
       </div>
 
-      <div class="post-center">
+      <div class="post-center col-md-6">
         <p>品名：<%= gift.item %></p>
         <p>贈り物シーン：<%= gift.scene_status_i18n %><p>
         <% if gift.user_id == current_user.id %>
@@ -25,13 +25,9 @@
       </div>
 
       <% if gift.user_id == current_user.id %>
-      <div class="post-right">
-        <% if gift.return_status == "preparation" %>
-          <p><%= link_to gift.return_status_i18n, switch_return_status_present_path(gift.id), method: :patch, class: "post-right__active" %></p>
-        <% else %>
-          <p class="post-right__close"><%= gift.return_status_i18n %></p>
-        <% end %>
-      </div>
+        <div class="post-right col-md-2">
+          <%= link_to gift.return_status_i18n, switch_return_status_present_path(gift.id), method: :patch, class: "switch__#{gift.return_status}" %>
+        </div>
       <% end %>
 
     </div>

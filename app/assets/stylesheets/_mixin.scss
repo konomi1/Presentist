@@ -37,19 +37,24 @@
   }
 }
 
-// ステータス変更ボタン
-@mixin swhitch{
-  padding: 5px 1em;
-  width: 90px;
-  height: 25px;
-  font-size: 15px;
-  font-weight: 700;
-  text-align: center;
+
+@mixin toggle($color, $hover-color){
+  display: block;
+  color: white;
+  padding-top: 13px;
+  height: 50px;
+  width: 100px;
+  background: $color;
+  border-radius: 10px;
+  &:hover{
+    background: $hover-color;
+    color: white;
+  }
 }
 
 // サイズ別：プレゼント画像
-@mixin fluid-item-img{
-  width: 80%;
+@mixin fluid-item-img($width){
+  width: $width;
   border: 1px solid #d8d8d8;
   margin-bottom: 20px;
   object-fit: cover;
@@ -58,6 +63,14 @@
 @mixin lg-item-img{
   height: 300px;
   width: 260px;
+  border: 1px solid #d8d8d8;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+@mixin sm-item-img{
+  height: 150px;
+  width: 200px;
   border: 1px solid #d8d8d8;
   margin-bottom: 20px;
   object-fit: cover;
