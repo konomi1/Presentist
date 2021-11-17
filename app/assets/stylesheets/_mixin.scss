@@ -47,7 +47,14 @@
   text-align: center;
 }
 
-// プレゼント画像
+// サイズ別：プレゼント画像
+@mixin fluid-item-img{
+  width: 80%;
+  border: 1px solid #d8d8d8;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
 @mixin lg-item-img{
   height: 300px;
   width: 260px;

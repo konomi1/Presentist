@@ -96,45 +96,13 @@
   }
 }
 
-
-// .gift{
-//   background-color: white;
-//   width: 80%;
-//   margin: 0 auto;
-//   position: relative;
-//   // text-align: center;
-//   display: flex;
-//   &__left{
-//     width: 50%;
-//     padding: 30px 0 30px 30px;
-//   }
-//   &__right{
-//     width: 50%;
-//     padding: 0 30px 30px 0;
-//   }
-//   &__image{
-//     width: 90%;
-//     height: auto;
-//   }
-//   &__title{
-//     font-family: "851MkPOP_100";
-//   }
-//   &__button{
-//     position: absolute;
-//     bottom: 20px;
-//     right: 20px;
-//   }
-// }
-
-
 // 新規登録と編集ページ
 .present-form{
-  background-color: white;
-  width: 60%;
-  margin: 0 auto;
-  padding: 0 10% 5% 10%;
-  &__field{
-    margin-bottom: 10px;
+  .item_image{
+    @include fluid-item-img;
+  }
+  &__btn{
+    text-align: right;
   }
   &__caution{
     color: gray;
