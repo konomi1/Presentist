@@ -1,19 +1,20 @@
 <% present.comments.each do |comment| %>
-  <div class="comment-card">
-    <div class="comment-card__user">
+  <div class="comment row">
+    <div class="comment__user col-2">
       <%= link_to user_path(comment.user) do %>
-        <%= attachment_image_tag comment.user, :image, format: "jpeg", fallback: "noimage-user.jpeg", class: "comment-card__image"%>
+        <%= attachment_image_tag comment.user, :image, format: "jpeg", fallback: "noimage-user.jpeg" %>
       <% end %>
     </div>
-    <div class=comment-card__other>
-      <p class=comment-card__name><%= comment.user.name %>さん</p>
+    <div class="comment__text col-9">
+      <p class="comment__name"><%= comment.user.name%> <time class="comment__date"><%= comment.created_at.strftime("%Y/%m/%d") %></time></p>
       <p><%= comment.comment %></p>
+    </div>
+    <div class="comment__btn col-1 d-flex">
       <% if comment.user_id == current_user.id %>
-        <%= link_to present_comment_path(comment.present_id, comment.id), method: :delete, remote: true, class: "comment-card__delete" do %>
+        <%= link_to present_comment_path(comment.present_id, comment.id), method: :delete, remote: true, class: "btn btn-danger align-self-end" do %>
           <i class="far fa-trash-alt"></i>
         <% end %>
       <% end %>
-      <p class=comment-card__date><%= comment.created_at.strftime("%Y/%m/%d") %></p>
     </div>
   </div>
 <% end %>

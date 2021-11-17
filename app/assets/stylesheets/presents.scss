@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "mixin";
+@import "color";
 
 // 一覧画面
 .post-wrap{
@@ -53,7 +54,7 @@
     border-radius: 25px;
   }
 }
-// follow一覧と近いため、変数化してもよいかも。
+// タブ
 .presents-tab{
   width: 90%;
   margin: 0 auto;
@@ -62,73 +63,69 @@
 
 // 詳細画面
 .gift{
-  background-color: white;
-  width: 80%;
-  margin: 0 auto;
-  position: relative;
-  // text-align: center;
-  display: flex;
-  &__left{
-    width: 50%;
-    padding: 30px 0 30px 30px;
+  &__photo{
+    @include photo;
+    margin: 0 auto;
+    text-align: center;
+    width: 300px;
   }
-  &__right{
-    width: 50%;
-    padding: 0 30px 30px 0;
-  }
-  &__image{
-    width: 90%;
-    height: auto;
+  &__date{
+    text-align: left;
+    padding-left: 20px;
   }
   &__title{
+    padding: 20px;
     font-family: "851MkPOP_100";
   }
-  &__button{
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+  .item_image{
+    @include lg-item-img;
+    margin: 0 auto;
+    border: none;
   }
 }
 
-.comments-group{
-  background-color: white;
-  width: 80%;
-  margin: 0 auto;
-  .comment-card{
-    background-color: gray;
-    margin-bottom: 10px;
-    display: flex;
-    &__user{
-      padding: 10px;
-      text-align: center;
-      min-width: 70px;
-    }
-    &__image{
-      width: 50px;
-      height: 50px;
-      border-radius: 25px;
-    }
-    &__other{
-      width: 100%;
-      position: relative;
-    }
-    &__name{
-      font-weight: bold;
-    }
-    &__delete{
-      font-size: 25px;
-      position: absolute;
-      right: 10px;
-      bottom: 0px;
-    }
-    &__date{
-      color: brown;
-    }
+.gift-right{
+  .image{
+    @include md-user-img;
   }
-  .comment-form{
+  p{
+  padding-bottom: 20px;
+  }
+  &__button{
     text-align: right;
   }
 }
+
+
+// .gift{
+//   background-color: white;
+//   width: 80%;
+//   margin: 0 auto;
+//   position: relative;
+//   // text-align: center;
+//   display: flex;
+//   &__left{
+//     width: 50%;
+//     padding: 30px 0 30px 30px;
+//   }
+//   &__right{
+//     width: 50%;
+//     padding: 0 30px 30px 0;
+//   }
+//   &__image{
+//     width: 90%;
+//     height: auto;
+//   }
+//   &__title{
+//     font-family: "851MkPOP_100";
+//   }
+//   &__button{
+//     position: absolute;
+//     bottom: 20px;
+//     right: 20px;
+//   }
+// }
+
 
 // 新規登録と編集ページ
 .present-form{
