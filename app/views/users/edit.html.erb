@@ -1,41 +1,29 @@
-<div class="inner">
-  <div class="users-box">
-    <h1 class="title">Editing Profile</h1>
-    <p class="sub-title">会員情報編集</p>
-    <%= render "layouts/errors", obj: @user %>
-    <%= form_with model:@user, local: true do |f| %>
-      <div class="edit">
-
-        <div class="edit__left">
-          <div class="edit__field">
-            <%= attachment_image_tag @user, :image, format:"jpeg", fallback: "noimage-user.jpeg", id: "preview" %>
-          </div>
-
-          <div class="edit__field">
-            <%= f.label :image_id, "プロフィール画像" %><br />
-            <%= f.attachment_field :image %>
-          </div>
-        </div>
-
-        <div class="edit__right">
-          <div class="edit__field">
-            <%= f.label :name, "ニックネーム" %><br />
-            <%= f.text_field :name, autofocus: true, autocomplete: "name", size: "30" %>
-          </div>
-
-
-          <div class="edit__field">
-            <%= f.label :introduce, "自己紹介" %><br />
-            <%= f.text_area :introduce, cols: "30", rows: "5" %>
-          </div>
-
-          <div class="edit__action">
-            <%= f.submit %>
-          </div>
-        </div>
-
+<h1 class="title">Editing Profile</h1>
+<p class="sub-title">会員情報編集</p>
+<%= render "layouts/errors", obj: @user %>
+<%= form_with model:@user, local: true do |f| %>
+  <div class="user-edit row">
+    <div class="user-edit__left col-sm-6">
+      <div class="form-group">
+        <%= attachment_image_tag @user, :image, format:"jpeg", fallback: "noimage-user.jpeg", id: "preview" %>
       </div>
-    <% end %>
+      <div class="form-group">
+        <%= f.label :image_id, "プロフィール画像" %><br />
+        <%= f.attachment_field :image, class: "form-control-file" %>
+      </div>
+    </div>
+    <div class="user-edit__right col-sm-6">
+      <div class="form-group">
+        <%= f.label :name, "ニックネーム" %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", size: "30", class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :introduce, "自己紹介" %><br />
+        <%= f.text_area :introduce, cols: "30", rows: "5", class:"form-control" %>
+      </div>
+      <div class="user-edit__btn">
+        <%= f.submit "更新", class: "btn btn-primary" %>
+      </div>
+    </div>
   </div>
-  <%= render "layouts/footer" %>
-</div>
+<% end %>

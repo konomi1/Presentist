@@ -1,25 +1,23 @@
-<div class="inner">
-  <h1 class="title">Follow</h1>
-  <p class="sub-title">フォロー・フォロワー</p>
+<h1 class="title">Follow</h1>
+<p class="sub-title">フォロー・フォロワー</p>
 
-  <div class="follow-tab">
-    <ul id="tab-menu">
-      <li id="tab1"><a href="#panel1">Followers</a></li>
-      <li id="tab2"><a href="#panel2">Followings</a></li>
-    </ul>
+<div class="follow-tab">
+  <ul id="tab-menu">
+    <li id="tab1"><a href="#panel1">Followers</a></li>
+    <li id="tab2"><a href="#panel2">Followings</a></li>
+  </ul>
 
-    <div id="tab-panels">
-      <div id="panel1" class="panel">
-        <div class=follow-wrap>
-          <%= render "index", users: @followers %>
-        </div>
+  <div id="tab-panels">
+    <div id="panel1" class="panel">
+      <div class=follow-wrap>
+        <%= render "index", users: @followers %>
       </div>
-      <div id="panel2" class="panel">
-        <div class=follow-wrap>
-          <%= render "index", users: @followings %>
-        </div>
+    </div>
+    <div id="panel2" class="panel">
+      <div class=follow-wrap>
+        <%= render "index", users: @followings %>
       </div>
     </div>
   </div>
-  <%= render "layouts/footer" %>
 </div>
+

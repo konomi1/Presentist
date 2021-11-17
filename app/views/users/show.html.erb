@@ -1,68 +1,62 @@
-<div class="inner">
-  <div class="user-wrap">
-    <p><%= notice %></p>
-    <h2 class="title">Profile</h2>
-    <p class="sub-title">会員ページ</p>
-    <div class="user-top">
-      <div class="user-info">
-        <p><%= attachment_image_tag @user, :image, format:'jpeg', fallback:'noimage-user.jpeg' %></p>
-        <div class="user-info__item">
-          <h4>Follower</h4>
-          <p id="followers_count_<%= @user.id %>"><%= link_to @user.followers.count, follow_user_path(@user, anchor: "tab1" ) %></p>
-        </div>
-        <div class="user-info__item">
-          <h4>Follow</h4>
-          <p id="following_count_<%= @user.id %>"><%= link_to @user.followings.count, follow_user_path(@user, anchor: "tab2") %></p>
-        </div>
-        <div class="user-info__item">
-          <h4>お気に入り</h4>
-          <p><%= link_to @user.favorites.count, favorites_user_path(@user) %></p>
-        </div>
+<h1 class="title">Profile</h1>
+<p class="sub-title">会員ページ</p>
+<div class="row">
+  <div class="user-info col-sm-6">
+    <p><%= attachment_image_tag @user, :image, format:'jpeg', fallback:'noimage-user.jpeg' %></p>
+      <div class="user-info__item">
+        <h5>Follower</h5>
+        <p id="followers_count_<%= @user.id %>"><%= link_to @user.followers.count, follow_user_path(@user, anchor: "tab1" ) %></p>
       </div>
-      <div class="profile">
-        <h4 class="profile__title">ニックネーム</h4>
-        <div class="profile__name">
-          <p><%= @user.name %></p>
-          <% if @user.id == current_user.id %>
-            <%= link_to "編集", edit_user_path(current_user) %>
-          <% else %>
-            <div id="follow_btn_<%= @user.id %>">
-              <%= render 'relationships/follow_btn', user: @user %>
-            </div>
-          <% end %>
+      <div class="user-info__item">
+        <h5>Follow</h5>
+        <p id="following_count_<%= @user.id %>"><%= link_to @user.followings.count, follow_user_path(@user, anchor: "tab2") %></p>
+      </div>
+      <div class="user-info__item">
+        <h5>お気に入り</h5>
+        <p><%= link_to @user.favorites.count, favorites_user_path(@user) %></p>
+      </div>
+  </div>
+  <div class="profile col-sm-6">
+    <div class="profile__button">
+      <% if @user.id == current_user.id %>
+        <%= link_to "編集", edit_user_path(current_user), class: "btn btn-primary" %>
+      <% else %>
+        <div id="follow_btn_<%= @user.id %>">
+          <%= render 'relationships/follow_btn', user: @user %>
         </div>
-        <h4 class="profile__title">自己紹介</h4>
-        <p><%= @user.introduce %></p>
+      <% end %>
+    </div>
+    <p class="profile__title">ニックネーム</p>
+    <p><%= @user.name %></p>
+    <p class="profile__title">自己紹介</p>
+    <p><%= @user.introduce %></p>
+  </div>
+</div>
+
+<div class="user-tab">
+  <h1 class="title">Gift Log</h1>
+  <p class="sub-title">贈り物記録</p>
+  <ul id="tab-menu">
+    <li id="tab1"><a href="#panel1">全ての贈り物</a></li>
+    <li id="tab2"><a href="#panel2">贈ったもの</a></li>
+    <li id="tab3"><a href="#panel3">いただきもの</a></li>
+  </ul>
+
+  <div id="tab-panels">
+    <div id="panel1" class="panel">
+      <div class="post-wrap">
+        <%= render "user_post", presents: @presents %>
+      </div>
+    </div>
+    <div id="panel2" class="panel">
+      <div class="post-wrap">
+        <%= render "user_post", presents: @to_presents %>
+      </div>
+    </div>
+    <div id="panel3" class="panel">
+      <div class="post-wrap">
+        <%= render "user_post", presents: @from_presents %>
       </div>
     </div>
   </div>
-
-  <div class="user-tab">
-    <h2 class="title">Gift Log</h2>
-    <p class="sub-title">贈り物記録</p>
-    <ul id="tab-menu">
-      <li id="tab1"><a href="#panel1">全ての贈り物</a></li>
-      <li id="tab2"><a href="#panel2">贈ったもの</a></li>
-      <li id="tab3"><a href="#panel3">いただきもの</a></li>
-    </ul>
-
-    <div id="tab-panels">
-      <div id="panel1" class="panel">
-        <div class="post-wrap">
-          <%= render "user_post", presents: @presents %>
-        </div>
-      </div>
-      <div id="panel2" class="panel">
-        <div class="post-wrap">
-          <%= render "user_post", presents: @to_presents %>
-        </div>
-      </div>
-      <div id="panel3" class="panel">
-        <div class="post-wrap">
-          <%= render "user_post", presents: @from_presents %>
-        </div>
-      </div>
-    </div>
-  </div>
-  <%= render "layouts/footer" %>
 </div>

@@ -3,53 +3,28 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "mixin";
+@import "color";
 
-// ステータス変更ボタン
-@mixin swhitch{
-  padding: 5px 1em;
-  width: 90px;
-  height: 25px;
-  font-size: 15px;
-  font-weight: 700;
+// ユーザーページ
+.user-info{
   text-align: center;
-}
-
-// ユーザー画面上部
-.user-wrap{
-  height: auto;
-  padding: 0 10%;
-}
-
-.user-top{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 30px;
-  .user-info{
-    flex: 1 0 200px;
-    text-align: center;
-    &__item{
-      display: inline-block;
-      width: 100px;
-    }
-    .image{
-      height: 200px;
-      width: 200px;
-      border-radius: 100px;
-      border: 1px solid #d8d8d8;
-    }
+  .image{
+    @include lg-user-img;
   }
-  .profile{
-    flex: 3 0 190px;
-    margin-left: 10px;
-    max-width: 500px;
-    &__title{
-      background: #fbded1;
-    }
-    &__name{
-      display: flex;
-      justify-content: space-between;
-    }
+  &__item{
+    display: inline-block;
+    width: 100px;
+    margin-bottom: 15px;
+  }
+}
+
+.profile{
+  &__title{
+    background: $back;
+    margin: 15px 0;
+  }
+  &__button{
+    text-align: right;
   }
 }
 
@@ -60,73 +35,15 @@
   @include tab(calc(100% / 3));
 }
 
-// ユーザー画面下部
-.user-post{
-  width: 100%;
-  padding: 10px 0 10px 5%;
-  border-bottom: 1px solid brown;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  .item_image{
-    width: 150px;
-    height: 150px;
+// 編集ページ
+.user-edit{
+  .image{
+    @include lg-user-img;
   }
-  .post-left{
-    flex: 0 0 200px;
-    align-self: center;
-  }
-  .post-center{
-    flex: 3 1 200px;
-  }
-  .post-right{
-    flex: 0 0 200px;
-    align-self: center;
-    text-align: center;
-    text-align: -webkit-center;
-    &__active{
-      @include swhitch;
-      display: inline-block;
-      background-color: #ff9800;
-      transition: 0.5s;
-      color: white;
-      &:hover{
-        background: #ff98007d;
-      }
-    }
-    &__close{
-      @include swhitch;
-      background: gray;
-      color: white;
-    }
-  }
-}
-
-// ユーザー編集画面
-.edit{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 0 10%;
   &__left{
-    flex: 1 0 200px;
     text-align: center;
-    .image{
-      height: 200px;
-      width: 200px;
-      border-radius: 100px;
-      border: 1px solid #d8d8d8;
-    }
   }
-  &__right{
-    flex: 3 1 200px;
-    align-self: center;
-    padding: 0 5%;
-  }
-  &__field{
-    margin-bottom: 20px;
-  }
-  &__action{
+  &__btn{
     text-align: right;
   }
 }

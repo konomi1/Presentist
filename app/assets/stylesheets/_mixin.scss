@@ -36,3 +36,21 @@
     padding-bottom: 5px;
   }
 }
+
+// ステータス変更ボタン
+@mixin swhitch{
+  padding: 5px 1em;
+  width: 90px;
+  height: 25px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+@mixin lg-user-img{
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  border: 1px solid #d8d8d8;
+  margin-bottom: 20px;
+}

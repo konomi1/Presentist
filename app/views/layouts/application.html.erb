@@ -5,16 +5,33 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <% unless controller.controller_name.in?(['registrations','sessions','homes']) %>
-      <%= render 'layouts/header'%>
-    <% end %>
-    <main class="main">
+      <header class="sp-header">
+        <%= render "layouts/sp-header" %>
+      </header>
+
+      <main class="container">
+
+        <div class="row">
+          <div class="pc-header col-sm-3 col-xl-2">
+            <%= render "layouts/pc-header" %>
+          </div>
+
+          <div class="contents col-sm-12 col-md-9 col-xl-10">
+            <p class="notice"><%= notice %></p>
+            <%= yield %>
+            <%= render "layouts/footer" %>
+          </div>
+        </div>
+      </main>
+    <% else %>
       <%= yield %>
-    </main>
+    <% end %>
   </body>
 </html>
