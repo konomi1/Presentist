@@ -1,10 +1,11 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_current_user, except: [:index, :new]
+  before_action :ensure_current_user, except: [:index, :new, :create]
 
   def index
     # 今後のイベントのみ取得
     @feature_events = current_user.events.where(date: Date.today..Float::INFINITY).order(:date)
+    @events = current_user.events.order(date: 'desc').page(params[:page]).per(10)
   end
 
   def show

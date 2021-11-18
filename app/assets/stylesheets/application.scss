@@ -54,7 +54,7 @@ a, a:hover{
   color: red;
   text-align: left;
   h2{
-    font-size: 18px;
+    font-size: 15px;
   }
   ul{
     list-style-type: none;
@@ -124,7 +124,7 @@ footer{
   &:hover{
     background: #ff898994;
   }
-  &:active{
+  &:active, &:focus{
     background: #ff8989 !important;
   }
 }
@@ -133,6 +133,35 @@ footer{
 tbody > tr:hover{
   background: pink;
   cursor: pointer;
+}
+
+// ページネーション
+.pagination{
+  justify-content: center;
+  a{
+    border: none;
+    color: $gray-letter;
+  }
+  & .page-link{
+    border-top-left-radius: 0rem;
+    border-bottom-left-radius: 0rem;
+    margin-right: 10px;
+    background: none;
+    text-align: center;
+  }
+  & .active{
+    .page-link{
+      border-radius: 50%;
+      background-color: $btn;
+    }
+  }
+  & :hover{
+    .page-link{
+      color: #fff;
+      background-color: $active-btn;
+      border-radius: 50%;
+    }
+  }
 }
 
 // レスポンシブ対応

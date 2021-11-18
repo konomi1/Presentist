@@ -20,7 +20,8 @@
       <% end %>
     </ul>
   </nav>
-  <p><%= link_to "ログ作成", new_present_path, class:"fas fa-gifts btn btn-link" %></p>
-  <%= render 'searches/search_form' %>
-
+  <% if user_signed_in? %>
+    <p><%= link_to "ログ作成", new_present_path, class:"fas fa-gifts btn btn-link" %></p>
+    <%= render 'searches/search_form' %>
+  <% end %>
 </div>

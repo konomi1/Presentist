@@ -4,9 +4,9 @@ class UsersController < ApplicationController
   before_action :ensure_current_user, only: [:edit, :update]
 
   def show
-    @presents = @user.presents
-    @to_presents = @user.presents.where(gift_status: "0")
-    @from_presents = @user.presents.where(gift_status: "1")
+    @presents = @user.presents.page(params[:page]).per(2)
+    @to_presents = @user.presents.where(gift_status: "0").page(params[:page]).per(10)
+    @from_presents = @user.presents.where(gift_status: "1").page(params[:page]).per(10)
   end
 
   def edit
