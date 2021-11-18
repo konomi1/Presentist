@@ -4,9 +4,9 @@ class PresentsController < ApplicationController
   before_action :ensure_current_user, only: [:edit, :update, :destroy]
 
   def index
-    @presents = Present.order(created_at: 'desc').page(params[:page]).per(10)
-    @to_presents = Present.where(gift_status: "1").order(created_at: 'desc').page(params[:page]).per(10)
-    @from_presents = Present.where(gift_status: "0").order(created_at: 'desc').page(params[:page]).per(10)
+    @presents = Present.order(created_at: 'desc').page(params[:page])
+    @to_presents = Present.where(gift_status: "1").order(created_at: 'desc').page(params[:page])
+    @from_presents = Present.where(gift_status: "0").order(created_at: 'desc').page(params[:page])
   end
 
   def show

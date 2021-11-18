@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   def index
     # 今後のイベントのみ取得
     @feature_events = current_user.events.where(date: Date.today..Float::INFINITY).order(:date)
-    @events = current_user.events.order(date: 'desc').page(params[:page]).per(10)
+    @events = current_user.events.order(date: 'desc').page(params[:page])
   end
 
   def show
