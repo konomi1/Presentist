@@ -147,9 +147,9 @@
 
 // ランキング画面
 // スライドショー
-
 .slide{
   height: 500px;
+  position: relative;
   &__image1 {
     background-image: url(test1.jpg);
   }
@@ -165,4 +165,12 @@
   &__image5 {
     background-image: url(test5.jpg);
   }
+}
+
+.top-text{
+  color: #fff;
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  z-index: 11;
 }

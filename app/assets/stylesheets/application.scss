@@ -25,6 +25,7 @@
 }
 
 @import "color";
+@import "mixin";
 
 // 元の設定をリセット
 body {
@@ -117,7 +118,7 @@ footer{
   margin-bottom: 40px;
 }
 
-// ボタン
+// btn-primaryボタン
 .btn-primary{
   background: #ff8989;
   border: none;
@@ -126,6 +127,17 @@ footer{
   }
   &:active, &:focus{
     background: #ff8989 !important;
+  }
+}
+
+// フォローボタン
+a {
+  &.unfollow-btn{
+    @include follow-btn(#fff);
+    background: brown;
+  }
+  &.following-btn{
+    @include follow-btn(brown);
   }
 }
 

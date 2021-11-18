@@ -2,4 +2,5 @@
 <p class="sub-title">お気に入りにした贈り物</p>
 <div class="favorites-wrap">
   <%= render "presents/index", presents: @presents %>
+  <%= paginate @presents %>
 </div>

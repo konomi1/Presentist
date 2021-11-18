@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "color";
 @import "mixin";
 
 //タブメニュー
@@ -12,12 +13,13 @@
 }
 
 .follow-card{
-  width: 100%;
-  .image{
-    height: 80px;
-    width: 80px;
-    border-radius: 100px;
-    border: 1px solid #d8d8d8;
+  border-bottom: 1px solid $border;
+  padding: 5px;
+  & .image{
+    @include md-user-img;
+  }
+  &__left{
+    text-align: center;
   }
 }
 

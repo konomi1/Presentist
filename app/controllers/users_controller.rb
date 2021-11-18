@@ -22,7 +22,8 @@ class UsersController < ApplicationController
 
   def favorites
     favorites = @user.favorites.order(created_at: 'desc').pluck(:present_id)
-    @presents = Present.find(favorites)
+    presents = Present.find(favorites)
+    @presents = Kaminari.paginate_array(presents).page(params[:page])
   end
 
   private
