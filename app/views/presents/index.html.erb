@@ -1,7 +1,6 @@
 <div class="presents-wrap">
   <h1 class="title">All Gift log</h1>
   <p class="sub-title">贈り物ログ一覧</p>
-  <p><%= link_to " +ログ作成", new_present_path, class:"fas fa-gifts btn btn-info" %></p>
 
   <div class="presents-tab">
     <ul id="tab-menu">
@@ -14,20 +13,20 @@
       <div id="panel1" class="panel">
         <div class="post-wrap">
           <%= render "index", presents: @presents %>
-          <%= paginate @presents %>
         </div>
+        <%= paginate @presents %>
       </div>
       <div id="panel2" class="panel">
         <div class="post-wrap">
           <%= render "index", presents: @to_presents %>
-          <%= paginate @to_presents %>
         </div>
+        <%= paginate @to_presents %>
       </div>
       <div id="panel3" class="panel">
         <div class="post-wrap">
           <%= render "index", presents: @from_presents %>
-          <%= paginate @from_presents %>
         </div>
+        <%= paginate @from_presents %>
       </div>
     </div>
   </div>

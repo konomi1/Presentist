@@ -1,7 +1,7 @@
 <% unless events.exists? %>
   <p>予定されている記念日はありません。</p>
 <% else %>
-  <table class="table">
+  <table class="table table-hover">
       <thead>
         <tr>
           <td>準備状況</td>
@@ -10,20 +10,26 @@
           <td>関係</td>
           <td>性別</td>
           <td>備忘録</td>
+          <td>編集</td>
           <td>削除</td>
         </tr>
       </thead>
       <tbody>
         <% events.each do |event| %>
           <tr>
-            <td class="align-middle">
+            <td>
               <%= link_to event.ready_status_i18n, switch_ready_status_event_path(event), method: :patch, class: "switch__#{event.ready_status}" %>
             </td>
-            <td data-link="<%= event_path(event) %>"><%= event.date %></td>
-            <td data-link="<%= event_path(event) %>"><%= event.friend.name %></td>
-            <td data-link="<%= event_path(event) %>"><%= event.friend.relation_i18n %></td>
-            <td data-link="<%= event_path(event) %>"><%= event.friend.gender_i18n %></td>
-            <td data-link="<%= event_path(event) %>"><%= event.memo %></td>
+            <td data-link="<%= friend_path(event.friend) %>"><%= event.date %></td>
+            <td data-link="<%= friend_path(event.friend) %>"><%= event.friend.name %></td>
+            <td data-link="<%= friend_path(event.friend) %>"><%= event.friend.relation_i18n %></td>
+            <td data-link="<%= friend_path(event.friend) %>"><%= event.friend.gender_i18n %></td>
+            <td data-link="<%= friend_path(event.friend) %>"><%= event.memo %></td>
+            <td>
+              <%= link_to edit_event_path(event), class: "btn btn-primary" do %>
+                  <p class="fas fa-edit"></p>
+              <% end %>
+            </td>
             <td>
               <%= link_to event_path(event), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" do %>
                 <p class="far fa-trash-alt"></p>

@@ -8,9 +8,6 @@ class EventsController < ApplicationController
     @events = current_user.events.order(date: 'desc').page(params[:page])
   end
 
-  def show
-  end
-
   def new
     @event = Event.new
   end
@@ -30,7 +27,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to event_path(@event)
+      redirect_to events_path
     else
       render :edit
     end

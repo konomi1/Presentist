@@ -1,7 +1,7 @@
 <h1 class="title">Profile</h1>
 <p class="sub-title">会員ページ</p>
 <div class="row">
-  <div class="user-info col-sm-6">
+  <div class="user-info col-sm-5">
     <p><%= attachment_image_tag @user, :image, format:'jpeg', fallback:'noimage-user.jpeg' %></p>
       <div class="user-info__item">
         <h5>Follower</h5>
@@ -16,7 +16,7 @@
         <p><%= link_to @user.favorites.count, favorites_user_path(@user) %></p>
       </div>
   </div>
-  <div class="profile col-sm-6">
+  <div class="profile col-sm-7">
     <div class="profile__button">
       <% if @user.id == current_user.id %>
         <%= link_to "編集", edit_user_path(current_user), class: "btn btn-primary" %>

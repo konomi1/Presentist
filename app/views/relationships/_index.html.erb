@@ -5,10 +5,10 @@
       <%= attachment_image_tag user, :image, format:'jpeg', fallback:'noimage-user.jpeg' %>
       <%= user.name %>
       </div>
-      <div class="col-sm-8">
-      <%= user.introduce %>
+      <div class="col-sm-7 col-lg-8">
+      <p><%= user.introduce %></p>
       </div>
-      <div class="col-sm-2">
+      <div class="follow-card__right col-sm-3 col-lg-2">
         <div id="follow_btn_<%= user.id %>">
           <%= render 'relationships/follow_btn', user: user %>
         </div>

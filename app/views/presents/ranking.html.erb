@@ -12,22 +12,33 @@
     <h5>Welcome to Presentist</h5>
     <p>「presents」で大切な贈り物のログを残そう</p>
   </div>
-  <div class="ranking-wrap">
-    <h1 class="title">贈り物ログランキング</h1>
+
+  <div class="ranking">
+    <h1 class="title">Log Ranling</h1>
+    <p class="sub-title">贈り物ログランキング</p>
     <% unless user_signed_in? %>
-      <p>贈り物の記録をみるには会員登録が必要です。会員登録は<%= link_to "こちら", new_user_registration_path %></p>
+      <p>贈り物の記録をみるには会員登録が必要です。<br />会員登録は<%= link_to "こちら", new_user_registration_path %></p>
     <% end %>
-    <%= render "presents/index", presents: @rankings %>
+    <div class="row">
+      <% @rankings.each.with_index(1) do |ranking, i|%>
+        <div class="ranking__image<%= i %>"></div>
+        <div class="ranking__item col-lg-4">
+          <%= render "ranking", gift: ranking %>
+        </div>
+      <% end %>
+    </div>
   </div>
+
   <% if user_signed_in? %>
+    <h1 class="title">Schedule</h1>
+    <p class="sub-title">贈り物を準備しよう！</p>
     <div class="calender-wrap">
-      <h1 class="title">贈り物を準備しよう！</h1>
         <div class="schedule">
           <%= month_calendar events: @events do |date,events| %>
             <%= date.day %>
             <% events.each do |event| %>
               <div class="schedule__event">
-                <%= link_to event_path(event) do %>
+                <%= link_to friend_path(event.friend) do %>
                   <%= event.friend.name %>(<%= event.scene_status_i18n %>)
                 <% end %>
               </div>

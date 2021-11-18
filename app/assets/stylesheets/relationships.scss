@@ -7,7 +7,7 @@
 
 //タブメニュー
 .follow-tab{
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   @include tab(50%);
 }
@@ -20,6 +20,10 @@
   }
   &__left{
     text-align: center;
+  }
+  &__right{
+    display: flex;
+    justify-content: center
   }
 }
 

@@ -93,6 +93,19 @@ header{
     background: $header-btn;
     }
   }
+  & .btn-link{
+    display: inline-block;
+    background: $btn;
+    color: #fff;
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+    padding-top: 24px;
+    margin-bottom: 20px;
+    &:hover{
+      background: $active-btn;
+    }
+  }
 }
 
 // フッター
@@ -139,12 +152,6 @@ a {
   &.following-btn{
     @include follow-btn(brown);
   }
-}
-
-//テーブル
-tbody > tr:hover{
-  background: pink;
-  cursor: pointer;
 }
 
 // ページネーション
