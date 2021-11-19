@@ -24,7 +24,9 @@
           </div>
 
           <div class="contents col-sm-12 col-md-9 col-xl-10">
-            <p class="notice"><%= notice %></p>
+            <% unless controller.controller_name == 'presents' && controller.action_name == 'ranking' %>
+              <p class="notice"><%= notice %></p>
+            <% end %>
             <%= yield %>
             <%= render "layouts/footer" %>
           </div>

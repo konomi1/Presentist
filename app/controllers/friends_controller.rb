@@ -4,7 +4,8 @@ class FriendsController < ApplicationController
 
   def index
     @friend = Friend.new
-    @friends = current_user.friends
+    # カナ降順順に並び替え
+    @friends = current_user.friends.order(kana_name: "asc")
   end
 
   def create
