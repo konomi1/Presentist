@@ -14,52 +14,191 @@
  *= require_self
  */
 
+@import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import  " simple_calendar " ;
+@import "simple_calendar";
 
 @font-face{
   font-family: "851MkPOP_100";
   src: font-url('/assets/851MkPOP_100.ttf');
 }
 
-// 共通部分のCSS
-@mixin header-bace{
-  width: 100%;
-  height: 130px;
-  background-color: #00b39a;
+@import "color";
+@import "mixin";
+
+// 元の設定をリセット
+body {
+  margin: 0;
+  padding: 0;
 }
 
+ul{
+  padding: 0;
+  list-style: none;
+}
+
+p{
+  margin: 0;
+  overflow-wrap: break-word;
+　word-wrap: break-word;
+}
+
+a, a:hover{
+  text-decoration: none;
+}
+
+// 以降共通のスタイル
+
+// エラ-メッセージ
+#error_explanation{
+  color: red;
+  text-align: left;
+  h2{
+    font-size: 15px;
+  }
+  ul{
+    list-style-type: none;
+    text-align: left;
+  }
+}
+.field_with_errors{
+  display: inline;
+  input{
+    border-color: red;
+  }
+}
+
+// スマホ用ヘッダー
+header{
+  background: $back;
+}
+
+// サイドバー(pc用ヘッダー)
 .header{
-  @include header-bace;
-  &__ul{
-    list-style: none;
-    display: flex;
-    justify-content: center
+    background: $back;
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+  &__btn{
+    padding: 5px 1em;
+    margin: 15px 35px;
+    border-radius: 15px;
+    &:hover{
+    -webkit-transition: all 600ms 0s ease;
+    transition: all 400ms 0s ease;
+    background: $header-btn;
+    }
   }
-  &__item{
-    width: 10%;
-    margin: 10px 5px;
+  & .btn-link{
+    display: inline-block;
+    background: $btn;
+    color: #fff;
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+    padding-top: 24px;
+    margin-bottom: 20px;
+    &:hover{
+      background: $active-btn;
+    }
   }
 }
 
-.footer{
-  @include header-bace;
+// フッター
+footer{
+  height: 60px;
+  margin-top: 40px;
+  border-top: 1px solid gray;
   display: flex;
   align-items: flex-end;
   justify-content: center;
 }
 
-// 背景あとで変更
-.inner {
-  background-color: #80808066;
-}
-
 // タイトル
 .title{
   text-align: center;
+  border-bottom: 1px double brown;
+  margin: 0 25%;
+  padding-top: 40px;
 }
-// リセット
-p{
-  margin: 0;
+
+.sub-title{
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+// btn-primaryボタン
+.btn-primary{
+  background: #ff8989;
+  border: none;
+  &:hover{
+    background: #ff898994;
+  }
+  &:active, &:focus{
+    background: #ff8989 !important;
+  }
+}
+
+// フォローボタン
+a {
+  &.unfollow-btn{
+    @include follow-btn(#fff);
+    background: brown;
+  }
+  &.following-btn{
+    @include follow-btn(brown);
+  }
+}
+
+// 注意書き、notice
+.notice{
+  color: $caution;
+}
+
+// ページネーション
+.pagination{
+  justify-content: center;
+  a{
+    border: none;
+    color: $caution;
+  }
+  & .page-link{
+    border-top-left-radius: 0rem;
+    border-bottom-left-radius: 0rem;
+    margin-right: 10px;
+    background: none;
+    text-align: center;
+  }
+  & .active{
+    .page-link{
+      border-radius: 50%;
+      background-color: $btn;
+    }
+  }
+  & :hover{
+    .page-link{
+      color: #fff;
+      background-color: $active-btn;
+      border-radius: 50%;
+    }
+  }
+}
+
+// レスポンシブ対応
+// mdサイズ以上の場合、sp用のヘッダーを消す
+@media (min-width: 768px){
+  .sp-header{
+    display: none;
+  }
+}
+
+// smサイズ以下の場合、サイドバーを消す
+@media (max-width: 767px){
+  .pc-header{
+    display: none;
+  }
 }

@@ -1,56 +1,59 @@
-<div class="inner">
-  <div class="users-box">
-    <!--アラートが表示されているかあとで確認-->
-    <% notice %>
-    <div class="user-info">
-      <p><%= attachment_image_tag @user, :image, :fill, 50, 50, format:'jpeg', fallback:'noimage-user.jpeg', size:'100x100' %></p>
+<h1 class="title">Profile</h1>
+<p class="sub-title">会員ページ</p>
+<div class="row">
+  <div class="user-info col-sm-5">
+    <p><%= attachment_image_tag @user, :image, format:'jpeg', fallback:'noimage-user.jpeg' %></p>
       <div class="user-info__item">
-        <h4>Follower</h4>
-        <p><%= link_to @user.followers.count, followers_user_path(@user) %></p>
+        <h5>Follower</h5>
+        <p id="followers_count_<%= @user.id %>"><%= link_to @user.followers.count, follow_user_path(@user, anchor: "tab1" ) %></p>
       </div>
       <div class="user-info__item">
-        <h4>Follow</h4>
-        <p><%= link_to @user.followings.count, followings_user_path(@user) %></p>
+        <h5>Follow</h5>
+        <p id="following_count_<%= @user.id %>"><%= link_to @user.followings.count, follow_user_path(@user, anchor: "tab2") %></p>
       </div>
       <div class="user-info__item">
-        <h4>お気に入り</h4>
+        <h5>お気に入り</h5>
         <p><%= link_to @user.favorites.count, favorites_user_path(@user) %></p>
       </div>
-    </div>
-    <div class="profile">
-      <h2 class="profile__title">Profile</h2>
-      <h4 class="profile__sub-title">ニックネーム</h4>
-      <p><%= @user.name %></p>
-      <h4 class="profile__sub-title">自己紹介</h4>
-      <p><%= @user.introduce %></p>
+  </div>
+  <div class="profile col-sm-7">
+    <div class="profile__button">
       <% if @user.id == current_user.id %>
-        <%= link_to "編集", edit_user_path(current_user) %>
+        <%= link_to "編集", edit_user_path(current_user), class: "btn btn-primary" %>
       <% else %>
         <div id="follow_btn_<%= @user.id %>">
           <%= render 'relationships/follow_btn', user: @user %>
         </div>
       <% end %>
     </div>
+    <p class="profile__title">ニックネーム</p>
+    <p><%= @user.name %></p>
+    <p class="profile__title">自己紹介</p>
+    <p><%= @user.introduce %></p>
   </div>
-  <% @presents.each do |gift| %>
-    <%= link_to present_path(gift) do%>
-      <div class="user-post">
-        <h2>投稿</h2>
-        <%= gift.created_at.strftime('%Y/%m/%d') %>
-        <%= attachment_image_tag gift, :item_image, :fill, 50, 50, format:'jpeg', fallback:'noimage-user.jpeg', size:'100x100'%><br>
+</div>
 
-        <% if gift.return_status == "preparation" %>
-          <p><%= link_to gift.return_status_i18n, switch_return_status_present_path(gift.id), method: :patch %></p>
-        <% else %>
-          <p><%= gift.return_status_i18n %></p>
-        <% end %>
+<div class="user-tab">
+  <h1 class="title">Gift Log</h1>
+  <p class="sub-title">贈り物記録</p>
+  <ul id="tab-menu">
+    <li id="tab1"><a href="#panel1">全ての贈り物</a></li>
+    <li id="tab2"><a href="#panel2">贈ったもの</a></li>
+    <li id="tab3"><a href="#panel3">いただきもの</a></li>
+  </ul>
 
-        <p>品名：<%= gift.item %></p>
-        <p>シーン：<%= gift.scene_status_i18n %><p>
-        <div id="favorite_<%= gift.id %>">
-          <%= render "favorites/favorite", present: gift %>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+  <div id="tab-panels">
+    <div id="panel1" class="panel">
+      <%= render "user_post", presents: @presents %>
+      <%= paginate @presents %>
+    </div>
+    <div id="panel2" class="panel">
+      <%= render "user_post", presents: @to_presents %>
+      <%= paginate @to_presents %>
+    </div>
+    <div id="panel3" class="panel">
+      <%= render "user_post", presents: @from_presents %>
+      <%= paginate @from_presents %>
+    </div>
+  </div>
 </div>

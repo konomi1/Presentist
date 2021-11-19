@@ -1,0 +1,82 @@
+<div class="friends-box">
+    <h1 class="title">Your Friend</h1>
+    <p class="sub-title">フレンド情報</p>
+  <div class="friend-detail row">
+    <div class="friend-table col-lg-3">
+      <table class="table table-bordered">
+        <thead>
+          <tr><th colspan="2"><%= @friend.name %>さん</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><i class="fas fa-venus-mars"></i></th>
+            <td><%= @friend.gender_i18n %></td>
+          </tr>
+          <tr>
+            <th><i class="fas fa-user-friends"></i></th>
+            <td><%= @friend.relation_i18n %></td>
+          </tr>
+          <tr>
+            <th><i class="fas fa-pen-fancy"></i></th>
+            <td><%= @friend.memo %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="friend-table__btn">
+        <%= link_to edit_friend_path(@friend), class: "btn btn-primary" do %>
+          <p class="fas fa-edit"></p>
+        <% end %>
+        <%= link_to friend_path(@friend), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" do %>
+          <p class="far fa-trash-alt"></p>
+        <% end %>
+      </div>
+    </div>
+
+
+    <div class="friend-events col-lg-8">
+      <h3 class="friend-events__title">Friend's Events</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <td>準備状況</td>
+            <td>記念日</td>
+            <td>シーン</td>
+            <td>備忘録</td>
+            <td>編集</td>
+            <td>削除</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @events.each do |event| %>
+            <tr>
+              <td>
+                <%= link_to event.ready_status_i18n, switch_ready_status_event_path(event), method: :patch, class: "switch__#{event.ready_status}" %>
+              </td>
+              <td><%= event.date %></td>
+              <td><%= event.scene_status_i18n %></td>
+              <td><%= event.memo %></td>
+              <td>
+                <%= link_to edit_event_path(event), class: "btn btn-primary" do %>
+                    <p class="fas fa-edit"></p>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to event_path(event), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" do %>
+                  <p class="far fa-trash-alt"></p>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="friend-logs">
+    <h1 class="title">Friend's Gift Logs</h1>
+    <p class="sub-title">フレンドとの贈り物ログ</p>
+    <div class="post-wrap">
+      <%= render 'presents/index', presents: @presents %>
+    </div>
+  </div>
+
+</div>

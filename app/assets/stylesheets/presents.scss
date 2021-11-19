@@ -2,41 +2,43 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// 一覧画面
+@import "mixin";
+@import "color";
+
+// // 一覧画面
 .post-wrap{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .post {
-  background-color: white;
+  @include photo;
+  margin: 0 auto;
   width: 300px;
   height: 450px;
   padding: 0 20px;
-  margin: 40px 15px;
-  box-shadow: 15px 15px 10px gray;
   position: relative;
   &__head{
     display: flex;
     justify-content: space-between;
     padding-top: 0;
-    &_right{
+    &--right{
       display: flex;
     }
   }
-  &__image{
+  & .item_image{
     width: 100%;
     height: 50%;
   }
   &__title{
     text-align: center;
     font-family: "851MkPOP_100";
-    margin: 0;
   }
   &__text{
     font-family: "851MkPOP_100";
   }
-  &__cat{
+  &__scene{
     margin-top: 10px;
     color: gray;
   }
@@ -45,91 +47,61 @@
     bottom: 10px;
     left: 20px;
   }
-  &__user-image{
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
+  & .image{
+    @include sm-user-img;
   }
+}
+
+
+// タブ
+.presents-tab{
+  width: 90%;
+  margin: 0 auto;
+  @include tab(calc(100% / 3));
 }
 
 // 詳細画面
 .gift{
-  background-color: white;
-  width: 80%;
-  margin: 0 auto;
-  position: relative;
-  // text-align: center;
-  display: flex;
-  &__left{
-    width: 50%;
-    padding: 30px 0 30px 30px;
+  &__photo{
+    @include photo;
+    margin: 0 auto;
+    text-align: center;
+    width: 300px;
   }
-  &__right{
-    width: 50%;
-    padding: 0 30px 30px 0;
-  }
-  &__image{
-    width: 90%;
-    height: auto;
+  &__date{
+    text-align: left;
+    padding-left: 20px;
   }
   &__title{
+    padding: 20px;
     font-family: "851MkPOP_100";
   }
-  &__button{
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+  .item_image{
+    @include lg-item-img;
+    margin: 0 auto;
+    border: none;
   }
 }
 
-.comments-group{
-  background-color: white;
-  width: 80%;
-  margin: 0 auto;
-  .comment-card{
-    background-color: gray;
-    margin-bottom: 10px;
-    display: flex;
-    &__user{
-      padding: 10px;
-      text-align: center;
-      min-width: 70px;
-    }
-    &__image{
-      width: 50px;
-      height: 50px;
-      border-radius: 25px;
-    }
-    &__other{
-      width: 100%;
-      position: relative;
-    }
-    &__name{
-      font-weight: bold;
-    }
-    &__delete{
-      font-size: 25px;
-      position: absolute;
-      right: 10px;
-      bottom: 0px;
-    }
-    &__date{
-      color: brown;
-    }
+.gift-right{
+  .image{
+    @include md-user-img;
   }
-  .comment-form{
+  p{
+  padding-bottom: 20px;
+  }
+  &__button{
     text-align: right;
   }
 }
 
 // 新規登録と編集ページ
 .present-form{
-  background-color: white;
-  width: 60%;
-  margin: 0 auto;
-  padding: 0 10% 5% 10%;
-  &__field{
-    margin-bottom: 10px;
+  .item_image{
+    @include fluid-item-img(80%);
+  }
+  &__btn{
+    text-align: right;
   }
   &__caution{
     color: gray;
@@ -139,7 +111,6 @@
 // ranking画面
 .calender-wrap{
   width: 80%;
-  background: pink;
   margin: 0 auto;
 }
 
@@ -149,25 +120,52 @@
     text-align: center;
     font-size: 25px;
   }
-  .day {}
+  & th {
+    background: #dddddd;
+  }
+  .day {
+    background: #fff;
+  }
+  .wday-0 {
+    background: #ffc6c6;      /*日曜日*/
+  }
+  .wday-6 {
+    background: #A5D9FF;      /*土曜日*/
+  }
+  .has-events {
+    & a {
+      color: #fff;
+      background: $btn;
+    }
+  }
+}
 
-  .wday-0 {}
-  .wday-1 {}
-  .wday-2 {}
-  .wday-3 {}
-  .wday-4 {}
-  .wday-5 {}
-  .wday-6 {}
+// ランキング画面
+// スライドショー
+.slide{
+  height: 500px;
+  position: relative;
+  &__image1 {
+    background-image: url(test1.jpg);
+  }
+  &__image2 {
+    background-image: url(test2.jpg);
+  }
+  &__image3 {
+    background-image: url(test3.jpg);
+  }
+  &__image4 {
+    background-image: url(test4.jpg);
+  }
+  &__image5 {
+    background-image: url(test5.jpg);
+  }
+}
 
-  .today {}
-  .past {}
-  .future {}
-
-  .start-date {}
-
-  .prev-month {}
-  .next-month { }
-  .current-month {}
-
-  .has-events {}
+.top-text{
+  color: #fff;
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  z-index: 11;
 }

@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
+  before_action :ensure_current_user, only: [:edit, :update]
 
   def show
-    @presents = @user.presents
+    @presents = @user.presents.page(params[:page])
+    @to_presents = @user.presents.where(gift_status: "0").page(params[:page])
+    @from_presents = @user.presents.where(gift_status: "1").page(params[:page])
   end
 
   def edit
@@ -19,7 +22,8 @@ class UsersController < ApplicationController
 
   def favorites
     favorites = @user.favorites.order(created_at: 'desc').pluck(:present_id)
-    @presents = Present.find(favorites)
+    presents = Present.find(favorites)
+    @presents = Kaminari.paginate_array(presents).page(params[:page])
   end
 
   private
@@ -28,8 +32,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def ensure_current_user
+    unless @user == current_user
+      redirect_to user_path(current_user), notice: "ユーザーご本人のみアクセスできます。"
+    end
+  end
+
   def user_params
-    params.require(:user).permit(:name, :introduce, :image_id)
+    params.require(:user).permit(:name, :introduce, :image)
   end
 
 end

@@ -1,0 +1,124 @@
+// タブメニュー
+@mixin tab($li-width){
+  #tab-menu{
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+  #tab-menu li{
+    width : $li-width;
+  }
+  #tab-menu li a{
+  color: black;
+  display: block;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid brown;
+  background: #d8d8d8;
+  border-radius: 15px 15px 0 0;
+  }
+  #tab-menu .active {
+  border-bottom: none;
+  background: none;
+
+  }
+  #tab-panels {
+  display: flex;
+  flex-wrap: wrap;
+  }
+  #tab-panels .panel {
+  width: 100%;
+  padding: 30px;
+  border: 1px solid brown;
+  border-top: none;
+  }
+  #tab-panels p {
+    padding-bottom: 5px;
+  }
+}
+
+// スイッチ
+@mixin toggle($color, $hover-color){
+  display: block;
+  color: white;
+  padding-top: 13px;
+  height: 50px;
+  width: 100px;
+  background: $color;
+  border-radius: 10px;
+  &:hover{
+    background: $hover-color;
+    color: white;
+  }
+}
+
+// サイズ別：プレゼント画像
+@mixin fluid-item-img($width){
+  width: $width;
+  border: 1px solid #d8d8d8;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+@mixin lg-item-img{
+  height: 300px;
+  width: 260px;
+  border: 1px solid #d8d8d8;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+@mixin sm-item-img{
+  height: 150px;
+  width: 200px;
+  border: 1px solid #d8d8d8;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+//サイズ別:ユーザー画像
+@mixin lg-user-img{
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  border: 1px solid #d8d8d8;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+@mixin md-user-img{
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+  border: 1px solid #d8d8d8;
+  object-fit: cover;
+}
+
+@mixin sm-user-img{
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  border: 1px solid #d8d8d8;
+  object-fit: cover;
+}
+
+
+// photoの色、線、影
+@mixin photo{
+  background: #fffcf6;
+  border: 1px solid #adadada1;
+  box-shadow: 8px 8px 20px 0px #adadada1;
+}
+
+// フォローボタン
+@mixin follow-btn($color){
+  display: block;
+  color: $color;
+  border: 1px solid;
+  font-weight: 600;
+  padding-top: 8px;
+  height: 40px;
+  width: 110px;
+  border-radius: 30px;
+  text-align: center;
+}

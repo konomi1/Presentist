@@ -8,13 +8,13 @@ Rails.application.routes.draw do
   root 'homes#top'
   get '/about' => 'homes#about'
   get '/ranking' => 'presents#ranking'
+  get 'search' => 'searches#search'
 
   resources :users, only: [:show, :edit, :update] do
     member do
       get 'favorites'
       resource :relationships, only: [:create, :destroy]
-      get 'followings' => 'relationships#followings'
-      get 'followers' => 'relationships#followers'
+      get 'follow' => 'relationships#follow'
     end
   end
   resources :presents do
@@ -24,8 +24,8 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
   end
-  resources :friends, except: [:new, :show]
-  resources :events do
+  resources :friends, except: [:new]
+  resources :events, except: [:show] do
     patch :switch_ready_status, on: :member
   end
 end

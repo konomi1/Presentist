@@ -1,13 +1,11 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :switch_ready_status]
+  before_action :ensure_current_user, except: [:index, :new, :create]
 
   def index
     # 今後のイベントのみ取得
     @feature_events = current_user.events.where(date: Date.today..Float::INFINITY).order(:date)
-  end
-
-  def show
+    @events = current_user.events.order(date: 'desc').page(params[:page])
   end
 
   def new
@@ -29,7 +27,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to event_path(@event)
+      redirect_to events_path
     else
       render :edit
     end
@@ -51,8 +49,10 @@ class EventsController < ApplicationController
     params.require(:event).permit(:friend_id, :date, :memo, :scene_status, :ready_status)
   end
 
-  def set_event
+  def ensure_current_user
     @event = Event.find(params[:id])
+    unless @event.user_id == current_user.id
+      redirect_to user_path(current_user), notice: "登録したご本人以外はアクセスできません。"
+    end
   end
-
 end

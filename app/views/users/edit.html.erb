@@ -1,30 +1,29 @@
-<div class="inner">
-  <div class="users-box">
-    <div class="edit">
-      <h1 class="title">プロフィール編集</h1>
-      <div><%= attachment_image_tag @user, :image, :fill, 50, 50, format:'jpeg', fallback:'noimage-user.jpeg', size:'200x200' %></div>
-      <%= form_with model:@user, local: true do |f| %>
-
-      <div class="edit__field">
-        <%= f.label :name, "ニックネーム" %><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+<h1 class="title">Editing Profile</h1>
+<p class="sub-title">会員情報編集</p>
+<%= render "layouts/errors", obj: @user %>
+<%= form_with model:@user, local: true do |f| %>
+  <div class="user-edit row">
+    <div class="user-edit__left col-sm-6">
+      <div class="form-group">
+        <%= attachment_image_tag @user, :image, format:"jpeg", fallback: "noimage-user.jpeg", id: "preview" %>
       </div>
-
-      <div class="edit__field">
+      <div class="form-group">
         <%= f.label :image_id, "プロフィール画像" %><br />
-        <%= f.attachment_field :image %>
+        <%= f.attachment_field :image, class: "form-control-file" %>
       </div>
-
-      <div class="edit__field">
+    </div>
+    <div class="user-edit__right col-sm-6">
+      <div class="form-group">
+        <%= f.label :name, "ニックネーム" %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", size: "30", class:"form-control" %>
+      </div>
+      <div class="form-group">
         <%= f.label :introduce, "自己紹介" %><br />
-        <%= f.text_field :introduce %>
+        <%= f.text_area :introduce, cols: "30", rows: "5", class:"form-control" %>
       </div>
-
-      <div class="edit__action">
-        <%= f.submit %>
+      <div class="user-edit__btn">
+        <%= f.submit "更新", class: "btn btn-primary" %>
       </div>
-
-      <% end %>
     </div>
   </div>
-</div>
+<% end %>

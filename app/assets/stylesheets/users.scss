@@ -2,35 +2,72 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.users-box{
-  width: 100%;
-  height: 500px;
-  // 中央よせはあとで調整
-  padding: 0 10%;
-  background: pink;
-}
+@import "mixin";
+@import "color";
 
+// ユーザーページ
 .user-info{
-  width: 40%;
-  height: 500px;
-  background-color: #ffffffbf;
   text-align: center;
-  display: inline-block;
+  .image{
+    @include lg-user-img;
+  }
   &__item{
     display: inline-block;
+    width: 100px;
+    margin-bottom: 15px;
   }
 }
 
 .profile{
-  width: 40%;
-  height: 500px;
-  text-align: center;
-  display: inline-block;
-  color: white;
+  &__title{
+    background: $back;
+    margin: 15px 0;
+  }
+  &__button{
+    text-align: right;
+  }
 }
 
+// タブメニュー
+.user-tab{
+  width: 90%;
+  margin: 0 auto;
+  @include tab(calc(100% / 3));
+}
+
+// ユーザーの贈り物ログ
 .user-post{
-  width: 80%;
-  height: auto;
-  background-color: gray;
+  border-bottom: 1px solid $border;
+  margin: 10px;
+  .post-left{
+    .item_image{
+      @include sm-item-img;
+    }
+  }
+}
+
+.switch{
+  &__done{
+    @include toggle(gray, gray);
+    padding-left: 17px;
+  }
+  &__preparation{
+    @include toggle(orange, #ffa500bf);
+  }
+  &__unnecessary{
+    @include toggle(gray, gray);
+    padding-left: 9px;
+  }
+}
+// 編集ページ
+.user-edit{
+  .image{
+    @include lg-user-img;
+  }
+  &__left{
+    text-align: center;
+  }
+  &__btn{
+    text-align: right;
+  }
 }

@@ -1,9 +1,12 @@
 class PresentsController < ApplicationController
   before_action :authenticate_user!, except: [:ranking]
   before_action :set_present, only: [:show, :edit, :update, :destroy, :switch_return_status]
+  before_action :ensure_current_user, only: [:edit, :update, :destroy]
 
   def index
-    @presents = Present.order(created_at: 'desc')
+    @presents = Present.order(created_at: 'desc').page(params[:page])
+    @to_presents = Present.where(gift_status: "1").order(created_at: 'desc').page(params[:page])
+    @from_presents = Present.where(gift_status: "0").order(created_at: 'desc').page(params[:page])
   end
 
   def show
@@ -24,6 +27,7 @@ class PresentsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
@@ -58,6 +62,12 @@ class PresentsController < ApplicationController
 
   def set_present
     @present = Present.find(params[:id])
+  end
+
+  def ensure_current_user
+    unless @present.user_id == current_user.id
+      redirect_to user_path(current_user), notice: "ログを登録したご本人以外はアクセスできません。"
+    end
   end
 
 end

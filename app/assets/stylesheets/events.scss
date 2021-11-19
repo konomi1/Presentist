@@ -1,3 +1,37 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "color";
+@import "mixin";
+
+// 贈り物準備ステータス変更
+.switch{
+  &__ready{
+    @include toggle(gray, gray);
+    padding-left: 17px;
+  }
+  &__preparation{
+    @include toggle(orange, #ffa500bf);
+    padding-left: 1px;
+  }
+}
+
+// 記念日新規作成、編集画面
+.event-wrap{
+  width: 70%;
+  margin: 0 auto;
+}
+
+@media (max-width: 992px){
+  .event-wrap{
+    display: 90%;
+  }
+}
+
+// 記念日一覧
+.events-wrap{
+  & tbody > tr:hover{
+    cursor: pointer;
+  }
+}

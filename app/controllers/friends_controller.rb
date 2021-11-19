@@ -1,10 +1,11 @@
 class FriendsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_friend, only: [:edit, :update, :destroy]
+  before_action :ensure_current_user, except: [:index, :create]
 
   def index
     @friend = Friend.new
-    @friends = current_user.friends.all
+    # カナ降順順に並び替え
+    @friends = current_user.friends.order(kana_name: "asc")
   end
 
   def create
@@ -16,6 +17,11 @@ class FriendsController < ApplicationController
       @friends = Friend.all
       render :index
     end
+  end
+
+  def show
+    @presents = @friend.presents
+    @events = @friend.events
   end
 
   def edit
@@ -41,7 +47,13 @@ class FriendsController < ApplicationController
   end
 
   def set_friend
+  end
+
+  def ensure_current_user
     @friend = Friend.find(params[:id])
+    unless @friend.user_id == current_user.id
+      redirect_to user_path(current_user), notice: "登録したご本人以外はアクセスできません。"
+    end
   end
 
 end

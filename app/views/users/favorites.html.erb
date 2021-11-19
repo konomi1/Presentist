@@ -1,6 +1,8 @@
-<div class="inner">
-  <div class="favorites-wrap">
-    <h1 class="title">いいねした贈り物ログ</h1>
+<h1 class="title">Favotites</h1>
+<p class="sub-title">お気に入りにした贈り物</p>
+<div class="favorites-wrap">
+  <div class="post-wrap">
     <%= render "presents/index", presents: @presents %>
   </div>
+  <%= paginate @presents %>
 </div>

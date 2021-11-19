@@ -5,19 +5,35 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <% unless controller.controller_name.in?(['registrations','sessions','homes']) %>
-      <%= render 'layouts/header'%>
-    <% end %>
-    <main>
-    <%= yield %>
-    </main>
-    <% unless controller.controller_name.in?(['registrations','sessions','homes']) %>
-      <%= render 'layouts/footer'%>
+      <header class="sp-header">
+        <%= render "layouts/sp-header" %>
+      </header>
+
+      <main class="container-fluid">
+
+        <div class="row">
+          <div class="pc-header col-sm-3 col-xl-2">
+            <%= render "layouts/pc-header" %>
+          </div>
+
+          <div class="contents col-sm-12 col-md-9 col-xl-10">
+            <% unless controller.controller_name == 'presents' && controller.action_name == 'ranking' %>
+              <p class="notice"><%= notice %></p>
+            <% end %>
+            <%= yield %>
+            <%= render "layouts/footer" %>
+          </div>
+        </div>
+      </main>
+    <% else %>
+      <%= yield %>
     <% end %>
   </body>
 </html>

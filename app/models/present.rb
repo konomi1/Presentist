@@ -46,14 +46,21 @@ class Present < ApplicationRecord
   def switch_return_status!
     if preparation?
       done!
-    else
+    elsif done?
       preparation!
+    else
+      unnecessary!
     end
   end
 
   # お気に入りされているか確認
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
+  end
+
+  # タイトルと内容で検索。
+  def self.search_for(content)
+    where("(item LIKE ?) OR (memo LIKE ?)", '%' + content + '%', '%' + content + '%')
   end
 
 end
