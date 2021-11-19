@@ -1,10 +1,13 @@
 <h1 class="title">Resolut</h1>
-<p class="sub-title"></p>
+<p class="sub-title">検索結果</p>
 
 <div class="search-wrap">
   <h3>"<%= @content %>"の検索結果</h3>
   <% if @results.exists? %>
-    <%= render 'presents/index', presents: @results %>
+    <div class="post-wrap">
+      <%= render 'presents/index', presents: @results %>
+    </div>
+    <%= paginate @pagenation %>
   <% else %>
     <p>該当するデータがありません。</p>
   <% end %>

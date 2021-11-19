@@ -154,12 +154,17 @@ a {
   }
 }
 
+// 注意書き、notice
+.notice{
+  color: $caution;
+}
+
 // ページネーション
 .pagination{
   justify-content: center;
   a{
     border: none;
-    color: $gray-letter;
+    color: $caution;
   }
   & .page-link{
     border-top-left-radius: 0rem;
