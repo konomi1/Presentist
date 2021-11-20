@@ -1,0 +1,38 @@
+<h1 class="title">Resolut</h1>
+<p class="sub-title">検索結果</p>
+
+<div class="search-wrap">
+  <h3>"<%= @content %>"の検索結果</h3>
+  <% if @results.present? %>
+    <div class="post-wrap">
+      <%= render 'presents/index', presents: @results %>
+    </div>
+    <%= paginate @pagenation %>
+  <% else %>
+    <p>該当するデータがありません。</p>
+  <% end %>
+
+  <div class="rakuten">
+    <h4>贈り物をお探しですか？</h4>
+    <p class="caution"><i class="fas fa-external-link-alt"></i>下記リンク先は、楽天市場のWebサイトとなります。</p>
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th colspan="2">商品名</th>
+          <th >価格</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @items.present? %>
+          <% @items.each do |item| %>
+            <tr>
+              <td data-link="<%= item.url %>"><img src="<%= item.medium_image_urls[0] %>" /></td>
+              <td data-link="<%= item.url %>"><%= item.name %></td>
+              <td data-link="<%= item.url %>"><%= number_with_delimiter(item.price) %>円</td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

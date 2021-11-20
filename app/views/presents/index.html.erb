@@ -1,0 +1,33 @@
+<div class="presents-wrap">
+  <h1 class="title">All Gift log</h1>
+  <p class="sub-title">贈り物ログ一覧</p>
+
+  <div class="presents-tab">
+    <ul id="tab-menu">
+      <li id="tab1"><a href="#panel1">全ての贈り物</a></li>
+      <li id="tab2"><a href="#panel2">贈ったもの</a></li>
+      <li id="tab3"><a href="#panel3">いただきもの</a></li>
+    </ul>
+
+    <div id="tab-panels">
+      <div id="panel1" class="panel">
+        <div class="post-wrap">
+          <%= render "index", presents: @presents %>
+        </div>
+        <%= paginate @presents %>
+      </div>
+      <div id="panel2" class="panel">
+        <div class="post-wrap">
+          <%= render "index", presents: @to_presents %>
+        </div>
+        <%= paginate @to_presents %>
+      </div>
+      <div id="panel3" class="panel">
+        <div class="post-wrap">
+          <%= render "index", presents: @from_presents %>
+        </div>
+        <%= paginate @from_presents %>
+      </div>
+    </div>
+  </div>
+</div>

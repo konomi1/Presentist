@@ -1,0 +1,42 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// ログイン前画面
+.back-image {
+  background-image: image_url("top-back.jpeg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.top-logo{
+    height: 250px;
+    width: 250px;
+  }
+
+.top-wrapper{
+  width: 50%;
+  min-height: 100vh;
+  margin: auto;
+  padding: 5%;
+  background-color: #fbfafa99;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  &__list{
+    list-style-type: none;
+    padding-left: 0;
+  }
+  &__item{
+    margin-bottom: 10px;
+  }
+  &__caution{
+    color: gray;
+  }
+  &__field{
+    margin-bottom: 10px;
+  }
+}

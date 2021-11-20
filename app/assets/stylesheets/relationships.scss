@@ -1,0 +1,29 @@
+// Place all the styles related to the relationships controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "color";
+@import "mixin";
+
+//タブメニュー
+.follow-tab{
+  width: 80%;
+  margin: 0 auto;
+  @include tab(50%);
+}
+
+.follow-card{
+  border-bottom: 1px solid $border;
+  padding: 5px;
+  & .image{
+    @include md-user-img;
+  }
+  &__left{
+    text-align: center;
+  }
+  &__right{
+    display: flex;
+    justify-content: center
+  }
+}
+

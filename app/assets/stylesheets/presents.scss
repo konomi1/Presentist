@@ -1,0 +1,171 @@
+// Place all the styles related to the presents controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "mixin";
+@import "color";
+
+// // 一覧画面
+.post-wrap{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.post {
+  @include photo;
+  margin: 0 auto;
+  width: 300px;
+  height: 450px;
+  padding: 0 20px;
+  position: relative;
+  &__head{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0;
+    &--right{
+      display: flex;
+    }
+  }
+  & .item_image{
+    width: 100%;
+    height: 50%;
+  }
+  &__title{
+    text-align: center;
+    font-family: "851MkPOP_100";
+  }
+  &__text{
+    font-family: "851MkPOP_100";
+  }
+  &__scene{
+    margin-top: 10px;
+    color: gray;
+  }
+  &__user{
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+  }
+  & .image{
+    @include sm-user-img;
+  }
+}
+
+
+// タブ
+.presents-tab{
+  width: 90%;
+  margin: 0 auto;
+  @include tab(calc(100% / 3));
+}
+
+// 詳細画面
+.gift{
+  &__photo{
+    @include photo;
+    margin: 0 auto;
+    text-align: center;
+    width: 300px;
+  }
+  &__date{
+    text-align: left;
+    padding-left: 20px;
+  }
+  &__title{
+    padding: 20px;
+    font-family: "851MkPOP_100";
+  }
+  .item_image{
+    @include lg-item-img;
+    margin: 0 auto;
+    border: none;
+  }
+}
+
+.gift-right{
+  .image{
+    @include md-user-img;
+  }
+  p{
+  padding-bottom: 20px;
+  }
+  &__button{
+    text-align: right;
+  }
+}
+
+// 新規登録と編集ページ
+.present-form{
+  .item_image{
+    @include fluid-item-img(80%);
+  }
+  &__btn{
+    text-align: right;
+  }
+  &__caution{
+    color: gray;
+  }
+}
+
+// ranking画面
+.calender-wrap{
+  width: 80%;
+  margin: 0 auto;
+}
+
+// simple-calendar
+.simple-calendar {
+  .calendar-heading{
+    text-align: center;
+    font-size: 25px;
+  }
+  & th {
+    background: #dddddd;
+  }
+  .day {
+    background: #fff;
+  }
+  .wday-0 {
+    background: #ffc6c6;      /*日曜日*/
+  }
+  .wday-6 {
+    background: #A5D9FF;      /*土曜日*/
+  }
+  .has-events {
+    & a {
+      color: #fff;
+      background: $btn;
+    }
+  }
+}
+
+// ランキング画面
+// スライドショー
+.slide{
+  height: 500px;
+  position: relative;
+  &__image1 {
+    background-image: image-url("test1.jpg");
+  }
+  &__image2 {
+    background-image: image-url("test2.jpg");
+  }
+  &__image3 {
+    background-image: image-url("test3.jpg");
+  }
+  &__image4 {
+    background-image: image-url("test4.jpg");
+  }
+  &__image5 {
+    background-image: image-url("test5.jpg");
+  }
+}
+
+.top-text{
+  color: #fff;
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  z-index: 11;
+}

@@ -1,0 +1,23 @@
+<% if users.exists? %>
+  <% users.each do |user|%>
+    <div class="follow-card row">
+      <div class="follow-card__left col-sm-2">
+      <%= attachment_image_tag user, :image, format:'jpeg', fallback:'noimage-user.jpeg' %>
+      <%= user.name %>
+      </div>
+      <div class="col-sm-7 col-lg-8">
+      <p><%= user.introduce %></p>
+      </div>
+      <div class="follow-card__right col-sm-3 col-lg-2">
+        <% unless user.id == current_user.id%>
+          <div id="follow_btn_<%= user.id %>">
+            <%= render 'relationships/follow_btn', user: user %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  <% end %>
+<% else %>
+  <p>該当するユーザーはいません</p>
+<% end %>

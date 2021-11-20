@@ -1,0 +1,67 @@
+<%= form_with model: present, local: true do |f| %>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <p><%= attachment_image_tag present, :item_image, format:"jpeg", fallback: "top-back.jpeg", id: "preview" %></p>
+      <div class="form-group">
+        <%= f.label :item_image, "画像" %><br />
+        <%= f.attachment_field :item_image, class: "form-control-file" %>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+
+      <div class="form-group">
+        <%= f.label :gift_status, "ログの種類" %><br />
+        <%= f.radio_button :gift_status, :give %>
+        <%= f.label :gift_status, "贈り物" %>
+        <%= f.radio_button :gift_status, :receive %>
+        <%= f.label :gift_status, "頂き物" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :friend_id, "相手のお名前" %><br />
+        <%= f.collection_select :friend_id, current_user.friends.order(:kana_name), :id, :name, { prompt: "選択してください" }, class: "form-control" %>
+      <p class="present-form__caution">※新しいお知り合いの場合は<%= link_to "こちら", friends_path %>から</p>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :age, "相手の年齢" %><br />
+        <%= f.select :age, Present.ages_i18n.keys.map {|k| [I18n.t("enums.present.age.#{k}"), k]}, { prompt: "選択してください" }, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :item, "品名" %><br />
+        <%= f.text_field :item, placeholder: "お菓子", class: "form-control" %>
+      </div>
+
+
+      <div class="form-group">
+        <%= f.label :price, "目安金額" %><br />
+        <%= f.text_field :price, placeholder: "1000", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :scene_status, "贈り物のシーン" %><br />
+        <%= f.select :scene_status, Present.scene_statuses_i18n.keys.map {|k| [I18n.t("enums.present.scene_status.#{k}"), k]}, { prompt: "選択してください" }, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :return_status, "お返しの必要性" %><br />
+        <%= f.radio_button :return_status, :unnecessary %>
+        <%= f.label :return_status, "なし" %>
+        <%= f.radio_button :return_status, :preparation %>
+        <%= f.label :return_status, "あり" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :memo, "メモ" %><br />
+        <%= f.text_area :memo, placeholder: "頂き物への感謝の気持ちや、贈り物への相手の反応や備忘録を残そう", class: "form-control" %>
+      </div>
+
+      <div class="present-form__btn">
+        <%= f.submit "投稿", class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>

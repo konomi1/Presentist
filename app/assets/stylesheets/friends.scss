@@ -1,0 +1,33 @@
+// Place all the styles related to the friends controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "color";
+@import "mixin";
+
+// フォームのパーシャル
+.friend-form{
+  &__btn{
+    text-align: right;
+  }
+}
+
+// フレンド詳細情報
+.friend-table{
+  width: 200px;
+  &__btn{
+    text-align: right;
+    padding-bottom: 20px;
+  }
+}
+
+.friend-events{
+  padding: 0 40px;
+}
+
+// フレンド一覧
+.friend-index{
+  & tbody > tr:hover{
+    cursor: pointer;
+  }
+}

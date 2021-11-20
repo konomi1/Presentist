@@ -1,0 +1,3 @@
+$("#follow_btn_<%= @user.id %>").html("<%= j(render 'relationships/follow_btn', user: @user) %>");
+$("#followers_count_<%= @user.id %>").html('<%= link_to @user.followers.count, follow_user_path(@user, anchor: "tab1") %>');
+$("#following_count_<%= @user.id %>").html('<%= link_to @user.followings.count, follow_user_path(@user, anchor: "tab2") %>');
