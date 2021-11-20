@@ -10,7 +10,7 @@ class CreatePresents < ActiveRecord::Migration[5.2]
       t.string    :item_image_id
       t.integer   :scene_status,    null: false, default: 0
       t.integer   :return_status,   null: false, default: 0
-      t.text      :memo,            null: false, default: ""
+      t.text      :memo,            null: false
       t.timestamps
     end
     add_index :presents, :user_id
