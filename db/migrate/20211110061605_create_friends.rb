@@ -2,7 +2,7 @@ class CreateFriends < ActiveRecord::Migration[5.2]
   def change
     create_table :friends do |t|
 
-      t.integer   :user_id,     null: false, default: ""
+      t.integer   :user_id,     null: false
       t.string    :name,        null: false, default: ""
       t.string    :kana_name,   null: false, default: ""
       t.integer   :relation,    null: false, default: 0

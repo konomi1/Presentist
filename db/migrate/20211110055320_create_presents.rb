@@ -1,12 +1,12 @@
 class CreatePresents < ActiveRecord::Migration[5.2]
   def change
     create_table :presents do |t|
-      t.integer   :user_id,         null: false, default: ""
-      t.integer   :friend_id,       null: false, default: ""
+      t.integer   :user_id,         null: false
+      t.integer   :friend_id,       null: false
       t.integer   :gift_status,     null: false, default: 0
-      t.integer   :age,             null: false, default: ""
+      t.integer   :age,             null: false
       t.string    :item,            null: false, default: ""
-      t.integer   :price,           null: false, default: ""
+      t.integer   :price
       t.string    :item_image_id
       t.integer   :scene_status,    null: false, default: 0
       t.integer   :return_status,   null: false, default: 0
