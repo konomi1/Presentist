@@ -7,7 +7,7 @@ class CreateFriends < ActiveRecord::Migration[5.2]
       t.string    :kana_name,   null: false, default: ""
       t.integer   :relation,    null: false, default: 0
       t.integer   :gender,      null: false, default: 0
-      t.text      :memo,        null: false, default: ""
+      t.text      :memo,        null: false
       t.timestamps
     end
 
