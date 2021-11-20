@@ -146,19 +146,19 @@
   height: 500px;
   position: relative;
   &__image1 {
-    background-image: url(test1.jpg);
+    background-image: image-url("test1.jpg");
   }
   &__image2 {
-    background-image: url(test2.jpg);
+    background-image: image-url("test2.jpg");
   }
   &__image3 {
-    background-image: url(test3.jpg);
+    background-image: image-url("test3.jpg");
   }
   &__image4 {
-    background-image: url(test4.jpg);
+    background-image: image-url("test4.jpg");
   }
   &__image5 {
-    background-image: url(test5.jpg);
+    background-image: image-url("test5.jpg");
   }
 }
 
