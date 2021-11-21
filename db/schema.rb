@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_10_065101) do
+ActiveRecord::Schema.define(version: 2021_11_21_052058) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_11_10_065101) do
     t.integer "friend_id", null: false
     t.date "date", null: false
     t.integer "scene_status", null: false
-    t.text "memo", null: false
+    t.text "memo"
     t.integer "ready_status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2021_11_10_065101) do
     t.string "kana_name", default: "", null: false
     t.integer "relation", default: 0, null: false
     t.integer "gender", default: 0, null: false
-    t.text "memo", default: "", null: false
+    t.text "memo", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_friends_on_user_id"
@@ -58,11 +58,11 @@ ActiveRecord::Schema.define(version: 2021_11_10_065101) do
     t.integer "gift_status", default: 0, null: false
     t.integer "age", null: false
     t.string "item", default: "", null: false
-    t.integer "price", null: false
+    t.integer "price"
     t.string "item_image_id"
     t.integer "scene_status", default: 0, null: false
     t.integer "return_status", default: 0, null: false
-    t.text "memo", default: "", null: false
+    t.text "memo", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["friend_id"], name: "index_presents_on_friend_id"
@@ -88,8 +88,8 @@ ActiveRecord::Schema.define(version: 2021_11_10_065101) do
     t.string "name", default: "", null: false
     t.date "birthday", null: false
     t.integer "gender", default: 0, null: false
-    t.string "image_id", default: "", null: false
-    t.text "introduce", default: "", null: false
+    t.string "image_id", default: ""
+    t.text "introduce", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
