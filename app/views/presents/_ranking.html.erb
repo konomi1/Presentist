@@ -11,14 +11,14 @@
     </div>
   </div>
   <%= link_to present_path(gift) do %>
-    <%= attachment_image_tag gift, :item_image, format:'jpeg', fallback: 'top-back.jpeg' %><br>
+    <%= attachment_image_tag gift, :item_image, format:'jpg', fallback: 'top-back.jpg' %><br>
   <% end %>
   <h2 class="post__title">#<%= gift.item %></h2>
   <p class="post__text"><%= gift.memo.truncate(40, separator: /\s/) %></p>
   <div class="post__user">
     <p class="post__scene">贈り物シーン：<%= gift.scene_status_i18n %><p>
     <%= link_to user_path(gift.user) do%>
-      <%= attachment_image_tag gift.user, :image, format:'jpeg', fallback: 'noimage-user.jpeg' %>
+      <%= attachment_image_tag gift.user, :image, format:'jpg', fallback: 'noimage-user.jpg' %>
     <% end %>
     <% if gift.gift_status == "give" %>
       <span> from: <%= link_to gift.user.name, user_path(gift.user) %></span>

@@ -6,7 +6,7 @@
     <div class="col-sm-6">
       <div class="gift__photo">
         <p class="gift__date"><%= @present.created_at.strftime('%Y/%m/%d') %></p>
-        <p><%= attachment_image_tag @present, :item_image, format:'jpeg', fallback:'top-back.jpeg' %></p>
+        <p><%= attachment_image_tag @present, :item_image, format:'jpg', fallback:'top-back.jpg' %></p>
         <h2 class="gift__title"># <%= @present.item %></h2>
       </div>
     </div>
@@ -14,7 +14,7 @@
     <div class="gift-right col-sm-6">
       <%= link_to user_path(@present.user) do %>
       <p>
-        <%= attachment_image_tag @present.user, :image, format:'jpeg', fallback:'noimage-user.jpeg' %>
+        <%= attachment_image_tag @present.user, :image, format:'jpg', fallback:'noimage-user.jpg' %>
         <%= @present.user.name %>
       </p>
       <% end %>

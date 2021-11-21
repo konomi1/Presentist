@@ -5,7 +5,7 @@
   <div class="user-edit row">
     <div class="user-edit__left col-sm-6">
       <div class="form-group">
-        <%= attachment_image_tag @user, :image, format:"jpeg", fallback: "noimage-user.jpeg", id: "preview" %>
+        <%= attachment_image_tag @user, :image, format:"jpg", fallback: "noimage-user.jpg", id: "preview" %>
       </div>
       <div class="form-group">
         <%= f.label :image_id, "プロフィール画像" %><br />

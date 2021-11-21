@@ -2,7 +2,7 @@
   <% users.each do |user|%>
     <div class="follow-card row">
       <div class="follow-card__left col-sm-2">
-      <%= attachment_image_tag user, :image, format:'jpeg', fallback:'noimage-user.jpeg' %>
+      <%= attachment_image_tag user, :image, format:'jpg', fallback:'noimage-user.jpg' %>
       <%= user.name %>
       </div>
       <div class="col-sm-7 col-lg-8">

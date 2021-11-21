@@ -2,7 +2,7 @@
 
   <div class="row">
     <div class="col-sm-6">
-      <p><%= attachment_image_tag present, :item_image, format:"jpeg", fallback: "top-back.jpeg", id: "preview" %></p>
+      <p><%= attachment_image_tag present, :item_image, format:"jpg", fallback: "top-back.jpg", id: "preview" %></p>
       <div class="form-group">
         <%= f.label :item_image, "画像" %><br />
         <%= f.attachment_field :item_image, class: "form-control-file" %>

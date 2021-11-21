@@ -2,7 +2,7 @@
 <p class="sub-title">会員ページ</p>
 <div class="row">
   <div class="user-info col-sm-5">
-    <p><%= attachment_image_tag @user, :image, format:'jpeg', fallback:'noimage-user.jpeg' %></p>
+    <p><%= attachment_image_tag @user, :image, format:'jpg', fallback:'noimage-user.jpg' %></p>
       <div class="user-info__item">
         <h5>Follower</h5>
         <p id="followers_count_<%= @user.id %>"><%= link_to @user.followers.count, follow_user_path(@user, anchor: "tab1" ) %></p>
