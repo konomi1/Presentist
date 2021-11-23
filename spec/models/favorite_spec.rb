@@ -10,13 +10,11 @@ RSpec.describe 'Favoriteモデルのテスト', type: :model do
   end
 
   describe 'バリデーション(一意性)のテスト' do
-
     it 'user_idとpresents_idがの組み合わせが同じ場合は保存されない' do
       favorite1 = FactoryBot.create(:favorite)
       favorite2 = FactoryBot.build(:favorite, user_id: favorite1.user_id, present_id: favorite1.present_id)
       expect(favorite2.valid?).to eq false
     end
-
   end
 
   describe 'アソシエーションのテスト' do
@@ -33,5 +31,4 @@ RSpec.describe 'Favoriteモデルのテスト', type: :model do
       end
     end
   end
-
 end

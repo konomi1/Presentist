@@ -3,9 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'ログイン前のテスト' do
-
   describe 'トップ画面のテスト' do
-
     before do
       visit root_path
     end
@@ -29,9 +27,7 @@ RSpec.describe 'ログイン前のテスト' do
     end
   end
 
-
   describe 'アバウト画面のテスト' do
-
     before do
       visit about_path
     end
@@ -88,7 +84,7 @@ RSpec.describe 'ログイン前のテスト' do
     end
 
     context '新規登録できるか' do
-      #formに値を入れる
+      # formに値を入れる
       before do
         fill_in 'user[name]', with: Gimei.name.kanji
         fill_in 'user[email]', with: Faker::Internet.email
@@ -109,7 +105,6 @@ RSpec.describe 'ログイン前のテスト' do
       # 新規登録失敗はmodel/user_spec.rbで確認できる。
     end
   end
-
 
   describe 'ログイン画面のテスト' do
     # 登録済み会員
@@ -135,7 +130,7 @@ RSpec.describe 'ログイン前のテスト' do
     end
 
     context 'ログインできるか' do
-      #formに値を入れる
+      # formに値を入れる
       before do
         fill_in 'user[email]', with: user.email
         fill_in 'user[password]', with: user.password
@@ -148,9 +143,7 @@ RSpec.describe 'ログイン前のテスト' do
     end
   end
 
-
   describe 'ランキング画面のテスト' do
-
     before do
       visit ranking_path
     end
@@ -185,5 +178,4 @@ RSpec.describe 'ログイン前のテスト' do
       end
     end
   end
-
 end

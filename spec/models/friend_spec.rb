@@ -11,9 +11,10 @@ RSpec.describe 'Friendモデルのテスト', type: :model do
 
   describe 'バリデーションのテスト' do
     # 備考：build(:friend)はDB保存されない。オブジェクトとして扱う。
+    subject { friend.valid? }
+
     let(:friend) { build(:friend) }
     # 有効か確認
-    subject { friend.valid? }
 
     context 'nameカラム' do
       it '空欄は保存されない' do
@@ -23,7 +24,7 @@ RSpec.describe 'Friendモデルのテスト', type: :model do
       it '空欄の場合はエラーが出る' do
         friend.name = ''
         friend.valid?
-        expect(friend.errors[:name]).to include("を入力してください")   #blankを確認
+        expect(friend.errors[:name]).to include("を入力してください") # blankを確認
       end
     end
 
@@ -76,5 +77,4 @@ RSpec.describe 'Friendモデルのテスト', type: :model do
       end
     end
   end
-
 end

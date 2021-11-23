@@ -27,7 +27,6 @@ class PresentsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -57,7 +56,16 @@ class PresentsController < ApplicationController
   private
 
   def present_params
-    params.require(:present).permit(:friend_id, :gift_status, :age, :item, :price, :item_image, :scene_status, :memo, :return_status)
+    params.require(:present).permit(
+      :friend_id,
+      :gift_status,
+      :age,
+      :item,
+      :price,
+      :item_image,
+      :scene_status,
+      :memo,
+      :return_status)
   end
 
   def set_present
@@ -69,5 +77,4 @@ class PresentsController < ApplicationController
       redirect_to user_path(current_user), notice: "ログを登録したご本人以外はアクセスできません。"
     end
   end
-
 end

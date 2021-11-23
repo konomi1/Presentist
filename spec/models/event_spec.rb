@@ -11,9 +11,10 @@ RSpec.describe 'Eventモデルのテスト', type: :model do
 
   describe 'バリデーションのテスト' do
     # 備考：build(:event)はDB保存されない。オブジェクトとして扱う。
+    subject { event.valid? }
+
     let(:event) { build(:event) }
     # 有効か確認
-    subject { event.valid? }
 
     context 'dateカラム' do
       it '空欄は保存されない' do
@@ -23,7 +24,7 @@ RSpec.describe 'Eventモデルのテスト', type: :model do
       it '空欄の場合はエラーが出る' do
         event.date = ''
         event.valid?
-        expect(event.errors[:date]).to include("を入力してください")   #blankを確認
+        expect(event.errors[:date]).to include("を入力してください") # blankを確認
       end
     end
 
@@ -35,7 +36,7 @@ RSpec.describe 'Eventモデルのテスト', type: :model do
       it '空欄の場合はエラーが出る' do
         event.ready_status = ''
         event.valid?
-        expect(event.errors[:ready_status]).to include("を入力してください")   #blankを確認
+        expect(event.errors[:ready_status]).to include("を入力してください")   # blankを確認
       end
     end
 
@@ -47,7 +48,7 @@ RSpec.describe 'Eventモデルのテスト', type: :model do
       it '空欄の場合はエラーが出る' do
         event.scene_status = ''
         event.valid?
-        expect(event.errors[:scene_status]).to include("を入力してください")   #blankを確認
+        expect(event.errors[:scene_status]).to include("を入力してください")   # blankを確認
       end
     end
   end
@@ -66,5 +67,4 @@ RSpec.describe 'Eventモデルのテスト', type: :model do
       end
     end
   end
-
 end

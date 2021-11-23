@@ -11,11 +11,12 @@ RSpec.describe 'Userモデルのテスト', type: :model do
 
   describe 'バリデーションのテスト' do
     # 備考：build(:user)はDB保存されない。オブジェクトとして扱う。
+    subject { user.valid? }
+
     let(:user) { build(:user) }
     # 備考：一意性確認のためDBに保存しておく。
     let!(:user_2) { create(:user) }
     # is_expectedとセットで使う。
-    subject { user.valid? }
 
     context 'nameカラム' do
       it '空欄は保存されない' do
@@ -25,7 +26,7 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       it '空欄の場合はエラーが出る' do
         user.name = ''
         user.valid?
-        expect(user.errors[:name]).to include("を入力してください")   #blankを確認
+        expect(user.errors[:name]).to include("を入力してください") # blankを確認
       end
       it '20文字以下である：20文字は可︎' do
         user.name = Faker::Lorem.characters(number: 20)
@@ -50,12 +51,11 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       it '重複するemailは保存されない' do
         user.email = user_2.email
         is_expected.to eq false
-
       end
       it '重複するemailの場合はエラーが出る' do
         user.email = user_2.email
         user.valid?
-        expect(user.errors[:email]).to include("はすでに存在します")      #tokenを確認
+        expect(user.errors[:email]).to include("はすでに存在します") # tokenを確認
       end
     end
 
@@ -160,6 +160,5 @@ RSpec.describe 'Userモデルのテスト', type: :model do
         expect(User.reflect_on_association(:passive_relationships).macro).to eq :has_many
       end
     end
-
   end
 end

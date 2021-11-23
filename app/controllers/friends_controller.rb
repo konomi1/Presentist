@@ -55,5 +55,4 @@ class FriendsController < ApplicationController
       redirect_to user_path(current_user), notice: "登録したご本人以外はアクセスできません。"
     end
   end
-
 end

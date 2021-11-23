@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-require 'rails_helper';
+require 'rails_helper'
 
 RSpec.describe 'Relationshipモデルのテスト', type: :model do
-
   describe 'モデルのテスト' do
     it "全ての項目が正しく入力されている場合は保存されるか" do
       expect(FactoryBot.build(:relationship)).to be_valid
@@ -12,9 +11,9 @@ RSpec.describe 'Relationshipモデルのテスト', type: :model do
 
   describe 'バリデーションのテスト' do
     # 備考：build(:relationship)はDB保存されない。オブジェクトとして扱う。
-    let(:relationship) { build(:relationship) }
-
     subject { relationship.valid? }
+
+    let(:relationship) { build(:relationship) }
 
     context 'followed_idカラム' do
       it 'followed_idがない場合は保存されない' do
@@ -32,9 +31,8 @@ RSpec.describe 'Relationshipモデルのテスト', type: :model do
   end
 
   describe '一意性のテスト' do
-
     let(:relationship) { create(:relationship) }
-    let(:user) {create(:user)}
+    let(:user) { create(:user) }
 
     it 'followed_idとfollower_idが全く同じ場合は保存されない' do
       relation1 = relationship
@@ -62,7 +60,5 @@ RSpec.describe 'Relationshipモデルのテスト', type: :model do
         expect(Relationship.reflect_on_association(:follower).macro).to eq :belongs_to
       end
     end
-
   end
-
 end

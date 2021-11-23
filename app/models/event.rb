@@ -1,5 +1,4 @@
 class Event < ApplicationRecord
-
   belongs_to :user
   belongs_to :friend
 
@@ -8,7 +7,7 @@ class Event < ApplicationRecord
   validates :scene_status, presence: true
 
   # 贈り物の準備ステータス
-  enum ready_status: { preparation: 0, ready: 1}
+  enum ready_status: { preparation: 0, ready: 1 }
   # 贈り物の理由
   enum scene_status: {
     birthday: 0,
@@ -21,7 +20,7 @@ class Event < ApplicationRecord
     admission: 7,
     graduation: 8,
     incense: 9,
-    others: 10
+    others: 10,
   }
 
   # 贈り物準備ステータスボタンをスイッチ
@@ -35,7 +34,6 @@ class Event < ApplicationRecord
 
   # simple_calendar用メソッド
   def start_time
-    self.date
+    date
   end
-
 end

@@ -11,9 +11,10 @@ RSpec.describe 'Presentモデルのテスト', type: :model do
 
   describe 'バリデーションのテスト' do
     # 備考：build(:present)はDB保存されない。オブジェクトとして扱う。
+    subject { present.valid? }
+
     let(:present) { build(:present) }
     # 有効か確認
-    subject { present.valid? }
 
     context 'ageカラム' do
       it '空欄は保存されない' do
@@ -23,7 +24,7 @@ RSpec.describe 'Presentモデルのテスト', type: :model do
       it '空欄の場合はエラーが出る' do
         present.age = ''
         present.valid?
-        expect(present.errors[:age]).to include("を入力してください")   #blankを確認
+        expect(present.errors[:age]).to include("を入力してください") # blankを確認
       end
     end
 
@@ -35,7 +36,7 @@ RSpec.describe 'Presentモデルのテスト', type: :model do
       it '空欄の場合はエラーが出る' do
         present.item = ''
         present.valid?
-        expect(present.errors[:item]).to include("を入力してください")   #blankを確認
+        expect(present.errors[:item]).to include("を入力してください") # blankを確認
       end
     end
 
@@ -93,7 +94,5 @@ RSpec.describe 'Presentモデルのテスト', type: :model do
         expect(Present.reflect_on_association(:comments).macro).to eq :has_many
       end
     end
-
-
   end
 end

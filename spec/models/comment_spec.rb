@@ -11,9 +11,10 @@ RSpec.describe 'Commentモデルのテスト', type: :model do
 
   describe 'バリデーションのテスト' do
     # 備考：build(:comment)はDB保存されない。オブジェクトとして扱う。
+    subject { comment.valid? }
+
     let(:comment) { build(:comment) }
     # 有効か確認
-    subject { comment.valid? }
 
     context 'commentカラム' do
       it '空欄は保存されない' do
@@ -23,7 +24,7 @@ RSpec.describe 'Commentモデルのテスト', type: :model do
       it '空欄の場合はエラーが出る' do
         comment.comment = ''
         comment.valid?
-        expect(comment.errors[:comment]).to include("を入力してください")   #blankを確認
+        expect(comment.errors[:comment]).to include("を入力してください") # blankを確認
       end
       it '300文字以下である：300文字は可' do
         comment.comment = Faker::Lorem.characters(number: 300)
@@ -50,5 +51,4 @@ RSpec.describe 'Commentモデルのテスト', type: :model do
       end
     end
   end
-
 end

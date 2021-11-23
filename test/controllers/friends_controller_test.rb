@@ -10,5 +10,4 @@ class FriendsControllerTest < ActionDispatch::IntegrationTest
     get friends_edit_url
     assert_response :success
   end
-
 end

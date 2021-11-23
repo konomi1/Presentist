@@ -12,7 +12,7 @@ RSpec.describe '会員に関わる画面のテスト' do
   # 他のユーザーの贈り物ログ
   let!(:present2) { create(:present, user: user2) }
   # userが他のユーザーの贈り物ログにいいね
-  let!(:favorite) { create(:favorite, user: user, present: present2)}
+  let!(:favorite) { create(:favorite, user: user, present: present2) }
 
   # userでログインする
   before do
@@ -23,7 +23,6 @@ RSpec.describe '会員に関わる画面のテスト' do
   end
 
   describe '会員詳細画面のテスト' do
-
     before do
       visit user_path(user)
     end
@@ -60,20 +59,18 @@ RSpec.describe '会員に関わる画面のテスト' do
 
     context 'ステータスボタンの変更' do
       it 'お返しボタンをクリックすると表示が変わるか' do
-      click_link "お返し準備中", match: :first
-      expect(page).to have_link "お返し済", href: switch_return_status_present_path(present.id)
+        click_link "お返し準備中", match: :first
+        expect(page).to have_link "お返し済", href: switch_return_status_present_path(present.id)
       end
       it 'お返し済ボタンをクリックすると表示が変わるか' do
-      click_link "お返し準備中", match: :first
-      click_link "お返し済", match: :first
-      expect(page).to have_link "お返し準備中", href: switch_return_status_present_path(present.id)
+        click_link "お返し準備中", match: :first
+        click_link "お返し済", match: :first
+        expect(page).to have_link "お返し準備中", href: switch_return_status_present_path(present.id)
       end
     end
-
   end
 
   describe '会員編集画面のテスト' do
-
     before do
       visit edit_user_path(user)
     end
@@ -118,7 +115,6 @@ RSpec.describe '会員に関わる画面のテスト' do
   end
 
   describe 'いいね一覧画面のテスト' do
-
     before do
       visit favorites_user_path(user)
     end
@@ -132,5 +128,4 @@ RSpec.describe '会員に関わる画面のテスト' do
       end
     end
   end
-
 end
