@@ -3,7 +3,6 @@ class Event < ApplicationRecord
   belongs_to :user
   belongs_to :friend
 
-  # あとで日付だけの入力もしくは当日以降の日付のみでバリデーションかけてみる。
   validates :date, presence: true
   validates :ready_status, presence: true
   validates :scene_status, presence: true
