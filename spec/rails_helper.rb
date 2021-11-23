@@ -34,7 +34,7 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 
 # ログ出力
-Rails.logger = Logger.new(STDOUT)
+# Rails.logger = Logger.new(STDOUT)
 # SQL実行ログ
 # ActiveRecord::Base.logger = Logger.new(STDOUT)
 
@@ -75,4 +75,6 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   # deviseのメソッドが使えるように設定
   config.include Devise::Test::IntegrationHelpers, type: :request
+  # prefix pathが使えるように設定
+  config.include Rails.application.routes.url_helpers
 end
