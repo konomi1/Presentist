@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :user, aliases: [:follower, :followed] do
+  factory :user do      #aliases: [:follower, :followed]
     name      { Gimei.name.kanji}
     email     { Faker::Internet.email}
     birthday  { Faker::Date.birthday(min_age: 18, max_age: 80) }
