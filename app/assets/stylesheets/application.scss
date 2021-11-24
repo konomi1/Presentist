@@ -19,6 +19,10 @@
 @import "font-awesome";
 @import "simple_calendar";
 
+// 基本フォント
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap');
+// タイトルフォント
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
 @font-face{
   font-family: "851MkPOP_100";
   src: font-url('/assets/851MkPOP_100.ttf');
@@ -31,6 +35,7 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Kiwi Maru', serif;
 }
 
 ul{
@@ -121,9 +126,10 @@ footer{
 // タイトル
 .title{
   text-align: center;
-  border-bottom: 1px double brown;
+  border-bottom: 6px double brown;
   margin: 0 25%;
   padding-top: 40px;
+  font-family: 'Yeseva One', cursive;
 }
 
 .sub-title{
