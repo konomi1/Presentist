@@ -91,6 +91,7 @@ ja:
       event:
         date: "日付"
         memo: "備忘録"
+        ready_status: "贈り物準備状況"
       comment:
         comment: "コメント"
     errors:

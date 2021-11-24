@@ -7,6 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul>
         <% if user_signed_in? %>
+          <li><%= link_to "ホーム", ranking_path, class:"btn header__btn" %></li>
           <li><%= link_to "マイページ", user_path(current_user.id) %></li>
           <li><%= link_to "贈り物ログ", presents_path %></li>
           <li><%= link_to "記念日", events_path %></li>

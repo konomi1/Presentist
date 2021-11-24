@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/about' => 'homes#about'
   get '/ranking' => 'presents#ranking'
   get 'search' => 'searches#search'
+  # 新規登録ミス後にリロードするとエラーになるためルートパスに繋ぐ。
+  get '/users' => 'homes#top'
 
   resources :users, only: [:show, :edit, :update] do
     member do
