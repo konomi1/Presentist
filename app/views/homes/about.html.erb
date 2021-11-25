@@ -1,9 +1,8 @@
 <div class="back-image">
   <div class="top-wrapper">
     <a href="/">
-      <img src="/assets/presentist-logo.png" alt="PRESENTIST" class="top-logo">
+      <h2 class="top-title">We Are</h2>
     </a>
-    <h2>We Are</h2>
     <p class="top-wrapper__text">
       PRESENTIST は、あなたの贈り物を簡単に管理するサービスです。<br />
       こんなものもらって嬉しい！<br />
@@ -12,10 +11,10 @@
     </p>
 
     <ul class="top-wrapper__list">
-      <li class="top-wrapper__item"><%= link_to "Top", root_path %></li>
-      <li class="top-wrapper__item"><%= link_to "Sign up", new_user_registration_path %></li>
-      <li class="top-wrapper__item"><%= link_to "Log in", new_user_session_path %></li>
-      <li class="top-wrapper__item"><%= link_to "Ranking", ranking_path %></li>
+      <li><%= link_to "Top", root_path, class: "top-wrapper__item"  %></li>
+      <li><%= link_to "Sign up", new_user_registration_path, class: "top-wrapper__item"  %></li>
+      <li><%= link_to "Log in", new_user_session_path, class: "top-wrapper__item"  %></li>
+      <li><%= link_to "Ranking", ranking_path, class: "top-wrapper__item"  %></li>
     </ul>
 
   </div>

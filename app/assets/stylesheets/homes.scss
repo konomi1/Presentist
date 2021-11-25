@@ -4,39 +4,47 @@
 
 // ログイン前画面
 .back-image {
-  background-image: image_url("top-back.jpg");
+  background-image: image_url("top.jpg");
   background-size: cover;
   background-position: center;
-  width: 100%;
   min-height: 100vh;
 }
 
-.top-logo{
-    height: 250px;
-    width: 250px;
+.top-title{
+  font-family: 'Yeseva One', cursive;
+  color: #fff;
+  margin: 1em;
   }
 
 .top-wrapper{
-  width: 50%;
+  color: #fff;
   min-height: 100vh;
-  margin: auto;
   padding: 5%;
-  background-color: #fbfafa99;
+  background-color: #1f1f1f8c;
   text-align: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  &__text{
+    padding-bottom: 2em;
+  }
   &__list{
     list-style-type: none;
-    padding-left: 0;
+    margin: 2em 0;
   }
   &__item{
-    margin-bottom: 10px;
-  }
-  &__caution{
-    color: gray;
+    display: block;
+    padding: 5px 1em;
+    margin: 15px auto;
+    width: 130px;
+    &:hover{
+    border: 2px solid;
+    }
   }
   &__field{
     margin-bottom: 10px;
+  }
+  &__caution{
+    margin-top: 20px;
   }
 }

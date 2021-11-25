@@ -52,6 +52,7 @@ p{
 
 a, a:hover{
   text-decoration: none;
+  color: inherit;
 }
 
 // 以降共通のスタイル
@@ -94,6 +95,7 @@ header{
     position: sticky;
     top: 0;
     text-align: center;
+  // ナビ
   &__btn{
     padding: 5px 1em;
     margin: 15px 35px;
@@ -104,6 +106,7 @@ header{
     background: $header-btn;
     }
   }
+  // 贈り物ログ作成ボタン
   & .btn-link{
     display: inline-block;
     background: $btn;

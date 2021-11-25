@@ -1,9 +1,8 @@
 <div class="back-image">
   <div class="top-wrapper">
     <a href="/">
-      <img src="/assets/presentist-logo.png" alt="PRESENTIST" class="top-logo">
+      <h2 class="top-title">Sign up</h2>
     </a>
-    <h2>Sign up</h2>
 
     <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
       <%= render "users/shared/error_messages", resource: resource %>
