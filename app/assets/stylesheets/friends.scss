@@ -31,3 +31,40 @@
     cursor: pointer;
   }
 }
+
+// 新規登録画面
+
+#new-btn{
+  color: #f8f9fa;
+  font-size: 20px;
+  background: tomato;
+  padding: 3px 1em;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  display: inline-block;
+  &:hover{
+    cursor: pointer;
+    background: #ffa494;
+  }
+  &:active{
+    background: tomato;
+  }
+}
+
+#friend-new{
+  width: 400px;
+  min-height: 100vh;
+  padding: 0 20px;
+  background: #ffdede;
+  // 右側に隠す
+  position: fixed;
+  top: 0;
+  right: -400px;
+  z-index: 10;
+}
+
+.form-inner{
+  overflow: scroll;
+  overflow-x: hidden;
+  padding-bottom: 20px;
+}

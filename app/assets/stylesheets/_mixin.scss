@@ -17,22 +17,21 @@
   background: #d8d8d8;
   border-radius: 15px 15px 0 0;
   }
-  #tab-menu .active {
+  #tab-menu .active{
   border-bottom: none;
   background: none;
-
   }
-  #tab-panels {
+  #tab-panels{
   display: flex;
   flex-wrap: wrap;
   }
-  #tab-panels .panel {
+  #tab-panels .panel{
   width: 100%;
   padding: 30px;
   border: 1px solid brown;
   border-top: none;
   }
-  #tab-panels p {
+  #tab-panels p{
     padding-bottom: 5px;
   }
 }

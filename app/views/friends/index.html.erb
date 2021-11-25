@@ -1,8 +1,10 @@
-<div class="friends-wrap row">
+<div class="friends-wrap">
 
-  <div class="friend-index col-lg-8">
+  <div class="friend-index">
     <h1 class="title">Friends</h1>
     <p class="sub-title">フレンド一覧</p>
+    <a id="new-btn"><i class="fas fa-user-plus"> フレンド登録</i></a>
+    <%= render "layouts/errors", obj: @friend %>
     <% unless @friends.exists? %>
       <p>登録されたフレンドはいません。</p>
     <% else %>
@@ -40,11 +42,11 @@
       </table>
     <% end %>
   </div>
-  <div class="friend-new col-lg-4">
-    <%= notice %>
+  <div id="friend-new" class="off">
+    <div class="form-inner">
     <h1 class="title">New Friend</h1>
     <p class="sub-title">フレンド新規登録</p>
-    <%= render "layouts/errors", obj: @friend %>
     <%= render "form", friend: @friend %>
+    </div>
   </div>
 </div>
