@@ -31,6 +31,9 @@
           <%= link_to edit_present_path(@present), method: :get, class: "btn btn-primary" do %>
             <i class="fas fa-edit"></i>
           <% end %>
+          <%= link_to present_path(@present), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
         <% else %>
           <div id="favorite_<%= @present.id %>">
             <%= render "favorites/favorite", present: @present %>

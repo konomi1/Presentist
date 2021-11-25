@@ -38,6 +38,8 @@ class PresentsController < ApplicationController
   end
 
   def destroy
+    @present.destroy
+    redirect_to presents_path, notice: "贈り物ログを削除しました"
   end
 
   def ranking
