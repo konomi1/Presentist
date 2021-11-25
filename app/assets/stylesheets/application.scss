@@ -23,6 +23,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap');
 // タイトルフォント
 @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+// 贈り物ロゴタイトル
 @font-face{
   font-family: "851MkPOP_100";
   src: font-url('/assets/851MkPOP_100.ttf');
@@ -55,6 +56,11 @@ a, a:hover{
 
 // 以降共通のスタイル
 
+// ページ全体の余白
+.inner{
+  padding: 0 5%;
+}
+
 // エラ-メッセージ
 #error_explanation{
   color: red;
@@ -79,21 +85,21 @@ header{
   background: $back;
 }
 
-// サイドバー(pc用ヘッダー)
-.header{
-    background: $back;
-    width: 200px;
-    height: 100%;
-    position: fixed;
+// サイドバー(pc用)
+.pc-sidebar{
+  background: $back;
+}
+
+.sidebar{
+    position: sticky;
     top: 0;
-    left: 0;
     text-align: center;
   &__btn{
     padding: 5px 1em;
     margin: 15px 35px;
     border-radius: 15px;
     &:hover{
-    -webkit-transition: all 600ms 0s ease;
+    -webkit-transition: all 400ms 0s ease;
     transition: all 400ms 0s ease;
     background: $header-btn;
     }
@@ -194,6 +200,13 @@ a {
   }
 }
 
+// フォームのみのページ幅
+.form-wide{
+  width: 70%;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
 // レスポンシブ対応
 // mdサイズ以上の場合、sp用のヘッダーを消す
 @media (min-width: 768px){
@@ -204,7 +217,7 @@ a {
 
 // smサイズ以下の場合、サイドバーを消す
 @media (max-width: 767px){
-  .pc-header{
+  .pc-sidebar{
     display: none;
   }
 }

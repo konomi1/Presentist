@@ -7,7 +7,7 @@ $(document).on('turbolinks:load',function () {
     if($('#friend-new').hasClass('off') == false){
 			$('#friend-new').animate({'marginRight':'0px'},300);
 		}else{
-			$('#friend-new').animate({'marginRight':'400px'},300);
+			$('#friend-new').animate({'marginRight':'320px'},300);
 		}
 		$('#friend-new').toggleClass('off');
   });

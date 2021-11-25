@@ -19,11 +19,11 @@
       <main class="container-fluid">
 
         <div class="row">
-          <div class="pc-header col-sm-3 col-xl-2">
-            <%= render "layouts/pc-header" %>
+          <div class="pc-sidebar col-md-3 col-xl-2 px-0">
+            <%= render "layouts/pc-sidebar" %>
           </div>
 
-          <div class="contents col-sm-12 col-md-9 col-xl-10">
+          <div class="contents col-sm-12 col-md-9 col-xl-10 px-0">
             <% unless controller.controller_name == 'presents' && controller.action_name == 'ranking' %>
               <p class="notice"><%= notice %></p>
             <% end %>

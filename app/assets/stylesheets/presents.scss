@@ -62,6 +62,9 @@
 
 // 詳細画面
 .gift{
+  &__left{
+  margin-bottom: 40px;
+  }
   &__photo{
     @include photo;
     margin: 0 auto;
@@ -162,6 +165,7 @@
   }
 }
 
+// スライドショーのテキスト
 .top-text{
   color: #fff;
   position: absolute;
