@@ -73,6 +73,7 @@
   border: 1px solid #d8d8d8;
   margin-bottom: 20px;
   object-fit: cover;
+  object-position: 50% 60%;
 }
 
 //サイズ別:ユーザー画像
@@ -120,4 +121,11 @@
   width: 110px;
   border-radius: 30px;
   text-align: center;
+}
+
+// ランキングアイコン
+@mixin rank($color){
+  font-size: 35px;
+  text-align: center;
+  color: $color;
 }

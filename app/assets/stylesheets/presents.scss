@@ -9,7 +9,7 @@
 .post-wrap{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .post {
@@ -144,6 +144,18 @@
 }
 
 // ランキング画面
+.ranking{
+  &__rank1{
+    @include rank(#d8a32a);
+  }
+  &__rank2{
+    @include rank(#a5a5a5);
+  }
+  &__rank3{
+    @include rank(brown);
+  }
+}
+
 // スライドショー
 .slide{
   height: 500px;
