@@ -4,9 +4,9 @@ class UsersController < ApplicationController
   before_action :ensure_current_user, only: [:edit, :update]
 
   def show
-    @presents = @user.presents.page(params[:page])
-    @to_presents = @user.presents.where(gift_status: "0").page(params[:page])
-    @from_presents = @user.presents.where(gift_status: "1").page(params[:page])
+    @presents = @user.presents.order(created_at: 'desc').page(params[:page])
+    @to_presents = @user.presents.where(gift_status: "0").order(created_at: 'desc').page(params[:page])
+    @from_presents = @user.presents.where(gift_status: "1").order(created_at: 'desc').page(params[:page])
   end
 
   def edit
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def favorites
-    favorites = @user.favorites.order(created_at: 'desc').pluck(:present_id)
+    favorites = @user.favorites.order(created_at: :desc).pluck(:present_id)
     presents = Present.find(favorites)
     @presents = Kaminari.paginate_array(presents).page(params[:page])
   end
@@ -41,5 +41,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :introduce, :image)
   end
-
 end

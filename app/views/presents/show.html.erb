@@ -1,17 +1,17 @@
-<div class="gift-wrap">
+<div class="inner">
   <h1 class="title">Present Log </h1>
   <p class="sub-title">贈り物ログ</p>
 
-  <div class="gift row">
-    <div class="col-sm-6">
+  <div class="gift row justify-content-center">
+    <div class="gift__left col-sm-5">
       <div class="gift__photo">
         <p class="gift__date"><%= @present.created_at.strftime('%Y/%m/%d') %></p>
-        <p><%= attachment_image_tag @present, :item_image, format:'jpg', fallback:'top-back.jpg' %></p>
+        <p><%= attachment_image_tag @present, :item_image, format:'jpg', fallback:'no-image.jpg' %></p>
         <h2 class="gift__title"># <%= @present.item %></h2>
       </div>
     </div>
 
-    <div class="gift-right col-sm-6">
+    <div class="gift-right col-sm-5">
       <%= link_to user_path(@present.user) do %>
       <p>
         <%= attachment_image_tag @present.user, :image, format:'jpg', fallback:'noimage-user.jpg' %>
@@ -31,6 +31,9 @@
           <%= link_to edit_present_path(@present), method: :get, class: "btn btn-primary" do %>
             <i class="fas fa-edit"></i>
           <% end %>
+          <%= link_to present_path(@present), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-secondary" do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
         <% else %>
           <div id="favorite_<%= @present.id %>">
             <%= render "favorites/favorite", present: @present %>
@@ -40,9 +43,9 @@
     </div>
   </div>
 
-  <h1 class="title">Comments</h1>
-  <p class="sub-title">みんなのコメント</p>
   <div class="comments-group">
+    <h1 class="title">Comments</h1>
+    <p class="sub-title">みんなのコメント</p>
     <div id="comments-area">
       <% unless @present.comments.exists? %>
         <p>コメントはありません。</p>

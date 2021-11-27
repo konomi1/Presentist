@@ -4,20 +4,34 @@
 
 @import "color";
 
+// 検索窓
 .search-form{
-  width: 200px;
-  & form{
-    width: 90%;
-    margin: 0 auto;
+  width: 250px;
+  margin: 10px 10px 0 auto;
+  & button{
+    background: $main;
+    color: #fff;
+    &:hover{
+      color: #fff;
+      background: $main-hover;
+    }
   }
 }
 
+// 検索結果画面
 .search-wrap{
+  // サブタイトル
+  & h3, h4{
+    border-bottom: 2px solid $border;
+    padding-bottom: 10px;
+  }
+// テーブルホバー
   & tbody > tr:hover{
     cursor: pointer;
   }
 }
 
+// 楽天商品一覧
 .rakuten{
   margin-top: 40px;
   .caution{

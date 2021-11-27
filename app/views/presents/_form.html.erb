@@ -1,15 +1,15 @@
 <%= form_with model: present, local: true do |f| %>
 
-  <div class="row">
-    <div class="col-sm-6">
-      <p><%= attachment_image_tag present, :item_image, format:"jpg", fallback: "top-back.jpg", id: "preview" %></p>
+  <div class="row justify-content-center">
+    <div class="col-sm-5">
+      <p><%= attachment_image_tag present, :item_image, format:"jpg", fallback: "no-image.jpg", id: "preview" %></p>
       <div class="form-group">
         <%= f.label :item_image, "画像" %><br />
         <%= f.attachment_field :item_image, class: "form-control-file" %>
       </div>
     </div>
 
-    <div class="col-sm-6">
+    <div class="col-sm-5">
 
       <div class="form-group">
         <%= f.label :gift_status, "ログの種類" %><br />

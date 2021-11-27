@@ -1,10 +1,9 @@
 <div class="back-image">
-  <p class="notice"><%= notice %></p>
   <div class="top-wrapper">
+    <%= notice %>
     <a href="/">
-      <img src="/assets/presentist-logo.png" alt="PRESENTIST" class="top-logo">
+      <h2 class="top-title">PRESENTIST</h2>
     </a>
-    <h2>Welcome to PRESENTIST</h2>
     <p class="top-wrapper__text">
       PRESENTIST は<br />
       あなたの大切な人への贈り物<br />
@@ -12,12 +11,12 @@
       大切な人からの贈り物<br />
       を簡単に管理するサービスです。
     </p>
-    <p class="top-wrapper__caution">※利用するには会員登録が必要です。</p>
+    <p>※利用するには会員登録が必要です。</p>
     <ul class="top-wrapper__list">
-      <li class="top-wrapper__item"><%= link_to "About", about_path %></li>
-      <li class="top-wrapper__item"><%= link_to "Sign up", new_user_registration_path %></li>
-      <li class="top-wrapper__item"><%= link_to "Log in", new_user_session_path %></li>
-      <li class="top-wrapper__item"><%= link_to "Ranking", ranking_path %></li>
+      <li><%= link_to "About", about_path, class: "top-wrapper__item" %></li>
+      <li><%= link_to "Sign up", new_user_registration_path, class: "top-wrapper__item"  %></li>
+      <li><%= link_to "Log in", new_user_session_path, class: "top-wrapper__item"  %></li>
+      <li><%= link_to "Ranking", ranking_path, class: "top-wrapper__item"  %></li>
     </ul>
   </div>
 </div>

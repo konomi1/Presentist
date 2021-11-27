@@ -9,13 +9,12 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id" , dependent: :destroy
+  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
-  #会員がフォローしている人
+  # 会員がフォローしている人
   has_many :followings, through: :active_relationships, source: :followed
-  #会員をフォローしている人
+  # 会員をフォローしている人
   has_many :followers, through: :passive_relationships, source: :follower
-
 
   validates :name, presence: true, length: { maximum: 20 }
   validates :email, presence: true
@@ -23,7 +22,7 @@ class User < ApplicationRecord
   validates :gender, presence: true
   validates :introduce, length: { maximum: 300 }
 
-  enum gender: {male: 0, female:1 }
+  enum gender: { male: 0, female: 1 }
 
   attachment :image
 
@@ -31,5 +30,4 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
-
 end

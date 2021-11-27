@@ -1,11 +1,10 @@
 class Friend < ApplicationRecord
-
   belongs_to :user
   has_many :presents, dependent: :destroy
   has_many :events, dependent: :destroy
 
   validates :name, presence: true
-  validates :kana_name, format: {with: /\A[ァ-ヶー－]+\z/ }
+  validates :kana_name, format: { with: /\A[ァ-ヶー－]+\z/ }
   validates :memo, length: { maximum: 300 }
 
   # 相手との関係性
@@ -23,8 +22,8 @@ class Friend < ApplicationRecord
     junior: 10,
     customer: 11,
     coworker: 12,
-    others: 13
+    others: 13,
   }
 
-  enum gender: { male: 0, female: 1}
+  enum gender: { male: 0, female: 1 }
 end

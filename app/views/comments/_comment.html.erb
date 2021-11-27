@@ -11,7 +11,7 @@
     </div>
     <div class="comment__btn col-1 d-flex">
       <% if comment.user_id == current_user.id %>
-        <%= link_to present_comment_path(comment.present_id, comment.id), method: :delete, remote: true, class: "btn btn-danger align-self-end" do %>
+        <%= link_to present_comment_path(comment.present_id, comment.id), method: :delete, remote: true, class: "btn btn-secondary align-self-end" do %>
           <i class="far fa-trash-alt"></i>
         <% end %>
       <% end %>

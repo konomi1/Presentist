@@ -5,7 +5,7 @@
       <div class="post-left col-md-4">
         <p><%= gift.created_at.strftime('%Y/%m/%d') %></p>
         <%= link_to present_path(gift) do %>
-          <p><%= attachment_image_tag gift, :item_image, format:'jpg', fallback:'top-back.jpg' %></p>
+          <p><%= attachment_image_tag gift, :item_image, format:'jpg', fallback:'no-image.jpg' %></p>
         <% end %>
       </div>
 

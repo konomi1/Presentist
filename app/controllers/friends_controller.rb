@@ -14,7 +14,7 @@ class FriendsController < ApplicationController
     if @friend.save
       redirect_to friends_path, notice: "新しいフレンドが登録されました"
     else
-      @friends = Friend.all
+      @friends = current_user.friends.order(kana_name: "asc")
       render :index
     end
   end
@@ -55,5 +55,4 @@ class FriendsController < ApplicationController
       redirect_to user_path(current_user), notice: "登録したご本人以外はアクセスできません。"
     end
   end
-
 end

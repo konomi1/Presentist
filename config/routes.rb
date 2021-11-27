@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-
-  devise_for :users,skip: [:passwords,], controllers: {
+  devise_for :users, skip: [:passwords], controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
   }
@@ -9,6 +8,8 @@ Rails.application.routes.draw do
   get '/about' => 'homes#about'
   get '/ranking' => 'presents#ranking'
   get 'search' => 'searches#search'
+  # 新規登録ミス後にリロードするとエラーになるためルートパスに繋ぐ。
+  get '/users' => 'homes#top'
 
   resources :users, only: [:show, :edit, :update] do
     member do

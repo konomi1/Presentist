@@ -12,7 +12,7 @@
   }
 }
 
-// フレンド詳細情報
+// フレンド詳細情報画面
 .friend-table{
   width: 200px;
   &__btn{
@@ -23,11 +23,52 @@
 
 .friend-events{
   padding: 0 40px;
+  &__title{
+    background: $back;
+  }
 }
 
-// フレンド一覧
+// フレンド一覧画面
 .friend-index{
   & tbody > tr:hover{
     cursor: pointer;
   }
 }
+
+// 新規登録画面
+#new-btn{
+  color: #fff;
+  font-size: 20px;
+  background: $main;
+  padding: 3px 1em;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  display: inline-block;
+  &:hover{
+    cursor: pointer;
+    background: $main-hover;
+  }
+  &:active{
+    background: $main;
+  }
+}
+
+#friend-new{
+  width: 320px;
+  min-height: 100vh;
+  padding: 0 20px;
+  background: $back;
+  // 右側に隠す
+  position: fixed;
+  top: 0;
+  right: -320px;
+  z-index: 2;
+}
+
+//中身をスクロールさせる
+.form-inner{
+  overflow: scroll;
+  overflow-x: hidden;
+  padding-bottom: 20px;
+}
+

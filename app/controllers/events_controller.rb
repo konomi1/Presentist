@@ -40,7 +40,7 @@ class EventsController < ApplicationController
 
   def switch_ready_status
     @event.switch_ready_status!
-    redirect_to request.referer, notice: "スイッチ完了"
+    redirect_to request.referer
   end
 
   private

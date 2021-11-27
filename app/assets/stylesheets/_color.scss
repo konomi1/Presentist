@@ -1,14 +1,29 @@
 //共通カラー
-// 線
-$border: brown;
+
+// メインカラー（ロゴと同色）
+$main: #d2363b;
+$main-hover: #ff6065;
 
 // ヘッダー関連
 $header-btn: #e421213d;
 $back: #fbded1;
 
-// アプリコット
-$btn: #de7a7a;
-$active-btn: #de7a7ab3;
-
-// 注意書き、ページネーション
+// 注意書き、サブテキスト
 $caution: #696969;
+
+// 灰色
+$gray: gray;
+
+// 線
+$border: #d2363b;
+
+// btn-primry(編集ボタン)
+$edit: #ff8989;
+$edit-hover: #ff898994;
+
+// フォローボタン
+$follow: #ff7575;
+
+// 未完了のステータスボタン
+$status: orange;
+$status-hover: #ffa500bf;
