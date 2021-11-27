@@ -128,7 +128,7 @@ header{
 footer{
   height: 60px;
   margin-top: 40px;
-  border-top: 1px solid gray;
+  border-top: 1px solid $gray;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -137,7 +137,7 @@ footer{
 // タイトル
 .title{
   text-align: center;
-  border-bottom: 6px double brown;
+  border-bottom: 6px double $border;
   margin: 0 25%;
   padding-top: 40px;
   font-family: 'Yeseva One', cursive;
@@ -150,13 +150,13 @@ footer{
 
 // btn-primaryボタン
 .btn-primary{
-  background: #ff8989;
+  background: $edit;
   border: none;
   &:hover{
-    background: #ff898994;
+    background: $edit-hover;
   }
   &:active, &:focus{
-    background: #ff8989 !important;
+    background: $edit !important;
   }
 }
 
@@ -164,10 +164,10 @@ footer{
 a {
   &.unfollow-btn{
     @include follow-btn(#fff);
-    background: brown;
+    background: $follow;
   }
   &.following-btn{
-    @include follow-btn(brown);
+    @include follow-btn($follow);
   }
 }
 
@@ -193,13 +193,13 @@ a {
   & .active{
     .page-link{
       border-radius: 50%;
-      background-color: $btn;
+      background-color: $main;
     }
   }
   & :hover{
     .page-link{
       color: #fff;
-      background-color: $active-btn;
+      background-color: $main-hover;
       border-radius: 50%;
     }
   }

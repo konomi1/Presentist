@@ -47,14 +47,14 @@
 
 .switch{
   &__done{
-    @include toggle(gray, gray);
+    @include toggle($gray, $gray);
     padding-left: 17px;
   }
   &__preparation{
-    @include toggle(orange, #ffa500bf);
+    @include toggle($status, $status-hover);
   }
   &__unnecessary{
-    @include toggle(gray, gray);
+    @include toggle($gray, $gray);
     padding-left: 9px;
   }
 }

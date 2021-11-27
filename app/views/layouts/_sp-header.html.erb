@@ -1,20 +1,20 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand p-3" href="/">
+  <nav class="navbar navbar-expand-md navbar-light">
+    <a class="navbar-brand" href="/">
       <%= image_tag asset_path('logo.png'), alt: "PRESENTIST", class: "top-logo" %>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dropdown" aria-controls="dropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="collapse navbar-collapse" id="dropdown">
       <ul>
         <% if user_signed_in? %>
-          <li><%= link_to "ホーム", ranking_path, class:"btn sp__btn" %></li>
-          <li><%= link_to "マイページ", user_path(current_user.id), class:"btn sp__btn"  %></li>
-          <li><%= link_to "贈り物ログ", presents_path, class:"btn sp__btn"  %></li>
-          <li><%= link_to "記念日", events_path, class:"btn sp__btn"  %></li>
-          <li><%= link_to "フレンド", friends_path, class:"btn sp__btn"  %></li>
-          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"btn sp__btn"  %></li>
+          <li><%= link_to " ホーム", ranking_path, class:"btn fas fa-home" %></li>
+          <li><%= link_to " マイページ", user_path(current_user.id), class:"btn fas fa-user-cog"  %></li>
+          <li><%= link_to " 贈り物ログ", presents_path, class:"btn fas fa-gift"  %></li>
+          <li><%= link_to " 記念日", events_path, class:"btn fas fa-calendar-alt"  %></li>
+          <li><%= link_to " フレンド", friends_path, class:"btn fas fa-users"  %></li>
+          <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete, class:"btn fas fa-sign-out-alt"  %></li>
         <% else %>
           <li><%= link_to "Top", root_path, class:"btn sp__btn"  %></li>
           <li><%= link_to "About", about_path, class:"btn sp__btn"  %></li>

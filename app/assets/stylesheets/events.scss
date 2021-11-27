@@ -8,11 +8,11 @@
 // 贈り物準備ステータス変更
 .switch{
   &__ready{
-    @include toggle(gray, gray);
+    @include toggle($gray, $gray);
     padding-left: 17px;
   }
   &__preparation{
-    @include toggle(orange, #ffa500bf);
+    @include toggle($status, $status-hover);
     padding-left: 1px;
   }
 }

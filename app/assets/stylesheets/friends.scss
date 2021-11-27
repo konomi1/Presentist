@@ -34,19 +34,19 @@
 
 // 新規登録画面
 #new-btn{
-  color: #f8f9fa;
+  color: #fff;
   font-size: 20px;
-  background: tomato;
+  background: $main;
   padding: 3px 1em;
   border-radius: 10px;
   margin-bottom: 15px;
   display: inline-block;
   &:hover{
     cursor: pointer;
-    background: #ffa494;
+    background: $main-hover;
   }
   &:active{
-    background: tomato;
+    background: $main;
   }
 }
 
@@ -54,7 +54,7 @@
   width: 320px;
   min-height: 100vh;
   padding: 0 20px;
-  background: #ffdede;
+  background: $back;
   // 右側に隠す
   position: fixed;
   top: 0;

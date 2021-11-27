@@ -40,7 +40,7 @@
   }
   &__scene{
     margin-top: 10px;
-    color: gray;
+    color: $gray;
   }
   &__user{
     position: absolute;
@@ -105,7 +105,7 @@
     text-align: right;
   }
   &__caution{
-    color: gray;
+    color: $caution;
   }
 }
 
@@ -136,7 +136,7 @@
   .has-events {
     & a {
       color: #fff;
-      background: $btn;
+      background: $main;
     }
   }
 }
