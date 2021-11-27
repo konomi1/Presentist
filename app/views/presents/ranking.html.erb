@@ -15,6 +15,9 @@
 <div class="inner">
   <div class="ranking">
     <p class="notice"><%= notice %></p>
+    <div class="search-form">
+      <%= render "searches/search_form" %>
+    </div>
     <h1 class="title">Log Ranling</h1>
     <p class="sub-title">贈り物ログランキング</p>
     <% unless user_signed_in? %>

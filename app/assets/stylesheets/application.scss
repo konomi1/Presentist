@@ -90,14 +90,19 @@ header{
   background: $back;
 }
 
+.top-logo{
+  width: 140px;
+}
+
 .sidebar{
+    padding: 1em;
     position: sticky;
     top: 0;
     text-align: center;
   // ナビ
   &__btn{
     padding: 5px 1em;
-    margin: 15px 35px;
+    margin: 15px auto;
     border-radius: 15px;
     &:hover{
     -webkit-transition: all 400ms 0s ease;
@@ -114,7 +119,7 @@ header{
     width: 80px;
     border-radius: 40px;
     padding-top: 24px;
-    margin-bottom: 20px;
+    margin: auto 0 0 0;
     &:hover{
       background: $active-btn;
     }
@@ -210,16 +215,26 @@ a {
 }
 
 // レスポンシブ対応
-// mdサイズ以上の場合、sp用のヘッダーを消す
+// mdサイズ以上の場合
 @media (min-width: 768px){
+  // sp用のヘッダーを消す
   .sp-header{
     display: none;
   }
 }
 
-// smサイズ以下の場合、サイドバーを消す
+// smサイズ以下の場合
 @media (max-width: 767px){
+  // サイドバーを消す
   .pc-sidebar{
     display: none;
   }
+  // テーブルは横にスクロール。
+  .scroll{
+    overflow-x: scroll;
+    & table {
+      min-width: 800px;
+    }
+  }
+
 }

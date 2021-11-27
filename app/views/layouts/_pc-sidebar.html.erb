@@ -1,6 +1,8 @@
 <div class="sidebar">
   <div class="sidebar__logo">
-    <h2>PRESENTIST</h2>
+    <%= link_to root_path do %>
+      <%= image_tag asset_path('logo.png'), alt: "PRESENTIST", class: "top-logo" %>
+    <% end %>
   </div>
 
   <nav class="sidebar__nav">
@@ -23,6 +25,5 @@
   </nav>
   <% if user_signed_in? %>
     <p><%= link_to "ログ作成", new_present_path, class:"fas fa-gifts btn btn-link" %></p>
-    <%= render 'searches/search_form' %>
   <% end %>
 </div>
