@@ -67,7 +67,8 @@ class PresentsController < ApplicationController
       :item_image,
       :scene_status,
       :memo,
-      :return_status)
+      :return_status
+    )
   end
 
   def set_present
