@@ -31,15 +31,13 @@
 
 // タブメニュー
 .user-tab{
-  width: 90%;
-  margin: 0 auto;
   @include tab(calc(100% / 3));
 }
 
 // ユーザーの贈り物ログ
 .user-post{
   border-bottom: 1px solid $border;
-  margin: 10px;
+  padding: 10px 0;
   .post-left{
     .item_image{
       @include sm-item-img;
