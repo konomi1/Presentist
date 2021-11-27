@@ -25,20 +25,19 @@
   }
   &__button{
     text-align: right;
+    margin-top: 20px;
   }
 }
 
 // タブメニュー
 .user-tab{
-  width: 90%;
-  margin: 0 auto;
   @include tab(calc(100% / 3));
 }
 
 // ユーザーの贈り物ログ
 .user-post{
   border-bottom: 1px solid $border;
-  margin: 10px;
+  padding: 10px 0;
   .post-left{
     .item_image{
       @include sm-item-img;
@@ -48,14 +47,14 @@
 
 .switch{
   &__done{
-    @include toggle(gray, gray);
+    @include toggle($gray, $gray);
     padding-left: 17px;
   }
   &__preparation{
-    @include toggle(orange, #ffa500bf);
+    @include toggle($status, $status-hover);
   }
   &__unnecessary{
-    @include toggle(gray, gray);
+    @include toggle($gray, $gray);
     padding-left: 9px;
   }
 }

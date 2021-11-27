@@ -4,9 +4,9 @@ class PresentsController < ApplicationController
   before_action :ensure_current_user, only: [:edit, :update, :destroy]
 
   def index
-    @presents = Present.order(created_at: 'desc').page(params[:page])
-    @to_presents = Present.where(gift_status: "1").order(created_at: 'desc').page(params[:page])
-    @from_presents = Present.where(gift_status: "0").order(created_at: 'desc').page(params[:page])
+    @presents = Present.order(created_at: :desc).page(params[:page])
+    @to_presents = Present.where(gift_status: "1").order(created_at: :desc).page(params[:page])
+    @from_presents = Present.where(gift_status: "0").order(created_at: :desc).page(params[:page])
   end
 
   def show
@@ -27,7 +27,6 @@ class PresentsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -39,10 +38,12 @@ class PresentsController < ApplicationController
   end
 
   def destroy
+    @present.destroy
+    redirect_to presents_path, notice: "贈り物ログを削除しました"
   end
 
   def ranking
-    @rankings = Present.find(Favorite.group(:present_id).order('count(present_id) desc').limit(3).pluck(:present_id))
+    @rankings = Present.find(Favorite.group(:present_id).order(Arel.sql("count(present_id) desc")).limit(3).pluck(:present_id))
     if user_signed_in?
       start_date = params.fetch(:date, Date.today).to_date
       @events = current_user.events.where(date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
@@ -57,7 +58,17 @@ class PresentsController < ApplicationController
   private
 
   def present_params
-    params.require(:present).permit(:friend_id, :gift_status, :age, :item, :price, :item_image, :scene_status, :memo, :return_status)
+    params.require(:present).permit(
+      :friend_id,
+      :gift_status,
+      :age,
+      :item,
+      :price,
+      :item_image,
+      :scene_status,
+      :memo,
+      :return_status
+    )
   end
 
   def set_present
@@ -69,5 +80,4 @@ class PresentsController < ApplicationController
       redirect_to user_path(current_user), notice: "ログを登録したご本人以外はアクセスできません。"
     end
   end
-
 end

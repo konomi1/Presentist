@@ -20,5 +20,4 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     get events_new_url
     assert_response :success
   end
-
 end

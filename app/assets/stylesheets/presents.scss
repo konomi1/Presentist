@@ -9,7 +9,7 @@
 .post-wrap{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .post {
@@ -40,7 +40,7 @@
   }
   &__scene{
     margin-top: 10px;
-    color: gray;
+    color: $gray;
   }
   &__user{
     position: absolute;
@@ -55,13 +55,14 @@
 
 // タブ
 .presents-tab{
-  width: 90%;
-  margin: 0 auto;
   @include tab(calc(100% / 3));
 }
 
 // 詳細画面
 .gift{
+  &__left{
+  margin-bottom: 40px;
+  }
   &__photo{
     @include photo;
     margin: 0 auto;
@@ -104,7 +105,7 @@
     text-align: right;
   }
   &__caution{
-    color: gray;
+    color: $caution;
   }
 }
 
@@ -132,36 +133,46 @@
   .wday-6 {
     background: #A5D9FF;      /*土曜日*/
   }
-  .has-events {
-    & a {
-      color: #fff;
-      background: $btn;
-    }
+  .has-events:hover{
+      background: $header-btn;
   }
 }
 
 // ランキング画面
+.ranking{
+  &__rank1{
+    @include rank(#d8a32a);
+  }
+  &__rank2{
+    @include rank(#a5a5a5);
+  }
+  &__rank3{
+    @include rank(brown);
+  }
+}
+
 // スライドショー
 .slide{
   height: 500px;
   position: relative;
   &__image1 {
-    background-image: image-url("test1.jpg");
+    background-image: image-url("slide4.jpg");
   }
   &__image2 {
-    background-image: image-url("test2.jpg");
+    background-image: image-url("slide2.jpg");
   }
   &__image3 {
-    background-image: image-url("test3.jpg");
+    background-image: image-url("slide3.jpg");
   }
   &__image4 {
-    background-image: image-url("test4.jpg");
+    background-image: image-url("slide1.jpg");
   }
   &__image5 {
-    background-image: image-url("test5.jpg");
+    background-image: image-url("slide5.jpg");
   }
 }
 
+// スライドショーのテキスト
 .top-text{
   color: #fff;
   position: absolute;

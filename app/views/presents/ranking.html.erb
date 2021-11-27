@@ -12,38 +12,45 @@
   <p>「presents」で大切な贈り物のログを残そう</p>
 </div>
 
-<div class="ranking">
-  <p class="notice"><%= notice %></p>
-  <h1 class="title">Log Ranling</h1>
-  <p class="sub-title">贈り物ログランキング</p>
-  <% unless user_signed_in? %>
-    <p>贈り物の記録をみるには会員登録が必要です。<br />会員登録は<%= link_to "こちら", new_user_registration_path %></p>
-  <% end %>
-  <div class="row">
-    <% @rankings.each.with_index(1) do |ranking, i|%>
-      <div class="ranking__image<%= i %>"></div>
-      <div class="ranking__item col-lg-4">
-        <%= render "ranking", gift: ranking %>
-      </div>
+<div class="inner">
+  <div class="ranking">
+    <p class="notice"><%= notice %></p>
+    <div class="search-form">
+      <%= render "searches/search_form" %>
+    </div>
+    <h1 class="title">Log Ranling</h1>
+    <p class="sub-title">贈り物ログランキング</p>
+    <% unless user_signed_in? %>
+      <p>贈り物の記録をみるには会員登録が必要です。<br />会員登録は<%= link_to "こちら", new_user_registration_path %></p>
     <% end %>
+    <div class="post-wrap">
+      <% @rankings.each.with_index(1) do |ranking, i|%>
+        <div class="ranking__item">
+          <div class="ranking__rank<%= i %>">
+            <p><i class="fas fa-crown"></i><%= i %>位</p>
+          </div>
+          <%= render "ranking", gift: ranking %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
 
-<% if user_signed_in? %>
-  <h1 class="title">Schedule</h1>
-  <p class="sub-title">贈り物を準備しよう！</p>
-  <div class="calender-wrap">
-      <div class="schedule">
-        <%= month_calendar events: @events do |date,events| %>
-          <%= date.day %>
-          <% events.each do |event| %>
-            <div class="schedule__event">
-              <%= link_to friend_path(event.friend) do %>
-                <%= event.friend.name %>(<%= event.scene_status_i18n %>)
-              <% end %>
-            </div>
+  <% if user_signed_in? %>
+    <h1 class="title">Schedule</h1>
+    <p class="sub-title">贈り物を準備しよう！</p>
+    <div class="calender-wrap">
+        <div class="schedule">
+          <%= month_calendar events: @events do |date,events| %>
+            <%= date.day %>
+            <% events.each do |event| %>
+              <div class="schedule__event">
+                <%= link_to friend_path(event.friend) do %>
+                  <%= event.friend.name %>(<%= event.scene_status_i18n %>)
+                <% end %>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-  </div>
-<% end %>
+        </div>
+    </div>
+  <% end %>
+</div>

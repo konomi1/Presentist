@@ -1,59 +1,61 @@
-<h1 class="title">Profile</h1>
-<p class="sub-title">会員ページ</p>
-<div class="row">
-  <div class="user-info col-sm-5">
-    <p><%= attachment_image_tag @user, :image, format:'jpg', fallback:'noimage-user.jpg' %></p>
-      <div class="user-info__item">
-        <h5>Follower</h5>
-        <p id="followers_count_<%= @user.id %>"><%= link_to @user.followers.count, follow_user_path(@user, anchor: "tab1" ) %></p>
-      </div>
-      <div class="user-info__item">
-        <h5>Follow</h5>
-        <p id="following_count_<%= @user.id %>"><%= link_to @user.followings.count, follow_user_path(@user, anchor: "tab2") %></p>
-      </div>
-      <div class="user-info__item">
-        <h5>お気に入り</h5>
-        <p><%= link_to @user.favorites.count, favorites_user_path(@user) %></p>
-      </div>
-  </div>
-  <div class="profile col-sm-7">
-    <div class="profile__button">
-      <% if @user.id == current_user.id %>
-        <%= link_to "編集", edit_user_path(current_user), class: "btn btn-primary" %>
-      <% else %>
-        <div id="follow_btn_<%= @user.id %>">
-          <%= render 'relationships/follow_btn', user: @user %>
+<div class="inner">
+  <h1 class="title">Profile</h1>
+  <p class="sub-title">会員ページ</p>
+  <div class="row justify-content-center">
+    <div class="user-info col-sm-5">
+      <p><%= attachment_image_tag @user, :image, format:'jpg', fallback:'noimage-user.jpg' %></p>
+        <div class="user-info__item">
+          <h5>Follower</h5>
+          <p id="followers_count_<%= @user.id %>"><%= link_to @user.followers.count, follow_user_path(@user, anchor: "tab1" ) %></p>
         </div>
-      <% end %>
+        <div class="user-info__item">
+          <h5>Follow</h5>
+          <p id="following_count_<%= @user.id %>"><%= link_to @user.followings.count, follow_user_path(@user, anchor: "tab2") %></p>
+        </div>
+        <div class="user-info__item">
+          <h5>お気に入り</h5>
+          <p><%= link_to @user.favorites.count, favorites_user_path(@user) %></p>
+        </div>
     </div>
-    <p class="profile__title">ニックネーム</p>
-    <p><%= @user.name %></p>
-    <p class="profile__title">自己紹介</p>
-    <p><%= @user.introduce %></p>
+    <div class="profile col-sm-6">
+      <p class="profile__title">ニックネーム</p>
+      <p><%= @user.name %></p>
+      <p class="profile__title">自己紹介</p>
+      <p><%= @user.introduce %></p>
+      <div class="profile__button">
+        <% if @user.id == current_user.id %>
+          <%= link_to "編集", edit_user_path(current_user), class: "btn btn-primary" %>
+        <% else %>
+          <div id="follow_btn_<%= @user.id %>">
+            <%= render 'relationships/follow_btn', user: @user %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="user-tab">
-  <h1 class="title">Gift Log</h1>
-  <p class="sub-title">贈り物記録</p>
-  <ul id="tab-menu">
-    <li id="tab1"><a href="#panel1">全ての贈り物</a></li>
-    <li id="tab2"><a href="#panel2">贈ったもの</a></li>
-    <li id="tab3"><a href="#panel3">いただきもの</a></li>
-  </ul>
+  <div class="user-tab">
+    <h1 class="title">Gift Log</h1>
+    <p class="sub-title">贈り物記録</p>
+    <ul id="tab-menu">
+      <li id="tab1"><a href="#panel1">全ての贈り物</a></li>
+      <li id="tab2"><a href="#panel2">贈ったもの</a></li>
+      <li id="tab3"><a href="#panel3">いただきもの</a></li>
+    </ul>
 
-  <div id="tab-panels">
-    <div id="panel1" class="panel">
-      <%= render "user_post", presents: @presents %>
-      <%= paginate @presents %>
-    </div>
-    <div id="panel2" class="panel">
-      <%= render "user_post", presents: @to_presents %>
-      <%= paginate @to_presents %>
-    </div>
-    <div id="panel3" class="panel">
-      <%= render "user_post", presents: @from_presents %>
-      <%= paginate @from_presents %>
+    <div id="tab-panels">
+      <div id="panel1" class="panel">
+        <%= render "user_post", presents: @presents %>
+        <%= paginate @presents %>
+      </div>
+      <div id="panel2" class="panel">
+        <%= render "user_post", presents: @to_presents %>
+        <%= paginate @to_presents %>
+      </div>
+      <div id="panel3" class="panel">
+        <%= render "user_post", presents: @from_presents %>
+        <%= paginate @from_presents %>
+      </div>
     </div>
   </div>
 </div>

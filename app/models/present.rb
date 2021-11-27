@@ -21,10 +21,10 @@ class Present < ApplicationRecord
     fourties: 5,
     fifties: 6,
     sixties: 7,
-    seventies_and_over: 8
+    seventies_and_over: 8,
   }
   # 送受ステータス
-  enum gift_status: { give: 0, receive: 1}
+  enum gift_status: { give: 0, receive: 1 }
   # 贈り物の理由
   enum scene_status: {
     birthday: 0,
@@ -37,10 +37,10 @@ class Present < ApplicationRecord
     admission: 7,
     graduation: 8,
     incense: 9,
-    others: 10
+    others: 10,
   }
   # お返しの状態
-  enum return_status: { unnecessary: 0, preparation: 1, done: 2, }
+  enum return_status: { unnecessary: 0, preparation: 1, done: 2 }
 
   # お返しステータスボタンを変更するメソッド
   def switch_return_status!
@@ -62,5 +62,4 @@ class Present < ApplicationRecord
   def self.search_for(content)
     where("(item LIKE ?) OR (memo LIKE ?)", '%' + content + '%', '%' + content + '%')
   end
-
 end

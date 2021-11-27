@@ -17,27 +17,26 @@
   background: #d8d8d8;
   border-radius: 15px 15px 0 0;
   }
-  #tab-menu .active {
+  #tab-menu .active{
   border-bottom: none;
   background: none;
-
   }
-  #tab-panels {
+  #tab-panels{
   display: flex;
   flex-wrap: wrap;
   }
-  #tab-panels .panel {
+  #tab-panels .panel{
   width: 100%;
   padding: 30px;
   border: 1px solid brown;
   border-top: none;
   }
-  #tab-panels p {
+  #tab-panels p{
     padding-bottom: 5px;
   }
 }
 
-// スイッチ
+// ステータススイッチ
 @mixin toggle($color, $hover-color){
   display: block;
   color: white;
@@ -74,6 +73,7 @@
   border: 1px solid #d8d8d8;
   margin-bottom: 20px;
   object-fit: cover;
+  object-position: 50% 60%;
 }
 
 //サイズ別:ユーザー画像
@@ -121,4 +121,24 @@
   width: 110px;
   border-radius: 30px;
   text-align: center;
+}
+
+// 新規登録ボタン
+@mixin new-btn($size){
+  display: inline-block;
+  background: #d2363b;
+  color: #fff;
+  border-radius: 40px;
+  height: $size;
+  width: $size;
+  &:hover{
+    background: #ff6065;
+  }
+}
+
+// ランキングアイコン
+@mixin rank($color){
+  font-size: 35px;
+  text-align: center;
+  color: $color;
 }

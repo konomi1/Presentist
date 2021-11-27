@@ -3,7 +3,7 @@ class Broadcast
     p "Broadcast"
     events = Event.where(date: Date.today.since(7.day))
     events.each do |event|
-      EventMailer::remind_mail(event).deliver_now
+      EventMailer.remind_mail(event).deliver_now
     end
   end
 end

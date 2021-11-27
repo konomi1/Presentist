@@ -14,5 +14,4 @@ class FavoritesController < ApplicationController
   def set_present
     @present = Present.find(params[:id])
   end
-
 end

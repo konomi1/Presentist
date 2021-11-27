@@ -1,12 +1,10 @@
-<div class="event-box">
-  <div class="events-wrap">
-    <h1 class="title">Feature Events</h1>
-    <p class="sub-title">今後の記念日</p>
-    <%= link_to "新規イベント作成", new_event_path, class: "btn btn-info" %>
-    <%= render "list", events: @feature_events %>
-    <h1 class="title">All Events</h1>
-    <p class="sub-title">記念日一覧</p>
-    <%= render "list", events: @events %>
-    <%= paginate @events %>
-  </div>
+<div class="events-wrap">
+  <h1 class="title">Feature Events</h1>
+  <p class="sub-title">今後の記念日</p>
+  <%= link_to "新規イベント作成", new_event_path, class: "btn", id: "new-btn" %>
+  <%= render "list", events: @feature_events %>
+  <h1 class="title">All Events</h1>
+  <p class="sub-title">記念日一覧</p>
+  <%= render "list", events: @events %>
+  <%= paginate @events %>
 </div>

@@ -78,6 +78,7 @@ ja:
         gender: "性別"
         introduce: "自己紹介"
       present:
+        friend: "フレンド"
         age: "年齢"
         item: "品名"
         price: "目安金額"
@@ -89,8 +90,11 @@ ja:
         gender: "性別"
         memo: "一言メモ"
       event:
+        friend: "フレンド"
         date: "日付"
         memo: "備忘録"
+        ready_status: "贈り物準備状況"
+        scene_status: "贈り物のシーン"
       comment:
         comment: "コメント"
     errors:
