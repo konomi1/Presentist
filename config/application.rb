@@ -22,6 +22,8 @@ module Presentist
 
     # リマインドメール用のモジュール呼び出し
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
+    # カスタムフォントをアセットパオプラインに追加
+    config.assets.paths << Rails.root.join("app", "assets", "font")
   end
 end
 
