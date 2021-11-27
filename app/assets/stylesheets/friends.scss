@@ -23,6 +23,9 @@
 
 .friend-events{
   padding: 0 40px;
+  &__title{
+    background: $back;
+  }
 }
 
 // フレンド一覧画面

@@ -133,11 +133,8 @@
   .wday-6 {
     background: #A5D9FF;      /*土曜日*/
   }
-  .has-events {
-    & a {
-      color: #fff;
-      background: $main;
-    }
+  .has-events:hover{
+      background: $header-btn;
   }
 }
 

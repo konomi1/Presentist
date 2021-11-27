@@ -18,8 +18,14 @@
   }
 }
 
-// テーブルホバー
+// 検索結果画面
 .search-wrap{
+  // サブタイトル
+  & h3, h4{
+    border-bottom: 2px solid $border;
+    padding-bottom: 10px;
+  }
+// テーブルホバー
   & tbody > tr:hover{
     cursor: pointer;
   }
