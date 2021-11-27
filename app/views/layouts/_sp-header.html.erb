@@ -25,4 +25,7 @@
       </ul>
     </div>
   </nav>
+  <% if user_signed_in? %>
+    <p><%= link_to "ログ作成", new_present_path, class:"fas fa-gifts btn btn-link" %></p>
+  <% end %>
 </header>

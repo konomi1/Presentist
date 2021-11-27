@@ -82,6 +82,14 @@ a, a:hover{
 // スマホ用ヘッダー
 header{
   background: $back;
+  & .btn-link{
+    @include new-btn(60px);
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    z-index: 11;
+    padding-top: 3px;
+  }
 }
 
 // サイドバー(pc用)
@@ -111,17 +119,8 @@ header{
   }
   // 贈り物ログ作成ボタン
   & .btn-link{
-    display: inline-block;
-    background: $btn;
-    color: #fff;
-    height: 80px;
-    width: 80px;
-    border-radius: 40px;
+    @include new-btn(80px);
     padding-top: 24px;
-    margin: auto 0 0 0;
-    &:hover{
-      background: $active-btn;
-    }
   }
 }
 

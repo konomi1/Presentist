@@ -36,7 +36,7 @@
   }
 }
 
-// スイッチ
+// ステータススイッチ
 @mixin toggle($color, $hover-color){
   display: block;
   color: white;
@@ -121,6 +121,19 @@
   width: 110px;
   border-radius: 30px;
   text-align: center;
+}
+
+// 新規登録ボタン
+@mixin new-btn($size){
+  display: inline-block;
+  background: #d2363b;
+  color: #fff;
+  border-radius: 40px;
+  height: $size;
+  width: $size;
+  &:hover{
+    background: #ff6065;
+  }
 }
 
 // ランキングアイコン
