@@ -19,13 +19,13 @@
         </div>
         <div id="panel2" class="panel">
           <div class="post-wrap">
-            <%= render "index", presents: @to_presents %>
+            <%= render "index", presents: @from_presents %>
           </div>
           <%= paginate @to_presents %>
         </div>
         <div id="panel3" class="panel">
           <div class="post-wrap">
-            <%= render "index", presents: @from_presents %>
+            <%= render "index", presents: @to_presents %>
           </div>
           <%= paginate @from_presents %>
         </div>
