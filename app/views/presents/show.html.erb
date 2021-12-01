@@ -9,6 +9,11 @@
         <p><%= attachment_image_tag @present, :item_image, format:'jpg', fallback:'no-image.jpg' %></p>
         <h2 class="gift__title"># <%= @present.item %></h2>
       </div>
+      <div class="tags">
+        <% @present.tags.each do |tag| %>
+          <span class="tags__label"><i class="fas fa-tag"></i><%= tag.name %></span>
+        <% end %>
+      </div>
     </div>
 
     <div class="gift-right col-sm-5">

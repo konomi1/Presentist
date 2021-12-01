@@ -85,6 +85,20 @@
   }
 }
 
+.tags{
+  width: 300px;
+  margin: 20px auto;
+  &__label{
+    padding: 0 10px;
+    font-weight: bold;
+    color: #d2363b;
+    white-space: nowrap;
+    border: 1px solid;
+    border-radius: 10px;
+    font-size: 13px;
+  }
+}
+
 .gift-right{
   .image{
     @include md-user-img;
