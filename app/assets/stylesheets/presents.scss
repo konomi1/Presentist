@@ -96,6 +96,10 @@
     border: 1px solid;
     border-radius: 10px;
     font-size: 13px;
+    &:hover{
+      background: $main;
+      color: #fff;
+    }
   }
 }
 

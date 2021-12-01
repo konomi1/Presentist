@@ -11,7 +11,9 @@
       </div>
       <div class="tags">
         <% @present.tags.each do |tag| %>
-          <span class="tags__label"><i class="fas fa-tag"></i><%= tag.name %></span>
+          <%= link_to search_path(content: tag.name) do %>
+            <span class="tags__label"><i class="fas fa-tag"></i><%= tag.name %></span>
+          <% end %>
         <% end %>
       </div>
     </div>
