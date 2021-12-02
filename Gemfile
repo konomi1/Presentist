@@ -85,6 +85,7 @@ gem "simple_calendar", "~> 2.4"
 gem 'dotenv-rails'
 gem 'whenever', require: false
 gem 'rakuten_web_service'
+gem 'google-cloud-translate-v2'
 
 group :production do
   gem 'mysql2'
