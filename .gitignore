@@ -32,3 +32,4 @@
 
 #追加項目
 /.env
+/public/uploads
