@@ -20,6 +20,12 @@ class PresentsController < ApplicationController
     @present = Present.new(present_params)
     @present.user_id = current_user.id
     if @present.save
+      # Google-APIで画像にタグ生成
+      tags = Vision.get_image_data(@present.item_image)
+      tags.each do |tag|
+        # Translate moduleで翻訳して保存
+        @present.tags.create(name: Translate.to_ja(tag))
+      end
       redirect_to presents_path, notice: "新しい贈り物ログが登録されました。"
     else
       render :new

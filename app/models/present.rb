@@ -3,6 +3,7 @@ class Present < ApplicationRecord
   belongs_to :friend
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :tags, dependent: :destroy
 
   validates :age, presence: true
   validates :item, presence: true
@@ -58,8 +59,9 @@ class Present < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
-  # タイトルと内容で検索。
-  def self.search_for(content)
-    where("(item LIKE ?) OR (memo LIKE ?)", '%' + content + '%', '%' + content + '%')
-  end
+  # タイトルと内容とタグで検索。
+  # タグテーブルはcontrolerでinculdes済
+  scope :search, -> (content){
+    where("(item LIKE ?) OR (memo LIKE ?) OR (name LIKE ?)", '%' + content + '%', '%' + content + '%', '%' + content + '%')
+  }
 end
