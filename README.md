@@ -51,6 +51,6 @@ https://docs.google.com/spreadsheets/d/1N-ey_hDI_ZzRrySJgW1_lhA8uUI1BuS9YbcUV5FW
 
 ## 使用素材
 - 画像
-  - pixabay(https://pixabay.com/)より
+  - pixabay(https://pixabay.com/ )より
 - フォント
-  - 851マカコップ(https://pm85122.onamae.jp/index.html)より
+  - 851マカコップ(https://pm85122.onamae.jp/index.html )より
