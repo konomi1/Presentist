@@ -6,7 +6,7 @@ $(document).on('turbolinks:load', function(){
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.onload = function (event) {
-        $("#preview").attr('src', event.target.result);
+      $("#preview").attr('src', event.target.result);
     };
   // ファイルを表示
     reader.readAsDataURL(file);
@@ -20,7 +20,7 @@ $(document).on('turbolinks:load', function(){
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.onload = function (event) {
-        $("#preview").attr('src', event.target.result);
+      $("#preview").attr('src', event.target.result);
     };
   // ファイルを表示
     reader.readAsDataURL(file);
